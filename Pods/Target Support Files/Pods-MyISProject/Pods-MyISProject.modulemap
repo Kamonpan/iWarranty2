@@ -1,0 +1,6 @@
+framework module Pods_MyISProject {
+  umbrella header "Pods-MyISProject-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -12,7 +12,7 @@ class SettingTableViewController: UITableViewController {
 
     
     @IBAction func CancelSettingBtn(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     
