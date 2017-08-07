@@ -1,12 +1,15 @@
 PODS:
+  - IQKeyboardManagerSwift (4.0.11)
   - QRCodeReader.swift (7.4.3)
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift
   - QRCodeReader.swift (~> 7.4.3)
 
 SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: 10f0a6b8ea2904c8943c0e1a116c99f5b8ad83af
   QRCodeReader.swift: 4a1d46f3057b1b6fc555578b2dc9f2dc99c7ccda
 
-PODFILE CHECKSUM: f0f4f566249ab30e91ae54eaf683f92ed769d4a0
+PODFILE CHECKSUM: 5ab3112fe3f33b5472de2836245f33303169c158
 
 COCOAPODS: 1.2.1
