@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -1487,7 +1487,6 @@
                                 </state>
                                 <connections>
                                     <action selector="tapAddWarrantyButton:" destination="Jzb-p2-tL3" eventType="touchUpInside" id="X0L-Lj-baz"/>
-                                    <segue destination="jwG-zO-SE6" kind="show" id="GHg-IW-F0Y"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kxx-Q5-64i">
@@ -2636,7 +2635,7 @@
         <!--Show DetailQR View Controller-->
         <scene sceneID="fFg-5U-bMq">
             <objects>
-                <viewController id="jwG-zO-SE6" customClass="ShowDetailQRViewController" customModule="MyISProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowDetailQRViewController" id="jwG-zO-SE6" customClass="ShowDetailQRViewController" customModule="MyISProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jGG-Du-lAO"/>
                         <viewControllerLayoutGuide type="bottom" id="Yom-Gr-UUU"/>
@@ -2895,7 +2894,7 @@
         <!--ConfirmQR View Controller-->
         <scene sceneID="6A3-o8-sjK">
             <objects>
-                <viewController id="0o1-pk-XJQ" customClass="ConfirmQRViewController" customModule="MyISProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmQRViewController" id="0o1-pk-XJQ" customClass="ConfirmQRViewController" customModule="MyISProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RuN-2y-NWB"/>
                         <viewControllerLayoutGuide type="bottom" id="pBj-Dc-Y3s"/>
