@@ -19,7 +19,17 @@ class ConfirmQRViewController: UIViewController {
     @IBOutlet weak var DateLbl: UILabel!
     @IBOutlet weak var StoreNameLbl: UILabel!
     @IBOutlet weak var PriceLbl: UILabel!
-
+    @IBAction func SendBtn(_ sender: Any) {
+        let alert = UIAlertController(title: "success", message: "ทำรายการสำเร็จ", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: self.okHandler))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    func okHandler(alert: UIAlertAction!){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddWarrantyidentifier") as! AddWarrantyViewController
+        navigationController?.pushViewController(vc,animated: true)
+    }
+    
     var BrandInput = String()
     var SerialInput = String()
     var ModelInput = String()
