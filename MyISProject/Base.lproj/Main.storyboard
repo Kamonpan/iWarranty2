@@ -21,15 +21,15 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="950"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo หน้าแรก" translatesAutoresizingMaskIntoConstraints="NO" id="o2k-rY-luI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="410"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="219"/>
                                 <color key="backgroundColor" red="0.0023141580168157816" green="0.84350079298019409" blue="0.66402816772460938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPq-cg-pEN">
-                                <rect key="frame" x="4" y="460" width="84" height="30"/>
+                                <rect key="frame" x="4" y="269" width="84" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="csS-Jm-xWX"/>
                                 </constraints>
@@ -38,7 +38,7 @@
                                 <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="กรุณากรอกอีเมล" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L4R-9o-Unv">
-                                <rect key="frame" x="96" y="460" width="204" height="30"/>
+                                <rect key="frame" x="96" y="269" width="204" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="R2N-dH-ig4"/>
                                 </constraints>
@@ -47,7 +47,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="กรุณากรอกรหัส" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iTb-Yf-HGK">
-                                <rect key="frame" x="102" y="540" width="198" height="30"/>
+                                <rect key="frame" x="102" y="349" width="198" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="iQf-Dy-2jM"/>
                                 </constraints>
@@ -56,7 +56,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OP2-HJ-n55">
-                                <rect key="frame" x="0.0" y="910" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="528" width="320" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHw-qY-h5J">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
@@ -92,7 +92,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmr-e8-wdD">
-                                <rect key="frame" x="20" y="540" width="74" height="30"/>
+                                <rect key="frame" x="20" y="349" width="74" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RsA-bS-gYP"/>
                                 </constraints>
@@ -753,6 +753,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="Kjf-nt-hWN" id="7yO-bV-YOh"/>
+                                    <outlet property="delegate" destination="Kjf-nt-hWN" id="INA-WH-5YB"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -765,7 +766,6 @@
                         <outlet property="BrandCollectionView" destination="EXz-YG-z34" id="IL9-Qg-llb"/>
                         <outlet property="PromoTableView" destination="nAM-gQ-4o6" id="HbD-sB-tgH"/>
                         <segue destination="Y4J-Ke-o5K" kind="show" identifier="GoToPromoViewSegue" id="0Bw-Dy-O6L"/>
-                        <segue destination="kuo-t8-5Kf" kind="show" identifier="GoToWebViewSegue" id="tMX-YF-rLg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifV-8g-syu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -804,12 +804,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LzE-iv-1sx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5557.5" y="1107.0422535211267"/>
+            <point key="canvasLocation" x="5559" y="1201"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="svX-GH-plB">
             <objects>
-                <viewController id="kuo-t8-5Kf" customClass="WebViewController" customModule="MyISProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" automaticallyAdjustsScrollViewInsets="NO" id="kuo-t8-5Kf" customClass="WebViewController" customModule="MyISProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Exh-8g-a9I"/>
                         <viewControllerLayoutGuide type="bottom" id="ASJ-9F-ble"/>
@@ -819,25 +819,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhI-4m-X1I">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="EhI-4m-X1I" secondAttribute="bottom" id="3xj-Y4-cg2"/>
                             <constraint firstAttribute="trailing" secondItem="EhI-4m-X1I" secondAttribute="trailing" id="7Os-G0-8e7"/>
+                            <constraint firstItem="EhI-4m-X1I" firstAttribute="top" secondItem="Exh-8g-a9I" secondAttribute="bottom" id="G9S-jA-tjU"/>
                             <constraint firstItem="EhI-4m-X1I" firstAttribute="leading" secondItem="7tR-9D-ycH" secondAttribute="leading" id="PmJ-3r-xPQ"/>
-                            <constraint firstItem="EhI-4m-X1I" firstAttribute="top" secondItem="7tR-9D-ycH" secondAttribute="top" id="er3-36-C4c"/>
+                            <constraint firstItem="ASJ-9F-ble" firstAttribute="top" secondItem="EhI-4m-X1I" secondAttribute="bottom" id="ZHk-WE-CCQ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="NWz-3Z-QDV">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Xvv-pK-A6u">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="tapCloseButton:" destination="kuo-t8-5Kf" id="8kU-2M-qBk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="WebViewFrame" destination="EhI-4m-X1I" id="w2c-d0-OXu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ytc-d0-GJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5557.5" y="1848.5915492957747"/>
+            <point key="canvasLocation" x="7766.25" y="1200"/>
         </scene>
         <!--Notification View Controller-->
         <scene sceneID="A5J-cm-Jen">
@@ -2430,6 +2438,9 @@
                                 <rect key="frame" x="64" y="340" width="192" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="แนบรูป"/>
+                                <connections>
+                                    <action selector="tapAttachButton:" destination="XKT-oN-4a7" eventType="touchUpInside" id="ZpK-ns-BpF"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="29/07/2017" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5p5-QN-1EN">
                                 <rect key="frame" x="111" y="182" width="193" height="30"/>
@@ -2481,7 +2492,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="S7K-rp-oDW">
-                        <barButtonItem key="rightBarButtonItem" title="ยืนยัน" style="plain" id="qfz-bX-eCC"/>
+                        <barButtonItem key="rightBarButtonItem" title="ยืนยัน" style="plain" id="qfz-bX-eCC">
+                            <connections>
+                                <action selector="tapConfirmButton:" destination="XKT-oN-4a7" id="8ff-rT-s1X"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="brandTextField" destination="itx-bI-4GR" id="cHp-m0-ZI3"/>
@@ -3167,6 +3182,7 @@
                         <outlet property="SerialLbl" destination="Hxp-q8-frq" id="EIG-Rp-eRJ"/>
                         <outlet property="StoreNameLbl" destination="QZN-yN-yms" id="Sbs-qT-VD9"/>
                         <outlet property="TelLbl" destination="G29-yM-fzY" id="xUZ-mV-Hy0"/>
+                        <outlet property="receiptImageView" destination="XvC-WJ-5jX" id="Jh8-uR-Zc7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvL-4k-Cv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3491,6 +3507,25 @@
             </objects>
             <point key="canvasLocation" x="5850" y="-586"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="efQ-mn-4Yz">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cjl-y1-YVG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AD0-kb-CzK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="WQJ-25-uQz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0023141580170000001" green="0.84350079300000003" blue="0.66402816769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kuo-t8-5Kf" kind="relationship" relationship="rootViewController" id="BEP-Rh-rxk"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="6768.75" y="1200"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Tax Invoice_resize" width="16" height="16"/>
@@ -3506,7 +3541,7 @@
         <image name="ทีวี" width="1500" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ILG-5l-H4f"/>
-        <segue reference="JFj-T4-xXi"/>
+        <segue reference="RWB-XW-z7M"/>
+        <segue reference="pvx-DS-1je"/>
     </inferredMetricsTieBreakers>
 </document>

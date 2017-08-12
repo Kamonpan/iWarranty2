@@ -35,7 +35,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBAction func Login(_sender: Any) {
         let Username:String  = "111111"
         let Password:String  = "111111"
-        
+        EmailTxt.text = "111111"
+        PasswordTxt.text = "111111"
         // กรอกถูกต้อง
         if (EmailTxt.text == Username && PasswordTxt.text == Password){
 //

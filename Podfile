@@ -6,17 +6,6 @@ target 'MyISProject' do
   use_frameworks!
   pod 'QRCodeReader.swift', '~> 7.4.3'
   pod 'IQKeyboardManagerSwift'
-
-  # Pods for MyISProject
-
-  target 'MyISProjectTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'MyISProjectUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  pod 'Firebase/Core'
 
 end

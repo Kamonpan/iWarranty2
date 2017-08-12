@@ -101,9 +101,12 @@ class PromotionViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     //click เลือก brand แล้วจะไปแสดงหน้ารายละเอียด
     
-    private func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: NSIndexPath) {
-        let Brand = Brands[indexPath.row]
-        performSegue(withIdentifier: "GoToWebViewSegue", sender: Brand)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+        let navController = UINavigationController(rootViewController: viewController)
+        navController.navigationBar.barTintColor = UIColor(red: 1/255, green: 215/255, blue: 169/255, alpha: 1.0)
+        viewController.brand = Brands[indexPath.row]
+        self.present(navController, animated: true, completion: nil)
     }
     //-----------------------------------------------------------
     
@@ -118,18 +121,6 @@ class PromotionViewController: UIViewController,UITableViewDelegate,UITableViewD
                     PromoDetailViewController.Promo = Promo1
                 }
             }
-        }
-        if segue.identifier == "GoToWebViewSegue" {
-        //ส่ง url ของ brand ไป
-            if let WebViewController = segue.destination as? WebViewController{
-                
-                if let Brands = sender as? Brand //as class
-                {
-                    WebViewController.brand = Brands
-
-                }
-            }
-        
         }
         
     }

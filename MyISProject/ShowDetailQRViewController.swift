@@ -73,6 +73,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         PicImg.image = image
+        self.warrantyModel?.receipt = UIImagePNGRepresentation(image)!
         picker.dismiss(animated: true, completion: nil)
         
     }
@@ -134,6 +135,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DatePicker()
         guard let warrantyModel = self.warrantyModel else {
             return
         }

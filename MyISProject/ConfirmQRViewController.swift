@@ -21,6 +21,7 @@ class ConfirmQRViewController: UIViewController {
     @IBOutlet fileprivate weak var DateLbl: UILabel!
     @IBOutlet fileprivate weak var StoreNameLbl: UILabel!
     @IBOutlet fileprivate weak var PriceLbl: UILabel!
+    @IBOutlet fileprivate weak var receiptImageView: UIImageView!
     
     @IBAction func SendBtn(_ sender: Any) {
         let alert = UIAlertController(title: "success", message: "ทำรายการสำเร็จ", preferredStyle: UIAlertControllerStyle.alert)
@@ -29,8 +30,7 @@ class ConfirmQRViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     func okHandler(alert: UIAlertAction!){
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddWarrantyidentifier") as! AddWarrantyViewController
-        navigationController?.pushViewController(vc,animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ class ConfirmQRViewController: UIViewController {
         DateLbl.text = MyDateFormatter.string(from: warrantyModel.buyDate)
         StoreNameLbl.text = warrantyModel.buyLocation
         PriceLbl.text = warrantyModel.price
-       
+        receiptImageView.image = UIImage(data: warrantyModel.receipt)
     }
 
     override func didReceiveMemoryWarning() {

@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,9 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.sharedManager().enable = true
-        //IQKeyboardManager.sharedManager().enableAutoToolbar = false
-//        let navBgImage:UIImage = UIImage(named: "navigator.jpg")!
-//        UINavigationBar.appearance().setBackgroundImage(navBgImage, for: .default)
+        FirebaseApp.configure()
         return true
     
     }
