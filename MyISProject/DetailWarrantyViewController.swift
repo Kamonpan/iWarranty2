@@ -9,35 +9,36 @@
 import UIKit
 
 class DetailWarrantyViewController: UIViewController {
-//    var Products = ["ทีวี","ตู้เย็น","ไมโครเวฟ","มือถือ"]
-//    var Price = [12000,8500,2500,25000]
-//    var ProductIndex = 0
+    var warrantyModel: WarrantyModel?
     
-    @IBOutlet weak var ProductImage: UIImageView!
-    @IBOutlet weak var ProductNameLbl: UILabel!
-    @IBOutlet weak var PriceLbl: UILabel!
+    @IBOutlet fileprivate weak var typeImageView: UIImageView!
+    @IBOutlet fileprivate weak var brandLabel: UILabel!
+    @IBOutlet fileprivate weak var modelLabel: UILabel!
+    @IBOutlet fileprivate weak var serialNumberLabel: UILabel!
+    @IBOutlet fileprivate weak var buyDateLabel: UILabel!
+    @IBOutlet fileprivate weak var buyLocationLabel: UILabel!
+    @IBOutlet fileprivate weak var priceLabel: UILabel!
+    @IBOutlet fileprivate weak var receiptImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        ProductImage.image = UIImage(named:(Products[ProductIndex]+".jpg"))
-        ProductNameLbl.text = Products[ProductIndex]
-        PriceLbl.text = "สินค้าราคา \(Price[ProductIndex]) บาท"    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        guard let warrantyModel = self.warrantyModel else {
+            return
+        }
+        self.typeImageView.image = UIImage(named: warrantyModel.type)
+        self.brandLabel.text = warrantyModel.brand
+        self.modelLabel.text = warrantyModel.model
+        self.serialNumberLabel.text = warrantyModel.serialNumber
+        self.buyDateLabel.text = MyDateFormatter.string(from: warrantyModel.buyDate)
+        self.buyLocationLabel.text = warrantyModel.buyLocation
+        self.priceLabel.text = warrantyModel.price
+        self.receiptImageView.image = UIImage(data: warrantyModel.receipt)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    @IBAction func tapEditButton(_ sender: Any) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowDetailQRViewController") as! ShowDetailQRViewController
+        viewController.warrantyModel = self.warrantyModel
+        self.navigationController?.pushViewController(viewController, animated: true)
+     }
 }

@@ -10,48 +10,20 @@ import UIKit
 
 class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate{
     
-    @IBOutlet weak var BrandTxt: UITextField!
-    @IBOutlet weak var SerialTxt: UITextField!
-    @IBOutlet weak var ModelTxt: UITextField!
-    @IBOutlet weak var NameTxt: UITextField!
-    @IBOutlet weak var EmailTxt: UITextField!
-    @IBOutlet weak var TelTxt: UITextField!
-    @IBOutlet weak var DateTxt: UITextField!
-    @IBOutlet weak var StoreName: UITextField!
-    @IBOutlet weak var Price: UITextField!
-    @IBOutlet weak var PicImg: UIImageView!
+    var warrantyModel: WarrantyModel?
+    
+    @IBOutlet fileprivate weak var BrandTxt: UITextField!
+    @IBOutlet fileprivate weak var SerialTxt: UITextField!
+    @IBOutlet fileprivate weak var ModelTxt: UITextField!
+    @IBOutlet fileprivate weak var NameTxt: UITextField!
+    @IBOutlet fileprivate weak var EmailTxt: UITextField!
+    @IBOutlet fileprivate weak var TelTxt: UITextField!
+    @IBOutlet fileprivate weak var DateTxt: UITextField!
+    @IBOutlet fileprivate weak var StoreName: UITextField!
+    @IBOutlet fileprivate weak var Price: UITextField!
+    @IBOutlet fileprivate weak var PicImg: UIImageView!
     
     @IBAction func UploadPicBtn(_ sender: Any) {
-        //        let image = UIImagePickerController()
-        //        image.delegate = self
-        //
-        //        let alertPopup = UIAlertController(title: "Photo Source", message: "Choose a source",preferredStyle:.actionSheet)
-        //
-        //        alertPopup.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action:UIAlertAction) in
-        //            if UIImagePickerController.isSourceTypeAvailable(.camera){
-        //                            image.sourceType = .camera
-        //                                self.present(image,animated: true,completion: nil)
-        //                            }
-        //                            else{
-        //                             print("Camera not available")
-        //                            }
-        //        }))
-        //
-        //        alertPopup.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action:UIAlertAction) in
-        //            image.sourceType = .photoLibrary
-        //            self.present(image, animated: true, completion: nil)
-        //
-        //
-        //        }))
-        //
-        //        alertPopup.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        //
-        //            self.present(image, animated: true, completion: nil)
-        //
-        //        }
-        //
-        
-        
         let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
             self.openCamera()
@@ -145,17 +117,9 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
     
     //pass ค่าไปให้อีกหน้า
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let ConfirmQRPage = segue.destination as! ConfirmQRViewController
-        
-        ConfirmQRPage.BrandInput = BrandTxt.text!
-        ConfirmQRPage.ModelInput = ModelTxt.text!
-        ConfirmQRPage.SerialInput = SerialTxt.text!
-        ConfirmQRPage.NameInput = NameTxt.text!
-        ConfirmQRPage.EmailInput = EmailTxt.text!
-        ConfirmQRPage.TelInput = TelTxt.text!
-        ConfirmQRPage.DateInput = DateTxt.text!
-        ConfirmQRPage.StoreNameInput = StoreName.text!
-        ConfirmQRPage.PriceInput = Price.text!
+        if let confirmQRPage = segue.destination as? ConfirmQRViewController {
+            confirmQRPage.warrantyModel = self.warrantyModel
+        }
         
     }
     //hide keyboard
@@ -170,9 +134,20 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let warrantyModel = self.warrantyModel else {
+            return
+        }
+        self.BrandTxt.text = warrantyModel.brand
+        self.ModelTxt.text = warrantyModel.model
+        self.SerialTxt.text = warrantyModel.serialNumber
+        self.NameTxt.text = ""
+        self.EmailTxt.text = ""
+        self.TelTxt.text = ""
+        self.DateTxt.text = MyDateFormatter.string(from: warrantyModel.buyDate)
+        self.StoreName.text = warrantyModel.buyLocation
+        self.Price.text = warrantyModel.price
+        self.PicImg.image = UIImage(data: warrantyModel.receipt)
         
-        //datePicker เลือกวันที่
-        DatePicker()
         
         //เรียกใช้การหุบ keyboard
         BrandTxt.delegate = self
@@ -184,12 +159,6 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         DateTxt.delegate = self
         StoreName.delegate = self
         Price.delegate = self
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     

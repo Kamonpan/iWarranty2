@@ -8,56 +8,61 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class HistoryViewController: UIViewController {
+    var historyList = [HistoryModel]()
 
-    var ProductHistory = ["ซ่อมทีวี","ซ่อมไอโฟน"]
-    var DateTofix = ["17/9/2016","18/4/2017"]
+    @IBOutlet weak var HistoryTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        self.mockData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func mockData() {
+        for _ in 0..<3 {
+            let data = HistoryModel(subject: "ซ่อมทีวี", brand: "Samsung", model: "ASN123", type: "ซ่อมทีวี", serialNumber: "OOO123", date: Date(), note: "Lorem Ipsum", image: nil)
+            historyList.append(data)
+        }
     }
-
-    @IBOutlet weak var HistoryTableView: UITableView!
+    
     @IBAction func Edit(_ sender: Any) {
         HistoryTableView.isEditing = !HistoryTableView.isEditing
     }
 
+}
 
+extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // แสดงrowเท่ากับข้อมูลที่มี
-        return ProductHistory.count
+        return historyList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewController
-        
-        cell.HistoryProductImage.image = UIImage(named:(ProductHistory[indexPath.row]+".jpg"))
-        cell.HistoryProduct?.text = ProductHistory[indexPath.row]
-        cell.DateToFixLbl?.text = DateTofix[indexPath.row]
+        let history = historyList[indexPath.row]
+        cell.HistoryProductImage.image = UIImage(named: history.type)
+        cell.HistoryProduct.text = history.subject
+        cell.DateToFixLbl.text = MyDateFormatter.string(from: history.date)
         return cell
     }
-    //click เลือกสินค้า แล้วจะไปแสดงหน้ารายละเอียด
+}
+
+extension HistoryViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        ProductIndex = indexPath.row
-        performSegue(withIdentifier: "GoToDetailHistorySegue", sender: self)
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HistoryDetailViewController") as! HistoryDetailViewController
+        viewController.historyModel = historyList[indexPath.row]
+        self.navigationController?.pushViewController(viewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    //allows reordering of cell ไว้สำหรับเลื่อน cell
+    
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let item = Products[sourceIndexPath.row]
-        Products.remove(at:sourceIndexPath.row)
-        Products.insert(item,at: destinationIndexPath.row)
-        
+        let item = historyList[sourceIndexPath.row]
+        historyList.remove(at:sourceIndexPath.row)
+        historyList.insert(item,at: destinationIndexPath.row)
     }
 }
