@@ -9,10 +9,12 @@
 import UIKit
 import AVFoundation
 import QRCodeReader
+import FirebaseDatabase
 
 class AddWarrantyViewController: UIViewController {
     
     var warrantyModelList = [WarrantyModel]()
+    private let firebaseRef = Database.database().reference()
     
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
@@ -25,7 +27,27 @@ class AddWarrantyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.mockData()
+        //self.mockData()
+        firebaseRef.child("Warranties").observe(.value, with: { (snapshot) in
+            var newItems = [WarrantyModel]()
+            for item in snapshot.children {
+                let snapshot = item as! DataSnapshot
+                let warrantyModel = WarrantyModel(snapshot: snapshot)
+                newItems.append(warrantyModel)
+            }
+            self.warrantyModelList = newItems
+            self.ProductTableView.reloadData()
+        })
+        
+//        firebaseRef.observe(.value, with: { (snapshot) in
+//            var warrantyItems = [WarrantyModel]()
+//            for item in snapshot.children {
+//                let postDict = snapshot.value as? [String: Any] ?? [:]
+//                print(postDict.keys)
+//                print("===")
+//            }
+//            
+//        })
     }
     
     func mockData() {

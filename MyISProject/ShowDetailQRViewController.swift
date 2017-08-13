@@ -131,7 +131,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
                 warrantyModel.serialNumber = self.SerialTxt.text!
                 warrantyModel.buyDate = MyDateFormatter.date(from: self.DateTxt.text!)
                 warrantyModel.buyLocation = self.StoreName.text!
-                warrantyModel.price     = self.Price.text!
+                warrantyModel.price = self.Price.text!
                 warrantyModel.receipt = UIImagePNGRepresentation(self.PicImg.image)
                 confirmQRPage.warrantyModel = warrantyModel
             }

@@ -13,7 +13,6 @@
 		91200D0F1F1A289A006AD068 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91200D0E1F1A289A006AD068 /* TableViewController.swift */; };
 		91200D111F1A56B6006AD068 /* AddWarrantyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91200D101F1A56B6006AD068 /* AddWarrantyViewController.swift */; };
 		91200D151F1A77BB006AD068 /* DetailWarrantyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91200D141F1A77BB006AD068 /* DetailWarrantyViewController.swift */; };
-		91200D6D1F1E48F3006AD068 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91200D6C1F1E48F3006AD068 /* ScanViewController.swift */; };
 		91200D731F1E528C006AD068 /* ShowDetailQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91200D721F1E528C006AD068 /* ShowDetailQRViewController.swift */; };
 		91200D8E1F210396006AD068 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91200D8D1F210396006AD068 /* MainNavigationViewController.swift */; };
 		91200D931F234A46006AD068 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91200D921F234A46006AD068 /* ContactViewController.swift */; };
@@ -61,7 +60,6 @@
 		91200D0E1F1A289A006AD068 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		91200D101F1A56B6006AD068 /* AddWarrantyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWarrantyViewController.swift; sourceTree = "<group>"; };
 		91200D141F1A77BB006AD068 /* DetailWarrantyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailWarrantyViewController.swift; sourceTree = "<group>"; };
-		91200D6C1F1E48F3006AD068 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		91200D721F1E528C006AD068 /* ShowDetailQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDetailQRViewController.swift; sourceTree = "<group>"; };
 		91200D8D1F210396006AD068 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		91200D921F234A46006AD068 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 				91200D721F1E528C006AD068 /* ShowDetailQRViewController.swift */,
 				91200DAB1F2B4158006AD068 /* ConfirmQRViewController.swift */,
 				919FB5C11F388C6E002BD2E5 /* ConditionViewController.swift */,
-				91200D6C1F1E48F3006AD068 /* ScanViewController.swift */,
 			);
 			name = Warranty;
 			sourceTree = "<group>";
@@ -441,7 +438,6 @@
 				91200DB41F2BA2FE006AD068 /* NotificationViewController.swift in Sources */,
 				91200D731F1E528C006AD068 /* ShowDetailQRViewController.swift in Sources */,
 				F23BD2401F401F6E00E316D5 /* Util.swift in Sources */,
-				91200D6D1F1E48F3006AD068 /* ScanViewController.swift in Sources */,
 				F23BD23E1F400CCF00E316D5 /* AlertHelper.swift in Sources */,
 				919FB5C21F388C6E002BD2E5 /* ConditionViewController.swift in Sources */,
 				F23BD23A1F3F69AA00E316D5 /* Brand.swift in Sources */,

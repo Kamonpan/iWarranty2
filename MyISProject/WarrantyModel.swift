@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import FirebaseDatabase
 
 struct WarrantyModel {
     var type: String = ""
@@ -28,6 +28,20 @@ struct WarrantyModel {
         self.buyLocation = buyLocation
         self.price = price
         self.receipt = receipt
+    }
+    
+    
+    init(snapshot: DataSnapshot) {
+ 
+        let snapshotValue = snapshot.value as! [String: AnyObject]
+        self.type = "ทีวี"
+        self.brand = snapshotValue["brand"] as! String
+        self.model = snapshotValue["model"] as! String
+        self.serialNumber = snapshotValue["serialNumber"] as! String
+        self.buyDate = MyDateFormatter.date(from: snapshotValue["buyDate"] as! String)
+        self.buyLocation = snapshotValue["store"] as! String
+        self.price = snapshotValue["price"] as! String
+        self.receipt = Data(base64Encoded: snapshotValue["receipt"] as! String)
     }
     
     init() {
