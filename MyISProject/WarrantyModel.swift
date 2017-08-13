@@ -10,18 +10,16 @@ import Foundation
 
 
 struct WarrantyModel {
-    var thumbnail: Data
     var type: String = ""
     var brand: String = ""
     var model: String = ""
     var serialNumber: String = ""
-    var buyDate: Date
+    var buyDate: Date?
     var buyLocation: String = ""
     var price: String = ""
-    var receipt: Data
+    var receipt: Data?
     
-    init(thumbnail: Data, type: String, brand: String, model: String, serialNumber: String, buyDate: Date, buyLocation: String, price: String, receipt: Data) {
-        self.thumbnail = thumbnail
+    init(type: String, brand: String, model: String, serialNumber: String, buyDate: Date?, buyLocation: String, price: String, receipt: Data?) {
         self.type = type
         self.brand = brand
         self.model = model
@@ -30,5 +28,38 @@ struct WarrantyModel {
         self.buyLocation = buyLocation
         self.price = price
         self.receipt = receipt
+    }
+    
+    init() {
+        
+    }
+    
+    func toAnyObject() -> Any {
+        return [
+            "type": type,
+            "brand": brand,
+            "model": model,
+            "serialNumber": serialNumber,
+            "buyDate": self.getDate(),
+            "store": buyLocation,
+            "price": price,
+            "receipt": getReceipt()
+        ]
+    }
+    
+    func getDate() -> String {
+        if let date = self.buyDate {
+            return MyDateFormatter.string(from: date)
+        } else {
+            return ""
+        }
+    }
+    
+    func getReceipt() -> String {
+        if let data = self.receipt {
+            return data.base64EncodedString()
+        } else {
+            return ""
+        }
     }
 }

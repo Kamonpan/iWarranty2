@@ -17,4 +17,13 @@ class MyDateFormatter {
         let formatted = dateFormatter.string(from: date)
         return formatted
     }
+    
+    class func date(from string: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en-US")
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        let formatted = dateFormatter.date(from: string)
+        return formatted
+    }
 }

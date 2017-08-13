@@ -33,7 +33,6 @@
 		91C2587F1F1225830089F340 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C2587D1F1225830089F340 /* Main.storyboard */; };
 		91C258811F1225830089F340 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91C258801F1225830089F340 /* Assets.xcassets */; };
 		91C258841F1225830089F340 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C258821F1225830089F340 /* LaunchScreen.storyboard */; };
-		91C258AD1F167CC80089F340 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C258AC1F167CC80089F340 /* constant.swift */; };
 		91C258B11F17B3F90089F340 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C258B01F17B3F90089F340 /* RegisterUser.swift */; };
 		BD4864B71E4385F42101F7D3 /* Pods_MyISProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1F0739829AF8AE8ADA0F33 /* Pods_MyISProject.framework */; };
 		F23BD2281F3ED27800E316D5 /* WarrantyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2271F3ED27800E316D5 /* WarrantyModel.swift */; };
@@ -45,6 +44,8 @@
 		F23BD2381F3F699700E316D5 /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2371F3F699700E316D5 /* Promotion.swift */; };
 		F23BD23A1F3F69AA00E316D5 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2391F3F69AA00E316D5 /* Brand.swift */; };
 		F23BD23C1F3F69CE00E316D5 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD23B1F3F69CE00E316D5 /* Notification.swift */; };
+		F23BD23E1F400CCF00E316D5 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD23D1F400CCF00E316D5 /* AlertHelper.swift */; };
+		F23BD2401F401F6E00E316D5 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD23F1F401F6E00E316D5 /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +83,6 @@
 		91C258801F1225830089F340 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91C258831F1225830089F340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91C258851F1225830089F340 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		91C258AC1F167CC80089F340 /* constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		91C258B01F17B3F90089F340 /* RegisterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		CB508AB0DD47825CDAAA2A28 /* Pods-MyISProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyISProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyISProjectUITests/Pods-MyISProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D3ECA02F7D73D6D3F9DC1E4A /* Pods_MyISProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyISProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +96,8 @@
 		F23BD2371F3F699700E316D5 /* Promotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
 		F23BD2391F3F69AA00E316D5 /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		F23BD23B1F3F69CE00E316D5 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		F23BD23D1F400CCF00E316D5 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		F23BD23F1F401F6E00E316D5 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,17 +114,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		91200D8A1F210342006AD068 /* View */ = {
+		91200D8A1F210342006AD068 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F23BD2211F3ECF3F00E316D5 /* Profile */,
 				F23BD2251F3ECFC100E316D5 /* Contact */,
 				F23BD2241F3ECFB200E316D5 /* Feeds */,
-				F23BD2231F3ECF9E00E316D5 /* History */,
 				F23BD2221F3ECF4E00E316D5 /* Promotion */,
-				F23BD2211F3ECF3F00E316D5 /* Profile */,
+				F23BD2231F3ECF9E00E316D5 /* History */,
 				F23BD2201F3ECF2500E316D5 /* Warranty */,
 			);
-			name = View;
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		91200D8F1F210E33006AD068 /* manage */ = {
@@ -181,11 +183,10 @@
 				F23BD2261F3ED26900E316D5 /* Model */,
 				91200D9B1F23A8D3006AD068 /* Sub Screen */,
 				91200D8F1F210E33006AD068 /* manage */,
-				91200D8A1F210342006AD068 /* View */,
+				91200D8A1F210342006AD068 /* ViewController */,
 				91C258791F1225830089F340 /* AppDelegate.swift */,
 				91C2587D1F1225830089F340 /* Main.storyboard */,
 				91C258821F1225830089F340 /* LaunchScreen.storyboard */,
-				91C258AC1F167CC80089F340 /* constant.swift */,
 				F23BD2341F3F671900E316D5 /* Supporting Files */,
 			);
 			path = MyISProject;
@@ -280,6 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				F23BD22A1F3EEEFD00E316D5 /* MyDateFormatter.swift */,
+				F23BD23D1F400CCF00E316D5 /* AlertHelper.swift */,
+				F23BD23F1F401F6E00E316D5 /* Util.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyISProject/Pods-MyISProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
@@ -415,6 +419,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
@@ -435,7 +440,9 @@
 				91C2587C1F1225830089F340 /* ViewController.swift in Sources */,
 				91200DB41F2BA2FE006AD068 /* NotificationViewController.swift in Sources */,
 				91200D731F1E528C006AD068 /* ShowDetailQRViewController.swift in Sources */,
+				F23BD2401F401F6E00E316D5 /* Util.swift in Sources */,
 				91200D6D1F1E48F3006AD068 /* ScanViewController.swift in Sources */,
+				F23BD23E1F400CCF00E316D5 /* AlertHelper.swift in Sources */,
 				919FB5C21F388C6E002BD2E5 /* ConditionViewController.swift in Sources */,
 				F23BD23A1F3F69AA00E316D5 /* Brand.swift in Sources */,
 				91200DA31F2ACFB3006AD068 /* HistoryViewController.swift in Sources */,
@@ -454,7 +461,6 @@
 				91200D151F1A77BB006AD068 /* DetailWarrantyViewController.swift in Sources */,
 				F23BD23C1F3F69CE00E316D5 /* Notification.swift in Sources */,
 				91200D0F1F1A289A006AD068 /* TableViewController.swift in Sources */,
-				91C258AD1F167CC80089F340 /* constant.swift in Sources */,
 				F23BD22D1F3F2A1200E316D5 /* HistoryModel.swift in Sources */,
 				F23BD22B1F3EEEFD00E316D5 /* MyDateFormatter.swift in Sources */,
 				F23BD2281F3ED27800E316D5 /* WarrantyModel.swift in Sources */,

@@ -100,12 +100,8 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         DateTxt.inputView = datePicker
     }
     func donePressed(){
-        //function date
-        let dataFormatter = DateFormatter()
-        dataFormatter.dateStyle = .short
-        dataFormatter.timeStyle = .none
         
-        DateTxt.text = dataFormatter.string(from: datePicker.date)
+        DateTxt.text = MyDateFormatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
     // ------------------------------------------------------------------------
@@ -119,9 +115,28 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
     //pass ค่าไปให้อีกหน้า
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let confirmQRPage = segue.destination as? ConfirmQRViewController {
-            confirmQRPage.warrantyModel = self.warrantyModel
+            if var warrantyModel = self.warrantyModel {
+                warrantyModel.brand = self.BrandTxt.text!
+                warrantyModel.model = self.ModelTxt.text!
+                warrantyModel.serialNumber = self.SerialTxt.text!
+                warrantyModel.buyDate = MyDateFormatter.date(from: self.DateTxt.text!)
+                warrantyModel.buyLocation = self.StoreName.text!
+                warrantyModel.price = self.Price.text!
+                warrantyModel.receipt = UIImagePNGRepresentation(self.PicImg.image)
+                confirmQRPage.warrantyModel = warrantyModel
+            } else {
+                var warrantyModel = WarrantyModel()
+                warrantyModel.brand = self.BrandTxt.text!
+                warrantyModel.model = self.ModelTxt.text!
+                warrantyModel.serialNumber = self.SerialTxt.text!
+                warrantyModel.buyDate = MyDateFormatter.date(from: self.DateTxt.text!)
+                warrantyModel.buyLocation = self.StoreName.text!
+                warrantyModel.price     = self.Price.text!
+                warrantyModel.receipt = UIImagePNGRepresentation(self.PicImg.image)
+                confirmQRPage.warrantyModel = warrantyModel
+            }
+            
         }
-        
     }
     //hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -145,10 +160,13 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         self.NameTxt.text = ""
         self.EmailTxt.text = ""
         self.TelTxt.text = ""
-        self.DateTxt.text = MyDateFormatter.string(from: warrantyModel.buyDate)
+        self.DateTxt.text = warrantyModel.getDate()
         self.StoreName.text = warrantyModel.buyLocation
         self.Price.text = warrantyModel.price
-        self.PicImg.image = UIImage(data: warrantyModel.receipt)
+        if let data = Data(base64Encoded: warrantyModel.getReceipt()) {
+            self.PicImg.image = UIImage(data: data)
+        }
+        
         
         
         //เรียกใช้การหุบ keyboard

@@ -30,10 +30,12 @@ class DetailWarrantyViewController: UIViewController {
         self.brandLabel.text = warrantyModel.brand
         self.modelLabel.text = warrantyModel.model
         self.serialNumberLabel.text = warrantyModel.serialNumber
-        self.buyDateLabel.text = MyDateFormatter.string(from: warrantyModel.buyDate)
+        self.buyDateLabel.text = warrantyModel.getDate()
         self.buyLocationLabel.text = warrantyModel.buyLocation
         self.priceLabel.text = warrantyModel.price
-        self.receiptImageView.image = UIImage(data: warrantyModel.receipt)
+        if let data = Data(base64Encoded: warrantyModel.getReceipt()) {
+            self.receiptImageView.image = UIImage(data: data)
+        }
     }
     
     @IBAction func tapEditButton(_ sender: Any) {

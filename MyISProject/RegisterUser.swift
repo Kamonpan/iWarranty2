@@ -25,61 +25,7 @@ class RegisterUser: UIViewController,UITextFieldDelegate {
    
 
     @IBAction func NextBtn(_ sender: Any) {
-        if(EmailTxt.text != nil){
-            if (EmailTxt.text!.characters.count<6) {
-                
-                EmailTxt.backgroundColor = UIColor(red:0.94, green:0.94, blue:0.94, alpha:1.0)
-                constant().showAlert(title: "Error", message: "Email ต้องมากกว่า 6 ตัวอักษร", ViewController: self)
-                return
-            }
-            else{
-                EmailTxt.backgroundColor = UIColor.white
-            }
-            
-            if (PasswordTxt.text!.characters.count<6) {
-                PasswordTxt.backgroundColor = UIColor(red:0.94, green:0.94, blue:0.94, alpha:1.0)
-                constant().showAlert(title: "Error", message: "Password ต้องมากกว่า 6 ตัวอักษร", ViewController: self)
-                return
-            }
-            else{
-                PasswordTxt.backgroundColor = UIColor.white
-            }
-            if (RePassTxt.text != PasswordTxt.text) {
-                RePassTxt.backgroundColor = UIColor(red:0.94, green:0.94, blue:0.94, alpha:1.0)
-                constant().showAlert(title: "Error", message: "กรุณาตรวจสอบ Password อีกครั้ง", ViewController: self)
-                return
-            }
-            else{
-                RePassTxt.backgroundColor = UIColor.white
-            }
-        }
-        else{
-            //check เพิ่มว่าทำไม pop upไม่ขึ้น หรือจะไม่เอาก้ได้ เก็บไว้ตอนทำ firebase
-            
-            let alert = UIAlertController(title: "Success",message: "ลงทะเบียนสำเร็จ",preferredStyle:.alert
-            )
-            let confirmRegister:ViewController = ViewController(nibName:"confirmRegister", bundle: nil)
-            
-            let resultAlert = UIAlertAction(title:"Ok",style:.default, handler:{
-                (UIAlertAction) in
-                self.present(confirmRegister, animated:true, completion:nil)
-
-            })
-
-               
-   //back button
-            
-            
-            
-            
-                
-            alert.addAction(resultAlert)
-            self.present(alert,animated: true, completion: nil)
-                return
-                    //กดปุ่มแล้วพาไปให้อีกหน้า
-                    performSegue(withIdentifier: "GoToConfirmRegister", sender: self)
-        }
-        
+          performSegue(withIdentifier: "GoToConfirmRegister", sender: self)
     }
     
     //pass ค่าไปให้อีกหน้า

@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class ConfirmQRViewController: UIViewController {
 
     var warrantyModel: WarrantyModel?
+    var firebaseRef = Database.database().reference()
     
     @IBOutlet fileprivate weak var BrandLbl: UILabel!
     @IBOutlet fileprivate weak var ModelLbl: UILabel!
@@ -24,6 +26,17 @@ class ConfirmQRViewController: UIViewController {
     @IBOutlet fileprivate weak var receiptImageView: UIImageView!
     
     @IBAction func SendBtn(_ sender: Any) {
+        
+        guard let warrantyModel = self.warrantyModel else {
+            return
+        }
+        guard warrantyModel.serialNumber != "" else {
+            AlertHelper.showAlert(title: "Error", message: "กรุณากรอกหมายเลขเครื่อง", ViewController: self)
+            return
+        }
+        let warrantyRef = firebaseRef.child("Warranties").child(warrantyModel.serialNumber)
+        warrantyRef.setValue(warrantyModel.toAnyObject())
+        
         let alert = UIAlertController(title: "success", message: "ทำรายการสำเร็จ", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: self.okHandler))
         
@@ -44,15 +57,12 @@ class ConfirmQRViewController: UIViewController {
         NameLbl.text = ""
         EmailLbl.text = ""
         TelLbl.text = ""
-        DateLbl.text = MyDateFormatter.string(from: warrantyModel.buyDate)
+        DateLbl.text = warrantyModel.getDate()
         StoreNameLbl.text = warrantyModel.buyLocation
         PriceLbl.text = warrantyModel.price
-        receiptImageView.image = UIImage(data: warrantyModel.receipt)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        if let data = Data(base64Encoded: warrantyModel.getReceipt()) {
+            self.receiptImageView.image = UIImage(data: data)
+        }
     }
     
 }

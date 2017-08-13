@@ -30,15 +30,15 @@ class AddWarrantyViewController: UIViewController {
     
     func mockData() {
         for _ in 0..<3 {
-            let data = WarrantyModel(thumbnail: Data(),
-                                     type: "ทีวี",
+            let a = UIImagePNGRepresentation(#imageLiteral(resourceName: "ทีวี"))
+            let data = WarrantyModel(type: "ทีวี",
                                      brand: "Toshiba",
                                      model: "ABFE",
                                      serialNumber: "123456",
                                      buyDate: Date(),
                                      buyLocation: "BigC",
                                      price: "1000",
-                                     receipt: Data())
+                                     receipt: a!)
             self.warrantyModelList.append(data)
         }
     }
@@ -94,10 +94,10 @@ extension AddWarrantyViewController: UITableViewDataSource {
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewController
-        
-        cell.ProductImage?.image = UIImage(data: warrantyModelList[indexPath.row].thumbnail)
-        cell.ProductNameLbl?.text = warrantyModelList[indexPath.row].brand
-        cell.PriceLbl?.text = "สินค้าราคา \(warrantyModelList[indexPath.row].price) บาท"
+        let warrantyModel = warrantyModelList[indexPath.row]
+        cell.ProductImage?.image = UIImage(named: warrantyModel.type)
+        cell.ProductNameLbl?.text = warrantyModel.brand
+        cell.PriceLbl?.text = "สินค้าราคา \(warrantyModel.price) บาท"
         return cell
     }
 }

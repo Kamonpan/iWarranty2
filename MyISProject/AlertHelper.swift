@@ -1,22 +1,19 @@
 //
-//  constant.swift
+//  AlertHelper.swift
 //  MyISProject
 //
-//  Created by Kamonpan Ketlue on 7/12/2560 BE.
+//  Created by Jaruwit Sriburanasorn on 8/13/2560 BE.
 //  Copyright © 2560 Kamonpan Ketlue. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import Foundation
 
-
-class constant {
-    func showAlert(title:String , message:String , ViewController:UIViewController) {
+class AlertHelper {
+    class func showAlert(title:String , message:String , ViewController:UIViewController) {
         let alert = UIAlertController(title:title , message:message , preferredStyle:.alert)
         let resultAlert = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(resultAlert)
         ViewController.present(alert, animated: true,   completion: nil)
-            }
-    
-    
+    }
 }
