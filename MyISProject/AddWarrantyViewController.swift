@@ -14,7 +14,7 @@ import FirebaseDatabase
 class AddWarrantyViewController: UIViewController {
     
     var warrantyModelList = [WarrantyModel]()
-    private let firebaseRef = Database.database().reference()
+    fileprivate let firebaseRef = Database.database().reference()
     
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
@@ -27,7 +27,7 @@ class AddWarrantyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.mockData()
+
         firebaseRef.child("Warranties").observe(.value, with: { (snapshot) in
             var newItems = [WarrantyModel]()
             for item in snapshot.children {
@@ -38,31 +38,6 @@ class AddWarrantyViewController: UIViewController {
             self.warrantyModelList = newItems
             self.ProductTableView.reloadData()
         })
-        
-//        firebaseRef.observe(.value, with: { (snapshot) in
-//            var warrantyItems = [WarrantyModel]()
-//            for item in snapshot.children {
-//                let postDict = snapshot.value as? [String: Any] ?? [:]
-//                print(postDict.keys)
-//                print("===")
-//            }
-//            
-//        })
-    }
-    
-    func mockData() {
-        for _ in 0..<3 {
-            let a = UIImagePNGRepresentation(#imageLiteral(resourceName: "ทีวี"))
-            let data = WarrantyModel(type: "ทีวี",
-                                     brand: "Toshiba",
-                                     model: "ABFE",
-                                     serialNumber: "123456",
-                                     buyDate: Date(),
-                                     buyLocation: "BigC",
-                                     price: "1000",
-                                     receipt: a!)
-            self.warrantyModelList.append(data)
-        }
     }
     
     @IBAction func Edit(_ sender: Any) {
@@ -140,5 +115,13 @@ extension AddWarrantyViewController: UITableViewDelegate {
         let item = warrantyModelList[sourceIndexPath.row]
         warrantyModelList.remove(at:sourceIndexPath.row)
         warrantyModelList.insert(item,at: destinationIndexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            firebaseRef.child("Warranties").child(self.warrantyModelList[indexPath.row].serialNumber).setValue(nil)
+            self.warrantyModelList.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
     }
 }

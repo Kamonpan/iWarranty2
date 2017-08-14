@@ -7,41 +7,54 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class HistoryViewController: UIViewController {
-    var historyList = [HistoryModel]()
-
+    
+    var historyModelList = [HistoryModel]()
+    fileprivate let firebaseRef = Database.database().reference()
+    
     @IBOutlet weak var HistoryTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.mockData()
-    }
-    
-    func mockData() {
-        for _ in 0..<3 {
-            let data = HistoryModel(subject: "ซ่อมทีวี", brand: "Samsung", model: "ASN123", type: "ซ่อมทีวี", serialNumber: "OOO123", date: Date(), note: "Lorem Ipsum", image: nil)
-            historyList.append(data)
-        }
+        
+        firebaseRef.child("Histories").observe(.value, with: { (snapshot) in
+            var newItems = [HistoryModel]()
+            for item in snapshot.children {
+                let snapshot = item as! DataSnapshot
+                let historyModel = HistoryModel(snapshot: snapshot)
+                newItems.append(historyModel)
+            }
+            self.historyModelList = newItems
+            self.HistoryTableView.reloadData()
+        })
+        
     }
     
     @IBAction func Edit(_ sender: Any) {
         HistoryTableView.isEditing = !HistoryTableView.isEditing
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? HistoryEditViewController {
+            destination.historyModel = HistoryModel()
+        }
+    }
+    
 }
 
 extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return historyList.count
+        return historyModelList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewController
-        let history = historyList[indexPath.row]
+        let history = historyModelList[indexPath.row]
         cell.HistoryProductImage.image = UIImage(named: history.type)
         cell.HistoryProduct.text = history.subject
-        cell.DateToFixLbl.text = MyDateFormatter.string(from: history.date)
+        cell.DateToFixLbl.text = history.getDate()
         return cell
     }
 }
@@ -50,7 +63,7 @@ extension HistoryViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HistoryDetailViewController") as! HistoryDetailViewController
-        viewController.historyModel = historyList[indexPath.row]
+        viewController.historyModel = historyModelList[indexPath.row]
         self.navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -60,9 +73,17 @@ extension HistoryViewController: UITableViewDelegate {
         return true
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            firebaseRef.child("Warranties").child(self.historyModelList[indexPath.row].serialNumber).setValue(nil)
+            self.historyModelList.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let item = historyList[sourceIndexPath.row]
-        historyList.remove(at:sourceIndexPath.row)
-        historyList.insert(item,at: destinationIndexPath.row)
+        let item = historyModelList[sourceIndexPath.row]
+        historyModelList.remove(at:sourceIndexPath.row)
+        historyModelList.insert(item,at: destinationIndexPath.row)
     }
 }

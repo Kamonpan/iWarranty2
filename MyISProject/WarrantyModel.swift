@@ -19,6 +19,10 @@ struct WarrantyModel {
     var price: String = ""
     var receipt: Data?
     
+    init() {
+        
+    }
+    
     init(type: String, brand: String, model: String, serialNumber: String, buyDate: Date?, buyLocation: String, price: String, receipt: Data?) {
         self.type = type
         self.brand = brand
@@ -32,7 +36,6 @@ struct WarrantyModel {
     
     
     init(snapshot: DataSnapshot) {
- 
         let snapshotValue = snapshot.value as! [String: AnyObject]
         self.type = "ทีวี"
         self.brand = snapshotValue["brand"] as! String
@@ -42,10 +45,6 @@ struct WarrantyModel {
         self.buyLocation = snapshotValue["store"] as! String
         self.price = snapshotValue["price"] as! String
         self.receipt = Data(base64Encoded: snapshotValue["receipt"] as! String)
-    }
-    
-    init() {
-        
     }
     
     func toAnyObject() -> Any {

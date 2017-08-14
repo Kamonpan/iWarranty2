@@ -45,6 +45,7 @@
 		F23BD23C1F3F69CE00E316D5 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD23B1F3F69CE00E316D5 /* Notification.swift */; };
 		F23BD23E1F400CCF00E316D5 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD23D1F400CCF00E316D5 /* AlertHelper.swift */; };
 		F23BD2401F401F6E00E316D5 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD23F1F401F6E00E316D5 /* Util.swift */; };
+		F23BD2421F41552600E316D5 /* HistoryConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2411F41552600E316D5 /* HistoryConfirmViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		F23BD23B1F3F69CE00E316D5 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		F23BD23D1F400CCF00E316D5 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		F23BD23F1F401F6E00E316D5 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		F23BD2411F41552600E316D5 /* HistoryConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryConfirmViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 				91200DA21F2ACFB3006AD068 /* HistoryViewController.swift */,
 				F23BD2301F3F2AA000E316D5 /* HistoryDetailViewController.swift */,
 				F23BD2321F3F336A00E316D5 /* HistoryEditViewController.swift */,
+				F23BD2411F41552600E316D5 /* HistoryConfirmViewController.swift */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				91200D111F1A56B6006AD068 /* AddWarrantyViewController.swift in Sources */,
 				91200D9D1F23A8F1006AD068 /* MapViewController.swift in Sources */,
 				91200D9F1F23C57D006AD068 /* FixViewTableCell.swift in Sources */,
+				F23BD2421F41552600E316D5 /* HistoryConfirmViewController.swift in Sources */,
 				91C258B11F17B3F90089F340 /* RegisterUser.swift in Sources */,
 				91200D931F234A46006AD068 /* ContactViewController.swift in Sources */,
 				F23BD2311F3F2AA000E316D5 /* HistoryDetailViewController.swift in Sources */,

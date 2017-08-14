@@ -12,7 +12,7 @@ class HistoryEditViewController: UIViewController {
     
     var historyModel: HistoryModel?
     
-    @IBOutlet weak var brandTextField: UITextField!
+    @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!
     @IBOutlet weak var serialNumberTextField: UITextField!
     @IBOutlet weak var fixDateTextField: UITextField!
@@ -21,15 +21,14 @@ class HistoryEditViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        DatePicker()
         guard let historyModel = self.historyModel else {
             return
         }
-        
-        self.brandTextField.text = historyModel.brand
+        self.subjectTextField.text = historyModel.subject
         self.modelTextField.text = historyModel.model
         self.serialNumberTextField.text = historyModel.serialNumber
-        self.fixDateTextField.text = MyDateFormatter.string(from: historyModel.date)
+        self.fixDateTextField.text = historyModel.getDate()
         self.noteTextField.text = historyModel.note
         if let data = historyModel.image {
             self.fixImageView.image = UIImage(data: data)
@@ -51,8 +50,16 @@ class HistoryEditViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func tapConfirmButton(_ sender: Any) {
-        //TODO
+    @IBAction func tapNextButton(_ sender: Any) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HistoryConfirmViewController") as! HistoryConfirmViewController
+        self.historyModel?.subject = self.subjectTextField.text!
+        self.historyModel?.model = self.modelTextField.text!
+        self.historyModel?.serialNumber = self.serialNumberTextField.text!
+        self.historyModel?.date = MyDateFormatter.date(from: self.fixDateTextField.text!)
+        self.historyModel?.note = self.noteTextField.text!
+        self.historyModel?.image = UIImagePNGRepresentation(self.fixImageView.image)
+        viewController.historyModel = self.historyModel
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func openCamera()
@@ -64,8 +71,6 @@ class HistoryEditViewController: UIViewController {
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
-            
-            
         }
         else
         {
@@ -84,6 +89,29 @@ class HistoryEditViewController: UIViewController {
         self.present(imagePicker, animated: true, completion: nil)
     }
 
+    
+    let datePicker = UIDatePicker()
+    
+    func DatePicker(){
+        //format date for picker
+        datePicker.datePickerMode = .date
+        
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        //bar button item
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: nil ,action: #selector(donePressed))
+        
+        toolbar.setItems([doneButton], animated: false)
+        self.fixDateTextField.inputAccessoryView = toolbar
+        self.fixDateTextField.inputView = datePicker
+    }
+    func donePressed(){
+        
+        self.fixDateTextField.text = MyDateFormatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
 
 }
 

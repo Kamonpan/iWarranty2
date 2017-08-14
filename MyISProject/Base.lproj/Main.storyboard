@@ -514,10 +514,11 @@
             </objects>
             <point key="canvasLocation" x="-1693" y="576"/>
         </scene>
-        <!--View Controller-->
+        <!--History Confirm View Controller-->
         <scene sceneID="lGe-16-er7">
             <objects>
-                <viewController id="fAX-f9-sB5" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CSB-YP-I2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="HistoryConfirmViewController" id="fAX-f9-sB5" customClass="HistoryConfirmViewController" customModule="MyISProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DIH-J9-w8Y"/>
                         <viewControllerLayoutGuide type="bottom" id="QhM-Bc-bZQ"/>
@@ -527,7 +528,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gO2-WP-W7j">
-                                <rect key="frame" x="0.0" y="489" width="152" height="31"/>
+                                <rect key="frame" x="0.0" y="538" width="152" height="31"/>
                                 <color key="backgroundColor" red="0.0023141580170000001" green="0.84350079300000003" blue="0.66402816769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="152" id="GNR-lU-EQP"/>
@@ -535,9 +536,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="บันทึกรายการ"/>
+                                <connections>
+                                    <action selector="tapSaveButton:" destination="fAX-f9-sB5" eventType="touchUpInside" id="uKn-OI-0ah"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRR-X8-bYR">
-                                <rect key="frame" x="152" y="489" width="168" height="30"/>
+                                <rect key="frame" x="152" y="538" width="168" height="30"/>
                                 <color key="backgroundColor" red="0.0023141580170000001" green="0.84350079300000003" blue="0.66402816769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5Gr-dd-C1Y"/>
@@ -547,6 +551,9 @@
                                 <state key="normal" title="แจ้งซ่อม">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tapReportButton:" destination="fAX-f9-sB5" eventType="touchUpInside" id="19i-FO-Akj"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เรื่อง:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7c-Mh-j0W">
                                 <rect key="frame" x="22" y="78" width="73" height="17"/>
@@ -563,8 +570,8 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SzQ-sz-zQC">
-                                <rect key="frame" x="111" y="72" width="227" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SzQ-sz-zQC">
+                                <rect key="frame" x="111" y="72" width="193" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -619,7 +626,7 @@
                                 <state key="normal" title="แนบรูป"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ei4-oY-0oA">
-                                <rect key="frame" x="76" y="377" width="169" height="84"/>
+                                <rect key="frame" x="76" y="377" width="169" height="133"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="29/07/2017" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vhy-jl-7X2">
                                 <rect key="frame" x="111" y="182" width="193" height="30"/>
@@ -676,10 +683,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PSK-Fy-4AJ"/>
+                    <connections>
+                        <outlet property="fixImageView" destination="Ei4-oY-0oA" id="iPH-Dq-QIj"/>
+                        <outlet property="modelTextField" destination="Ai2-cu-T2i" id="Pit-7U-8AK"/>
+                        <outlet property="noteTextField" destination="6bP-5U-CP9" id="KQb-is-3bx"/>
+                        <outlet property="sendDateTextField" destination="Vhy-jl-7X2" id="FXr-4O-pDe"/>
+                        <outlet property="serialNumberTextField" destination="xoY-KB-Ono" id="o8c-hQ-VFS"/>
+                        <outlet property="subjectTextField" destination="SzQ-sz-zQC" id="qaN-H2-8Yn"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CSB-YP-I2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5829" y="54"/>
+            <point key="canvasLocation" x="5850" y="451.05633802816902"/>
         </scene>
         <!--Promotion View Controller-->
         <scene sceneID="mqI-HP-g94">
@@ -1657,7 +1671,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fAX-f9-sB5" kind="show" id="NDp-6M-Q7N"/>
+                                    <segue destination="XKT-oN-4a7" kind="show" id="dG0-1A-YEj"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N35-sR-FFQ">
@@ -2449,7 +2463,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mOD-aV-h5r">
-                                <rect key="frame" x="64" y="377" width="192" height="173"/>
+                                <rect key="frame" x="64" y="377" width="192" height="124"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2492,19 +2506,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="S7K-rp-oDW">
-                        <barButtonItem key="rightBarButtonItem" title="ยืนยัน" style="plain" id="qfz-bX-eCC">
+                        <barButtonItem key="rightBarButtonItem" title="ต่อไป" style="plain" id="qfz-bX-eCC">
                             <connections>
-                                <action selector="tapConfirmButton:" destination="XKT-oN-4a7" id="8ff-rT-s1X"/>
+                                <action selector="tapNextButton:" destination="XKT-oN-4a7" id="ri8-c4-xfl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="brandTextField" destination="itx-bI-4GR" id="cHp-m0-ZI3"/>
                         <outlet property="fixDateTextField" destination="5p5-QN-1EN" id="Dip-OV-2i2"/>
                         <outlet property="fixImageView" destination="mOD-aV-h5r" id="3XB-dz-35A"/>
                         <outlet property="modelTextField" destination="ikP-Z1-8zy" id="p0Y-2O-tjB"/>
                         <outlet property="noteTextField" destination="I0c-iu-PMW" id="yLk-wV-4Hs"/>
                         <outlet property="serialNumberTextField" destination="pDH-v9-Ssp" id="9Xa-ea-0Gt"/>
+                        <outlet property="subjectTextField" destination="itx-bI-4GR" id="SNg-2O-PVS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3N-Z1-A9c" userLabel="First Responder" sceneMemberID="firstResponder"/>

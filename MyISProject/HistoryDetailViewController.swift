@@ -27,7 +27,7 @@ class HistoryDetailViewController: UIViewController {
         self.subjectLabel.text = historyModel.subject
         self.modelLabel.text = historyModel.model
         self.serialNumberLabel.text = historyModel.serialNumber
-        self.fixDateLabel.text = MyDateFormatter.string(from: historyModel.date)
+        self.fixDateLabel.text = historyModel.getDate()
         self.noteLabel.text = historyModel.note
         if let data = historyModel.image {
             self.fixImageView.image = UIImage(data: data)

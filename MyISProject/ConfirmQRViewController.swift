@@ -42,6 +42,7 @@ class ConfirmQRViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
     func okHandler(alert: UIAlertAction!){
         navigationController?.popToRootViewController(animated: true)
     }
