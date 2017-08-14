@@ -14,7 +14,7 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.WebViewFrame.delegate = self
         loadRequest(strUrl: brand.url)
     }
 
@@ -28,4 +28,15 @@ class WebViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+}
+
+extension WebViewController: UIWebViewDelegate {
+    
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
 }

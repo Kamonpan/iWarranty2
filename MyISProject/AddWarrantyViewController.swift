@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import QRCodeReader
 import FirebaseDatabase
+import SwiftOverlays
 
 class AddWarrantyViewController: UIViewController {
     
@@ -27,7 +28,7 @@ class AddWarrantyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.showWaitOverlay()
         firebaseRef.child("Warranties").observe(.value, with: { (snapshot) in
             var newItems = [WarrantyModel]()
             for item in snapshot.children {
@@ -37,6 +38,7 @@ class AddWarrantyViewController: UIViewController {
             }
             self.warrantyModelList = newItems
             self.ProductTableView.reloadData()
+            self.removeAllOverlays()
         })
     }
     

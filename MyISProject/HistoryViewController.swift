@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import SwiftOverlays
 
 class HistoryViewController: UIViewController {
     
@@ -18,7 +19,7 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.showWaitOverlay()
         firebaseRef.child("Histories").observe(.value, with: { (snapshot) in
             var newItems = [HistoryModel]()
             for item in snapshot.children {
@@ -28,6 +29,7 @@ class HistoryViewController: UIViewController {
             }
             self.historyModelList = newItems
             self.HistoryTableView.reloadData()
+            self.removeAllOverlays()
         })
         
     }

@@ -6,6 +6,7 @@ target 'MyISProject' do
   use_frameworks!
   pod 'QRCodeReader.swift', '~> 7.4.3'
   pod 'IQKeyboardManagerSwift'
+  pod 'SwiftOverlays', '~> 3.0.0'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
