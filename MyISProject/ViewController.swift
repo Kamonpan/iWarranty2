@@ -34,7 +34,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
 //เงื่อนไขการ login
     @IBAction func Login(_sender: Any) {
-        self.showWaitOverlay()
+        SwiftOverlays.showBlockingWaitOverlay()
         Auth.auth().signIn(withEmail: EmailTxt.text!, password: PasswordTxt.text!) { (user, error) in
             guard let user = user else {
                 if let error = error {
@@ -43,7 +43,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 }
                 return
             }
-            self.removeAllOverlays()
+            SwiftOverlays.removeAllBlockingOverlays()
 
             let GotoAddWarrantyTabbar = self.storyboard!.instantiateViewController(withIdentifier: "GotoAddWarrantyTabbar")
             

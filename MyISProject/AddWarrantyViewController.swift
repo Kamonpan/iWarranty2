@@ -28,7 +28,7 @@ class AddWarrantyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.showWaitOverlay()
+        SwiftOverlays.showBlockingWaitOverlay()
         firebaseRef.child("Warranties").observe(.value, with: { (snapshot) in
             var newItems = [WarrantyModel]()
             for item in snapshot.children {
@@ -38,7 +38,7 @@ class AddWarrantyViewController: UIViewController {
             }
             self.warrantyModelList = newItems
             self.ProductTableView.reloadData()
-            self.removeAllOverlays()
+            SwiftOverlays.removeAllBlockingOverlays()
         })
     }
     

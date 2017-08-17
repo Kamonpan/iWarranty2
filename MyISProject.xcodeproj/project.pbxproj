@@ -32,7 +32,7 @@
 		91C2587F1F1225830089F340 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C2587D1F1225830089F340 /* Main.storyboard */; };
 		91C258811F1225830089F340 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91C258801F1225830089F340 /* Assets.xcassets */; };
 		91C258841F1225830089F340 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C258821F1225830089F340 /* LaunchScreen.storyboard */; };
-		91C258B11F17B3F90089F340 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C258B01F17B3F90089F340 /* RegisterUser.swift */; };
+		91C258B11F17B3F90089F340 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C258B01F17B3F90089F340 /* RegisterViewController.swift */; };
 		BD4864B71E4385F42101F7D3 /* Pods_MyISProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1F0739829AF8AE8ADA0F33 /* Pods_MyISProject.framework */; };
 		F23BD2281F3ED27800E316D5 /* WarrantyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2271F3ED27800E316D5 /* WarrantyModel.swift */; };
 		F23BD22B1F3EEEFD00E316D5 /* MyDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD22A1F3EEEFD00E316D5 /* MyDateFormatter.swift */; };
@@ -46,6 +46,8 @@
 		F23BD23E1F400CCF00E316D5 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD23D1F400CCF00E316D5 /* AlertHelper.swift */; };
 		F23BD2401F401F6E00E316D5 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD23F1F401F6E00E316D5 /* Util.swift */; };
 		F23BD2421F41552600E316D5 /* HistoryConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2411F41552600E316D5 /* HistoryConfirmViewController.swift */; };
+		F23BD2451F417F9600E316D5 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2441F417F9600E316D5 /* ResetPasswordViewController.swift */; };
+		F23BD2471F418E0600E316D5 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2461F418E0600E316D5 /* EditProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +84,7 @@
 		91C258801F1225830089F340 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91C258831F1225830089F340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91C258851F1225830089F340 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		91C258B01F17B3F90089F340 /* RegisterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
+		91C258B01F17B3F90089F340 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CB508AB0DD47825CDAAA2A28 /* Pods-MyISProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyISProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyISProjectUITests/Pods-MyISProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D3ECA02F7D73D6D3F9DC1E4A /* Pods_MyISProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyISProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C3A3347E3ECA1AAD1CA267 /* Pods_MyISProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyISProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,8 @@
 		F23BD23D1F400CCF00E316D5 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		F23BD23F1F401F6E00E316D5 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		F23BD2411F41552600E316D5 /* HistoryConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryConfirmViewController.swift; sourceTree = "<group>"; };
+		F23BD2441F417F9600E316D5 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		F23BD2461F418E0600E316D5 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,7 @@
 				F23BD2261F3ED26900E316D5 /* Model */,
 				91200D9B1F23A8D3006AD068 /* Sub Screen */,
 				91200D8F1F210E33006AD068 /* manage */,
+				F23BD2431F41788600E316D5 /* View */,
 				91200D8A1F210342006AD068 /* ViewController */,
 				91C258791F1225830089F340 /* AppDelegate.swift */,
 				91C2587D1F1225830089F340 /* Main.storyboard */,
@@ -223,7 +228,9 @@
 				91C2587B1F1225830089F340 /* ViewController.swift */,
 				910E63771F2DBC69004AD583 /* SettingTableViewController.swift */,
 				91200D091F197FC1006AD068 /* confirmRegister.swift */,
-				91C258B01F17B3F90089F340 /* RegisterUser.swift */,
+				91C258B01F17B3F90089F340 /* RegisterViewController.swift */,
+				F23BD2441F417F9600E316D5 /* ResetPasswordViewController.swift */,
+				F23BD2461F418E0600E316D5 /* EditProfileViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -295,6 +302,13 @@
 				91C258851F1225830089F340 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F23BD2431F41788600E316D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,17 +456,19 @@
 				91C2587C1F1225830089F340 /* ViewController.swift in Sources */,
 				91200DB41F2BA2FE006AD068 /* NotificationViewController.swift in Sources */,
 				91200D731F1E528C006AD068 /* ShowDetailQRViewController.swift in Sources */,
+				F23BD2451F417F9600E316D5 /* ResetPasswordViewController.swift in Sources */,
 				F23BD2401F401F6E00E316D5 /* Util.swift in Sources */,
 				F23BD23E1F400CCF00E316D5 /* AlertHelper.swift in Sources */,
 				919FB5C21F388C6E002BD2E5 /* ConditionViewController.swift in Sources */,
 				F23BD23A1F3F69AA00E316D5 /* Brand.swift in Sources */,
 				91200DA31F2ACFB3006AD068 /* HistoryViewController.swift in Sources */,
 				91200DB01F2B92A0006AD068 /* ImageCollectionViewCell.swift in Sources */,
+				F23BD2471F418E0600E316D5 /* EditProfileViewController.swift in Sources */,
 				91200D111F1A56B6006AD068 /* AddWarrantyViewController.swift in Sources */,
 				91200D9D1F23A8F1006AD068 /* MapViewController.swift in Sources */,
 				91200D9F1F23C57D006AD068 /* FixViewTableCell.swift in Sources */,
 				F23BD2421F41552600E316D5 /* HistoryConfirmViewController.swift in Sources */,
-				91C258B11F17B3F90089F340 /* RegisterUser.swift in Sources */,
+				91C258B11F17B3F90089F340 /* RegisterViewController.swift in Sources */,
 				91200D931F234A46006AD068 /* ContactViewController.swift in Sources */,
 				F23BD2311F3F2AA000E316D5 /* HistoryDetailViewController.swift in Sources */,
 				91C2587A1F1225830089F340 /* AppDelegate.swift in Sources */,
