@@ -157,9 +157,9 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         self.BrandTxt.text = warrantyModel.brand
         self.ModelTxt.text = warrantyModel.model
         self.SerialTxt.text = warrantyModel.serialNumber
-        self.NameTxt.text = ""
-        self.EmailTxt.text = ""
-        self.TelTxt.text = ""
+        self.NameTxt.text = Session.shared.user.fullName
+        self.EmailTxt.text = Session.shared.user.email
+        self.TelTxt.text = Session.shared.user.phone
         self.DateTxt.text = warrantyModel.getDate()
         self.StoreName.text = warrantyModel.buyLocation
         self.Price.text = warrantyModel.price

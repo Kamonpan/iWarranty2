@@ -21,15 +21,15 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="950"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo หน้าแรก" translatesAutoresizingMaskIntoConstraints="NO" id="o2k-rY-luI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="410"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="219"/>
                                 <color key="backgroundColor" red="0.0023141580168157816" green="0.84350079298019409" blue="0.66402816772460938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPq-cg-pEN">
-                                <rect key="frame" x="4" y="460" width="84" height="30"/>
+                                <rect key="frame" x="4" y="269" width="84" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="csS-Jm-xWX"/>
                                 </constraints>
@@ -38,7 +38,7 @@
                                 <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="กรุณากรอกอีเมล" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L4R-9o-Unv">
-                                <rect key="frame" x="96" y="460" width="204" height="30"/>
+                                <rect key="frame" x="96" y="269" width="204" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="R2N-dH-ig4"/>
                                 </constraints>
@@ -47,7 +47,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="กรุณากรอกรหัส" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iTb-Yf-HGK">
-                                <rect key="frame" x="102" y="540" width="198" height="30"/>
+                                <rect key="frame" x="102" y="349" width="198" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="iQf-Dy-2jM"/>
                                 </constraints>
@@ -56,7 +56,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OP2-HJ-n55">
-                                <rect key="frame" x="0.0" y="910" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="528" width="320" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHw-qY-h5J">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
@@ -92,7 +92,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmr-e8-wdD">
-                                <rect key="frame" x="20" y="540" width="74" height="30"/>
+                                <rect key="frame" x="20" y="349" width="74" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RsA-bS-gYP"/>
                                 </constraints>
@@ -956,10 +956,10 @@
             </objects>
             <point key="canvasLocation" x="977" y="136"/>
         </scene>
-        <!--Confirm Register-->
+        <!--Confirm Register View Controller-->
         <scene sceneID="uhL-eD-4P9">
             <objects>
-                <viewController storyboardIdentifier="ConfirmRegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RS1-z8-RkS" customClass="confirmRegister" customModule="MyISProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmRegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RS1-z8-RkS" customClass="ConfirmRegisterViewController" customModule="MyISProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cyq-ZF-y9H"/>
                         <viewControllerLayoutGuide type="bottom" id="rVT-Vg-KaZ"/>
@@ -1097,7 +1097,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="kyt-uF-6QK" kind="show" identifier="BackToRegister" id="pvx-DS-1je"/>
+                                                            <action selector="tapBackButton:" destination="RS1-z8-RkS" eventType="touchUpInside" id="BnF-Ge-ZiR"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvq-tr-15P">
@@ -1111,8 +1111,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="LoginWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PQC-jM-3LG"/>
-                                                            <segue destination="BYZ-38-t0r" kind="show" id="RWB-XW-z7M"/>
+                                                            <action selector="tapConfirmButton:" destination="RS1-z8-RkS" eventType="touchUpInside" id="z68-fv-38b"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -3483,7 +3482,4 @@
         <image name="ซ่อมไอโฟน" width="1600" height="899"/>
         <image name="ทีวี" width="1500" height="1500"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="pvx-DS-1je"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import SwiftOverlays
 
 class ConfirmQRViewController: UIViewController {
 
@@ -30,13 +31,14 @@ class ConfirmQRViewController: UIViewController {
         guard let warrantyModel = self.warrantyModel else {
             return
         }
+        SwiftOverlays.showBlockingWaitOverlay()
         guard warrantyModel.serialNumber != "" else {
             AlertHelper.showAlert(title: "Error", message: "กรุณากรอกหมายเลขเครื่อง", ViewController: self)
             return
         }
         let warrantyRef = firebaseRef.child("Warranties").child(warrantyModel.serialNumber)
         warrantyRef.setValue(warrantyModel.toAnyObject())
-        
+        SwiftOverlays.removeAllBlockingOverlays()
         let alert = UIAlertController(title: "success", message: "ทำรายการสำเร็จ", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: self.okHandler))
         

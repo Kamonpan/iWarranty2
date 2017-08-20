@@ -9,13 +9,16 @@
 import Foundation
 
 class MyDateFormatter {
-    class func string(from date: Date) -> String {
+    class func string(from date: Date?) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en-US")
         dateFormatter.dateFormat = "dd/MM/yyyy"
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        let formatted = dateFormatter.string(from: date)
-        return formatted
+        if let date = date {
+            return dateFormatter.string(from: date)
+        } else {
+            return ""
+        }
     }
     
     class func date(from string: String) -> Date? {

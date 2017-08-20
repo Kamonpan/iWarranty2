@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 import SwiftOverlays
 
 class ViewController: UIViewController,UITextFieldDelegate {
@@ -20,6 +21,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var RegisBtn: UIButton!
     @IBOutlet weak var LoginBtn: UIButton!
     
+    fileprivate var firebaseRef: DatabaseReference!
+    
     //hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -30,11 +33,22 @@ class ViewController: UIViewController,UITextFieldDelegate {
         return true
     }
 
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        EmailTxt.text = "a@a.com"
+        PasswordTxt.text = "123456"
+        
+        EmailTxt.delegate = self
+        PasswordTxt.delegate = self
+        
+        self.firebaseRef = Database.database().reference()
+    }
     
 //เงื่อนไขการ login
     @IBAction func Login(_sender: Any) {
         SwiftOverlays.showBlockingWaitOverlay()
+        
         Auth.auth().signIn(withEmail: EmailTxt.text!, password: PasswordTxt.text!) { (user, error) in
             guard let user = user else {
                 if let error = error {
@@ -43,6 +57,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 }
                 return
             }
+            
+            self.firebaseRef.child("Users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                Session.shared.user = UserModel(snapshot: snapshot)
+            })
+            
             SwiftOverlays.removeAllBlockingOverlays()
 
             let GotoAddWarrantyTabbar = self.storyboard!.instantiateViewController(withIdentifier: "GotoAddWarrantyTabbar")
@@ -52,23 +71,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
             appDelegate.window?.rootViewController = GotoAddWarrantyTabbar
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        EmailTxt.text = "a@a.com"
-        PasswordTxt.text = "123456"
-
-        EmailTxt.delegate = self
-        PasswordTxt.delegate = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
 
 }
 

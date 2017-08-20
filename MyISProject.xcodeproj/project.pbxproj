@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		910E63741F2CAD22004AD583 /* PromoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E63731F2CAD22004AD583 /* PromoDetailViewController.swift */; };
 		910E63781F2DBC69004AD583 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E63771F2DBC69004AD583 /* SettingTableViewController.swift */; };
-		91200D0A1F197FC1006AD068 /* confirmRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91200D091F197FC1006AD068 /* confirmRegister.swift */; };
+		91200D0A1F197FC1006AD068 /* ConfirmRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91200D091F197FC1006AD068 /* ConfirmRegisterViewController.swift */; };
 		91200D0F1F1A289A006AD068 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91200D0E1F1A289A006AD068 /* TableViewController.swift */; };
 		91200D111F1A56B6006AD068 /* AddWarrantyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91200D101F1A56B6006AD068 /* AddWarrantyViewController.swift */; };
 		91200D151F1A77BB006AD068 /* DetailWarrantyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91200D141F1A77BB006AD068 /* DetailWarrantyViewController.swift */; };
@@ -48,6 +48,8 @@
 		F23BD2421F41552600E316D5 /* HistoryConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2411F41552600E316D5 /* HistoryConfirmViewController.swift */; };
 		F23BD2451F417F9600E316D5 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2441F417F9600E316D5 /* ResetPasswordViewController.swift */; };
 		F23BD2471F418E0600E316D5 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2461F418E0600E316D5 /* EditProfileViewController.swift */; };
+		F23BD2491F49724300E316D5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2481F49724300E316D5 /* UserModel.swift */; };
+		F23BD24B1F4986B900E316D5 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD24A1F4986B900E316D5 /* Session.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +61,7 @@
 		5F8CF479C07CB16E80C31CFF /* Pods-MyISProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyISProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyISProjectTests/Pods-MyISProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		910E63731F2CAD22004AD583 /* PromoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoDetailViewController.swift; sourceTree = "<group>"; };
 		910E63771F2DBC69004AD583 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
-		91200D091F197FC1006AD068 /* confirmRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = confirmRegister.swift; sourceTree = "<group>"; };
+		91200D091F197FC1006AD068 /* ConfirmRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmRegisterViewController.swift; sourceTree = "<group>"; };
 		91200D0E1F1A289A006AD068 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		91200D101F1A56B6006AD068 /* AddWarrantyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWarrantyViewController.swift; sourceTree = "<group>"; };
 		91200D141F1A77BB006AD068 /* DetailWarrantyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailWarrantyViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,8 @@
 		F23BD2411F41552600E316D5 /* HistoryConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryConfirmViewController.swift; sourceTree = "<group>"; };
 		F23BD2441F417F9600E316D5 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		F23BD2461F418E0600E316D5 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		F23BD2481F49724300E316D5 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		F23BD24A1F4986B900E316D5 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,12 +191,12 @@
 				F23BD2261F3ED26900E316D5 /* Model */,
 				91200D9B1F23A8D3006AD068 /* Sub Screen */,
 				91200D8F1F210E33006AD068 /* manage */,
-				F23BD2431F41788600E316D5 /* View */,
 				91200D8A1F210342006AD068 /* ViewController */,
 				91C258791F1225830089F340 /* AppDelegate.swift */,
 				91C2587D1F1225830089F340 /* Main.storyboard */,
 				91C258821F1225830089F340 /* LaunchScreen.storyboard */,
 				F23BD2341F3F671900E316D5 /* Supporting Files */,
+				F23BD24A1F4986B900E316D5 /* Session.swift */,
 			);
 			path = MyISProject;
 			sourceTree = "<group>";
@@ -227,8 +231,8 @@
 			children = (
 				91C2587B1F1225830089F340 /* ViewController.swift */,
 				910E63771F2DBC69004AD583 /* SettingTableViewController.swift */,
-				91200D091F197FC1006AD068 /* confirmRegister.swift */,
 				91C258B01F17B3F90089F340 /* RegisterViewController.swift */,
+				91200D091F197FC1006AD068 /* ConfirmRegisterViewController.swift */,
 				F23BD2441F417F9600E316D5 /* ResetPasswordViewController.swift */,
 				F23BD2461F418E0600E316D5 /* EditProfileViewController.swift */,
 			);
@@ -280,6 +284,7 @@
 				F23BD2371F3F699700E316D5 /* Promotion.swift */,
 				F23BD2391F3F69AA00E316D5 /* Brand.swift */,
 				F23BD23B1F3F69CE00E316D5 /* Notification.swift */,
+				F23BD2481F49724300E316D5 /* UserModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -302,13 +307,6 @@
 				91C258851F1225830089F340 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F23BD2431F41788600E316D5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,7 +398,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		72DA1E1CAADBC87BB25756A6 /* [CP] Copy Pods Resources */ = {
@@ -461,6 +459,8 @@
 				F23BD23E1F400CCF00E316D5 /* AlertHelper.swift in Sources */,
 				919FB5C21F388C6E002BD2E5 /* ConditionViewController.swift in Sources */,
 				F23BD23A1F3F69AA00E316D5 /* Brand.swift in Sources */,
+				F23BD24B1F4986B900E316D5 /* Session.swift in Sources */,
+				F23BD2491F49724300E316D5 /* UserModel.swift in Sources */,
 				91200DA31F2ACFB3006AD068 /* HistoryViewController.swift in Sources */,
 				91200DB01F2B92A0006AD068 /* ImageCollectionViewCell.swift in Sources */,
 				F23BD2471F418E0600E316D5 /* EditProfileViewController.swift in Sources */,
@@ -482,7 +482,7 @@
 				F23BD22D1F3F2A1200E316D5 /* HistoryModel.swift in Sources */,
 				F23BD22B1F3EEEFD00E316D5 /* MyDateFormatter.swift in Sources */,
 				F23BD2281F3ED27800E316D5 /* WarrantyModel.swift in Sources */,
-				91200D0A1F197FC1006AD068 /* confirmRegister.swift in Sources */,
+				91200D0A1F197FC1006AD068 /* ConfirmRegisterViewController.swift in Sources */,
 				910E63781F2DBC69004AD583 /* SettingTableViewController.swift in Sources */,
 				91200DB21F2B9A54006AD068 /* WebViewController.swift in Sources */,
 				91200DA71F2B367A006AD068 /* PromotionViewController.swift in Sources */,

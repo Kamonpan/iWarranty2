@@ -22,34 +22,33 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var ProvinceTxt: UITextField!
     @IBOutlet weak var ZipCodeTxt: UITextField!
     
-   
+    let datePicker = UIDatePicker()
 
     @IBAction func NextBtn(_ sender: Any) {
-        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "ConfirmRegisterViewController") as! confirmRegister
-        self.navigationController?.pushViewController(viewController, animated: true)
+        if PasswordTxt.text! != RePassTxt.text! {
+            AlertHelper.showAlert(title: "Error", message: "รหัสผ่านไม่ตรงกัน", ViewController: self)
+        } else {
+            var userModel = UserModel()
+            userModel.fullName = self.NameTxt.text!
+            userModel.email = self.EmailTxt.text!
+            userModel.password = self.PasswordTxt.text!
+            userModel.birthDate = MyDateFormatter.date(from: self.BirthTxt.text!)
+            userModel.phone = self.TelTxt.text!
+            userModel.address = self.AddressTxt.text!
+            userModel.tumbol = self.SubDistrictTxt.text!
+            userModel.amphur = self.DistrictTxt.text!
+            userModel.province = self.ProvinceTxt.text!
+            userModel.postcode = self.ZipCodeTxt.text!
+            let viewController = self.storyboard!.instantiateViewController(withIdentifier: "ConfirmRegisterViewController") as! ConfirmRegisterViewController
+            viewController.userModel = userModel
+            self.present(viewController, animated: true, completion: nil)
+        }
     }
+    
     @IBAction func BackBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    //pass ค่าไปให้อีกหน้า
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let ConfirmRegisterPage = segue.destination as? confirmRegister {
-            ConfirmRegisterPage.NameInput = NameTxt.text!
-            ConfirmRegisterPage.EmailInput = EmailTxt.text!
-            ConfirmRegisterPage.PasswordInput = PasswordTxt.text!
-            ConfirmRegisterPage.RePassInput = RePassTxt.text!
-            ConfirmRegisterPage.BirthInput = BirthTxt.text!
-            ConfirmRegisterPage.TelInput = TelTxt.text!
-            ConfirmRegisterPage.AddressInput = AddressTxt.text!
-            ConfirmRegisterPage.SubDistrictInput = SubDistrictTxt.text!
-            ConfirmRegisterPage.DistrictInput = DistrictTxt.text!
-            ConfirmRegisterPage.ProvinceInput = ProvinceTxt.text!
-            ConfirmRegisterPage.ZipcodeInput = ZipCodeTxt.text!
-        }
-        
-        
-    }
     //hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -76,6 +75,30 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         DistrictTxt.delegate = self
         ProvinceTxt.delegate = self
         ZipCodeTxt.delegate = self
+        
+        DatePicker()
+    }
+    
+    func DatePicker(){
+        //format date for picker
+        datePicker.datePickerMode = .date
+        
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        //bar button item
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: nil ,action: #selector(donePressed))
+        
+        toolbar.setItems([doneButton], animated: false)
+        self.BirthTxt.inputAccessoryView = toolbar
+        self.BirthTxt.inputView = datePicker
+    }
+    
+    func donePressed(){
+        
+        self.BirthTxt.text = MyDateFormatter.string(from: datePicker.date)
+        self.view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
