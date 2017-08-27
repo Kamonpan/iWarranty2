@@ -22,6 +22,10 @@ class ContactViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func tapProfileButton(_ sender: Any) {
+        let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingTableViewController")
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
 
     /*
     // MARK: - Navigation

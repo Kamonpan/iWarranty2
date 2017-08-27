@@ -50,6 +50,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         SwiftOverlays.showBlockingWaitOverlay()
         
         Auth.auth().signIn(withEmail: EmailTxt.text!, password: PasswordTxt.text!) { (user, error) in
+            SwiftOverlays.removeAllBlockingOverlays()
             guard let user = user else {
                 if let error = error {
                     AlertHelper.showAlert(title: "Error", message: error.localizedDescription, ViewController: self)
@@ -58,10 +59,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 return
             }
             
-            self.firebaseRef.child("Users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            SwiftOverlays.showBlockingWaitOverlay()
+            self.firebaseRef.child("users").child(user.uid).observe(.value, with: { (snapshot) in
                 Session.shared.user = UserModel(snapshot: snapshot)
             })
-            
             SwiftOverlays.removeAllBlockingOverlays()
 
             let GotoAddWarrantyTabbar = self.storyboard!.instantiateViewController(withIdentifier: "GotoAddWarrantyTabbar")

@@ -77,12 +77,14 @@ class SettingTableViewController: UITableViewController {
             }
             
         } else if indexPath.section == 0, indexPath.row == 1 {
-            let resetPWViewController = self.storyboard!.instantiateViewController(withIdentifier: "ResetPasswordViewController") as! ResetPasswordViewController
-            self.navigationController?.pushViewController(resetPWViewController, animated: true)
+            Auth.auth().sendPasswordReset(withEmail: (Auth.auth().currentUser?.email)!, completion: { (error) in
+                AlertHelper.showAlert(title: "Success", message: "อีเมล์ได้ถูกส่งไปยังเมล์ของท่านแล้ว", ViewController: self)
+            })
         } else if indexPath.section == 0, indexPath.row == 0 {
             let editProfileViewController = self.storyboard!.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
             self.navigationController?.pushViewController(editProfileViewController, animated: true)
         }
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

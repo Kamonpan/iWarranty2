@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
 
 struct WarrantyModel {
     var type: String = ""
@@ -18,6 +19,7 @@ struct WarrantyModel {
     var buyLocation: String = ""
     var price: String = ""
     var receipt: Data?
+    var uid: String = ""
     
     init() {
         
@@ -45,6 +47,7 @@ struct WarrantyModel {
         self.buyLocation = snapshotValue["store"] as! String
         self.price = snapshotValue["price"] as! String
         self.receipt = Data(base64Encoded: snapshotValue["receipt"] as! String)
+        self.uid = snapshotValue["uid"] as! String
     }
     
     func toAnyObject() -> Any {
@@ -56,7 +59,8 @@ struct WarrantyModel {
             "buyDate": self.getDate(),
             "store": buyLocation,
             "price": price,
-            "receipt": getReceipt()
+            "receipt": getReceipt(),
+            "uid": Auth.auth().currentUser?.uid
         ]
     }
     

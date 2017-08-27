@@ -69,6 +69,10 @@ class NotificationViewController: UIViewController ,UITableViewDelegate ,UITable
     }
     
     
+    @IBAction func tapProfileButton(_ sender: Any) {
+        let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingTableViewController")
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
     
 
     override func viewDidLoad() {

@@ -57,9 +57,9 @@ class ConfirmQRViewController: UIViewController {
         BrandLbl.text = warrantyModel.brand
         SerialLbl.text = warrantyModel.serialNumber
         ModelLbl.text = warrantyModel.model
-        NameLbl.text = ""
-        EmailLbl.text = ""
-        TelLbl.text = ""
+        NameLbl.text = Session.shared.user.fullName
+        EmailLbl.text = Session.shared.user.email
+        TelLbl.text = Session.shared.user.phone
         DateLbl.text = warrantyModel.getDate()
         StoreNameLbl.text = warrantyModel.buyLocation
         PriceLbl.text = warrantyModel.price

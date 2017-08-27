@@ -771,7 +771,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="62E-Vd-jea">
-                        <barButtonItem key="rightBarButtonItem" image="menuProfile" style="plain" id="UqT-7d-4dW"/>
+                        <barButtonItem key="rightBarButtonItem" image="menuProfile" style="plain" id="UqT-7d-4dW">
+                            <connections>
+                                <action selector="tapProfileButton:" destination="Kjf-nt-hWN" id="Aat-F4-239"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="BrandCollectionView" destination="EXz-YG-z34" id="IL9-Qg-llb"/>
@@ -920,7 +924,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="BH7-g5-z05">
-                        <barButtonItem key="rightBarButtonItem" image="menuProfile" style="plain" id="abv-o3-oNX"/>
+                        <barButtonItem key="rightBarButtonItem" image="menuProfile" style="plain" id="abv-o3-oNX">
+                            <connections>
+                                <action selector="tapProfileButton:" destination="dBA-Fm-KS5" id="TQd-Os-ir9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="JHo-0Z-Kx8" id="l72-ai-9mv"/>
@@ -1429,7 +1437,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="dZS-T8-kJ9">
-                        <barButtonItem key="rightBarButtonItem" image="menuProfile" style="plain" id="PUB-Um-NsC"/>
+                        <barButtonItem key="rightBarButtonItem" image="menuProfile" style="plain" id="PUB-Um-NsC">
+                            <connections>
+                                <action selector="tapProfileButton:" destination="dBW-Ji-AkE" id="T7c-Jg-ba5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qo2-lf-zNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3374,6 +3386,9 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="titleShadowColor" red="0.25923610489999999" green="1" blue="0.75227143860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tapConfirmButton:" destination="K9j-lw-2qs" eventType="touchUpInside" id="zU5-1L-b0x"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -3463,6 +3478,19 @@
                     <navigationItem key="navigationItem" id="4Ro-Yf-zqn"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="950"/>
+                    <connections>
+                        <outlet property="addressTextField" destination="G3J-XN-3Y7" id="oGb-df-KO4"/>
+                        <outlet property="amphurTextField" destination="hjd-S2-1RT" id="9Ti-mU-Tbd"/>
+                        <outlet property="birthDateTextField" destination="4LA-py-0M2" id="26q-Bh-l33"/>
+                        <outlet property="emailTextField" destination="yCK-KO-SnW" id="cWA-NB-kA0"/>
+                        <outlet property="nameTextField" destination="pN1-Lo-OeO" id="YCO-ce-WEP"/>
+                        <outlet property="passwordTextField" destination="g2P-M3-wMF" id="EJb-D7-oTl"/>
+                        <outlet property="phoneTextField" destination="Bfy-Ex-eD0" id="oGk-Q9-sZJ"/>
+                        <outlet property="postcodeTextField" destination="EKC-mR-apQ" id="Ygq-nR-cAD"/>
+                        <outlet property="provinceTextField" destination="v3g-Pw-03X" id="c6R-d0-5IG"/>
+                        <outlet property="rePasswordTextField" destination="vvD-BF-pRR" id="shv-qP-Lxt"/>
+                        <outlet property="tumbolTextField" destination="XpI-fO-GHV" id="uK5-PW-VNb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBQ-A8-nx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

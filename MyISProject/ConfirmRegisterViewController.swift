@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import SwiftOverlays
 
 class ConfirmRegisterViewController: UIViewController {
 
@@ -54,8 +55,9 @@ class ConfirmRegisterViewController: UIViewController {
             AlertHelper.showAlert(title: "Error", message: "กรุณาใส่ ชื่อ-นามสกุล", ViewController: self)
             return
         }
-        
+        SwiftOverlays.showBlockingWaitOverlay()
         Auth.auth().createUser(withEmail: userModel.email, password: userModel.password) { (user, error) in
+            SwiftOverlays.removeAllBlockingOverlays()
             if let error = error {
                 AlertHelper.showAlert(title: "Error", message: error.localizedDescription, ViewController: self)
             } else {
@@ -67,8 +69,6 @@ class ConfirmRegisterViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
         }
-        
-        
     }
     
     func okHandler(alert: UIAlertAction!){

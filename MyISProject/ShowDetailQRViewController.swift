@@ -151,15 +151,17 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
     override func viewDidLoad() {
         super.viewDidLoad()
         DatePicker()
-        guard let warrantyModel = self.warrantyModel else {
-            return
-        }
-        self.BrandTxt.text = warrantyModel.brand
-        self.ModelTxt.text = warrantyModel.model
-        self.SerialTxt.text = warrantyModel.serialNumber
         self.NameTxt.text = Session.shared.user.fullName
         self.EmailTxt.text = Session.shared.user.email
         self.TelTxt.text = Session.shared.user.phone
+        
+        guard let warrantyModel = self.warrantyModel else {
+            return
+        }
+        
+        self.BrandTxt.text = warrantyModel.brand
+        self.ModelTxt.text = warrantyModel.model
+        self.SerialTxt.text = warrantyModel.serialNumber
         self.DateTxt.text = warrantyModel.getDate()
         self.StoreName.text = warrantyModel.buyLocation
         self.Price.text = warrantyModel.price

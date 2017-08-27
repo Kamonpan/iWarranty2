@@ -25,7 +25,9 @@ class HistoryViewController: UIViewController {
             for item in snapshot.children {
                 let snapshot = item as! DataSnapshot
                 let historyModel = HistoryModel(snapshot: snapshot)
-                newItems.append(historyModel)
+                if historyModel.uid == self.getUid() {
+                    newItems.append(historyModel)
+                }
             }
             self.historyModelList = newItems
             self.HistoryTableView.reloadData()

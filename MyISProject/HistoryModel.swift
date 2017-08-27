@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
 
 struct HistoryModel {
     var subject: String = ""
@@ -18,6 +19,7 @@ struct HistoryModel {
     var date: Date?
     var note: String = ""
     var image: Data?
+    var uid: String = ""
     
     init() {}
     
@@ -43,6 +45,7 @@ struct HistoryModel {
         self.date = MyDateFormatter.date(from: snapshotValue["sendDate"] as! String)
         self.note = snapshotValue["note"] as! String
         self.image = Data(base64Encoded: snapshotValue["image"] as! String)
+        self.uid = snapshotValue["uid"] as! String
     }
     
     func toAnyObject() -> Any {
@@ -54,7 +57,8 @@ struct HistoryModel {
             "serialNumber": self.serialNumber,
             "sendDate": self.getDate(),
             "note": self.note,
-            "image": self.getImage()
+            "image": self.getImage(),
+            "uid": Auth.auth().currentUser?.uid
         ]
     }
     

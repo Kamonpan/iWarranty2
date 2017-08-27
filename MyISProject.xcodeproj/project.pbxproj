@@ -50,6 +50,7 @@
 		F23BD2471F418E0600E316D5 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2461F418E0600E316D5 /* EditProfileViewController.swift */; };
 		F23BD2491F49724300E316D5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2481F49724300E316D5 /* UserModel.swift */; };
 		F23BD24B1F4986B900E316D5 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD24A1F4986B900E316D5 /* Session.swift */; };
+		F23BD24E1F511C2500E316D5 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD24D1F511C2500E316D5 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		F23BD2461F418E0600E316D5 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		F23BD2481F49724300E316D5 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F23BD24A1F4986B900E316D5 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		F23BD24D1F511C2500E316D5 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 		91C258781F1225830089F340 /* MyISProject */ = {
 			isa = PBXGroup;
 			children = (
+				F23BD24C1F511C1500E316D5 /* Extension */,
 				F23BD2291F3EEEF100E316D5 /* Utility */,
 				F23BD2261F3ED26900E316D5 /* Model */,
 				91200D9B1F23A8D3006AD068 /* Sub Screen */,
@@ -307,6 +310,14 @@
 				91C258851F1225830089F340 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F23BD24C1F511C1500E316D5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F23BD24D1F511C2500E316D5 /* UIViewController+Extension.swift */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,6 +484,7 @@
 				F23BD2311F3F2AA000E316D5 /* HistoryDetailViewController.swift in Sources */,
 				91C2587A1F1225830089F340 /* AppDelegate.swift in Sources */,
 				91200DAC1F2B4158006AD068 /* ConfirmQRViewController.swift in Sources */,
+				F23BD24E1F511C2500E316D5 /* UIViewController+Extension.swift in Sources */,
 				91200D8E1F210396006AD068 /* MainNavigationViewController.swift in Sources */,
 				910E63741F2CAD22004AD583 /* PromoDetailViewController.swift in Sources */,
 				F23BD2381F3F699700E316D5 /* Promotion.swift in Sources */,
