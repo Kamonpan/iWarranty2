@@ -15,11 +15,11 @@ class HistoryConfirmViewController: UIViewController {
     
     fileprivate var firebaseRef = Database.database().reference()
     
-    @IBOutlet weak var subjectTextField: UITextField!
-    @IBOutlet weak var modelTextField: UITextField!
-    @IBOutlet weak var serialNumberTextField: UITextField!
-    @IBOutlet weak var sendDateTextField: UITextField!
-    @IBOutlet weak var noteTextField: UITextField!
+    @IBOutlet weak var subjectTextField: UILabel!
+    @IBOutlet weak var modelTextField: UILabel!
+    @IBOutlet weak var serialNumberTextField: UILabel!
+    @IBOutlet weak var sendDateTextField: UILabel!
+    @IBOutlet weak var noteTextField: UILabel!
     @IBOutlet weak var fixImageView: UIImageView!
 
     
