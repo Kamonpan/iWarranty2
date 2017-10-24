@@ -60,7 +60,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
             }
             
             SwiftOverlays.showBlockingWaitOverlay()
-            self.firebaseRef.child("users").child(user.uid).observe(.value, with: { (snapshot) in
+            self.firebaseRef.child("Users").child(user.uid).observe(.value, with: { (snapshot) in
                 Session.shared.user = UserModel(snapshot: snapshot)
             })
             SwiftOverlays.removeAllBlockingOverlays()
