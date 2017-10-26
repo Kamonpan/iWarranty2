@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -585,13 +586,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZN-R7-tOl">
                                 <rect key="frame" x="111" y="28" width="193" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOF-xz-rPL">
                                 <rect key="frame" x="111" y="66" width="193" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="หมายเลขเครื่อง:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQU-mC-sUr">
@@ -603,13 +604,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpF-g8-8Oo">
                                 <rect key="frame" x="110" y="104" width="194" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsF-Mb-oGn">
                                 <rect key="frame" x="110" y="138" width="194" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="รายละเอียดเพิ่มเติม:" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNf-ie-jbF">
@@ -625,7 +626,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLE-fL-iaS">
                                 <rect key="frame" x="111" y="186" width="193" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1367,42 +1368,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชื่อบริษัท:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEo-sL-fKu">
-                                        <rect key="frame" x="0.0" y="8" width="76" height="21"/>
+                                        <rect key="frame" x="0.0" y="21" width="76" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="บริษัท ทีซีแอล อิเล็กทรอนิกส์ (ไทยแลนด์) จำกัด" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLg-La-4hd">
-                                        <rect key="frame" x="65" y="0.0" width="240" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="อีเมล:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBn-2e-4DN">
-                                        <rect key="frame" x="0.0" y="37" width="76" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="service.thai@tcl.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tN9-gh-wmH">
-                                        <rect key="frame" x="65" y="37" width="240" height="21"/>
+                                        <rect key="frame" x="65" y="12" width="240" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="โทรศัพท์:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8c-Yh-TGw">
-                                        <rect key="frame" x="0.0" y="66" width="76" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="02-248-7506-08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZH-C5-4xJ">
-                                        <rect key="frame" x="65" y="66" width="240" height="21"/>
+                                        <rect key="frame" x="0.0" y="58" width="76" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1417,6 +1397,13 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="วันจันทร์-วันศุกร์ เวลา 9:00 น.-18:00 น." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfd-g5-wkc">
                                         <rect key="frame" x="65" y="95" width="240" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="02-248-7506-08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZH-C5-4xJ">
+                                        <rect key="frame" x="65" y="58" width="240" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1460,6 +1447,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="lKz-7p-1SI">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -1956,27 +1944,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="305" height="71"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="บริษัท: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r67-QV-fJh">
-                                <rect key="frame" x="16" y="20" width="50" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ค้นหาศูนย์บริการ : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r67-QV-fJh">
+                                <rect key="frame" x="16" y="8" width="124" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chU-Mm-4Rq">
-                                <rect key="frame" x="73" y="15" width="216" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="กรุณากรอกรหัสไปรษณีย์" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chU-Mm-4Rq">
+                                <rect key="frame" x="16" y="33" width="231" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cto-dA-j6j" customClass="SwitchCameraButton">
+                                <rect key="frame" x="255" y="36" width="43" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="ค้นหา">
+                                    <color key="titleColor" red="0.24993740980000001" green="0.54019535730000001" blue="0.80171382430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c69-xZ-wLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1701.5625" y="1849.6478873239437"/>
+            <point key="canvasLocation" x="1701.5625" y="1849.1197183098591"/>
         </scene>
         <!--History Edit View Controller-->
         <scene sceneID="SMj-4s-BDk">
@@ -2007,7 +2003,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="itx-bI-4GR">
                                 <rect key="frame" x="111" y="72" width="227" height="30"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -2016,13 +2012,13 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="193" id="QLJ-wY-QaR"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ikP-Z1-8zy">
                                 <rect key="frame" x="111" y="109" width="193" height="30"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -2928,28 +2924,6 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p94-kM-EBT">
-                                <rect key="frame" x="0.0" y="64" width="152" height="29"/>
-                                <color key="backgroundColor" red="0.64334578890000005" green="0.40307859530000001" blue="0.82316782990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="152" id="OF1-B6-qUm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="ข้อมูลใบรับประกัน"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOI-r3-A3e">
-                                <rect key="frame" x="152" y="64" width="168" height="29"/>
-                                <color key="backgroundColor" red="0.64334578890000005" green="0.40307859530000001" blue="0.82316782990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="เงื่อนไขการรับประกัน">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="iU7-Cw-9eL" kind="show" id="7rM-lu-t7c"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2963,15 +2937,12 @@
                             <constraint firstItem="hs6-ZS-3vS" firstAttribute="top" secondItem="8uo-RP-EXH" secondAttribute="bottom" constant="16" id="AyU-Zc-7a8"/>
                             <constraint firstItem="TGK-UE-FDo" firstAttribute="centerY" secondItem="HSc-PK-shA" secondAttribute="centerY" id="BjF-Mu-3YT"/>
                             <constraint firstItem="fVd-1q-QBh" firstAttribute="leading" secondItem="8uo-RP-EXH" secondAttribute="trailing" constant="8" id="E6E-by-aPA"/>
-                            <constraint firstItem="d5E-3n-cPI" firstAttribute="top" secondItem="YOI-r3-A3e" secondAttribute="bottom" constant="26" id="FVH-ox-Wsu"/>
                             <constraint firstItem="Z1w-Fu-0Z3" firstAttribute="centerY" secondItem="oHD-y6-ax6" secondAttribute="centerY" id="HSt-18-cMg"/>
                             <constraint firstItem="fVd-1q-QBh" firstAttribute="top" secondItem="hoW-Yk-KSZ" secondAttribute="bottom" constant="16" id="Hbc-uP-i90"/>
                             <constraint firstItem="YwY-dA-9Ec" firstAttribute="top" secondItem="WgM-lG-knX" secondAttribute="bottom" constant="16" id="Hub-yf-q9B"/>
                             <constraint firstItem="m7q-Xd-Z2T" firstAttribute="centerY" secondItem="ZPd-rd-FJD" secondAttribute="centerY" id="Jcr-gG-2vA"/>
-                            <constraint firstAttribute="trailing" secondItem="YOI-r3-A3e" secondAttribute="trailing" id="Jy6-oQ-h2r"/>
                             <constraint firstItem="dXB-B6-5ck" firstAttribute="top" secondItem="Z1w-Fu-0Z3" secondAttribute="bottom" constant="16" id="LRR-E0-Dxr"/>
                             <constraint firstItem="HSc-PK-shA" firstAttribute="leading" secondItem="ZPd-rd-FJD" secondAttribute="leading" id="M6U-KU-Gey"/>
-                            <constraint firstItem="YOI-r3-A3e" firstAttribute="baseline" secondItem="p94-kM-EBT" secondAttribute="firstBaseline" id="Ncg-3W-BnI"/>
                             <constraint firstItem="WgM-lG-knX" firstAttribute="top" secondItem="fVd-1q-QBh" secondAttribute="bottom" constant="16" id="NfY-9S-m1d"/>
                             <constraint firstItem="ZPd-rd-FJD" firstAttribute="top" secondItem="HSc-PK-shA" secondAttribute="bottom" constant="17" id="PKt-4X-DUz"/>
                             <constraint firstItem="oHD-y6-ax6" firstAttribute="top" secondItem="ZPd-rd-FJD" secondAttribute="bottom" constant="16" id="RNc-DL-ZIp"/>
@@ -2980,12 +2951,9 @@
                             <constraint firstItem="dXB-B6-5ck" firstAttribute="leading" secondItem="6hO-3j-P4H" secondAttribute="leadingMargin" id="Tx2-CB-8XV"/>
                             <constraint firstItem="HSc-PK-shA" firstAttribute="width" secondItem="ZPd-rd-FJD" secondAttribute="width" id="UqZ-3I-bf6"/>
                             <constraint firstItem="ZPd-rd-FJD" firstAttribute="width" secondItem="oHD-y6-ax6" secondAttribute="width" id="WoT-5h-o3i"/>
-                            <constraint firstItem="YOI-r3-A3e" firstAttribute="leading" secondItem="p94-kM-EBT" secondAttribute="trailing" id="WuE-Jm-2Ei"/>
                             <constraint firstItem="YwY-dA-9Ec" firstAttribute="leading" secondItem="LlY-Xd-Tv2" secondAttribute="trailing" constant="8" id="WuX-7B-rBR"/>
                             <constraint firstItem="oHD-y6-ax6" firstAttribute="trailing" secondItem="YwY-dA-9Ec" secondAttribute="trailing" id="Xji-qg-uz3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YwY-dA-9Ec" secondAttribute="trailing" id="a1q-NH-FqD"/>
-                            <constraint firstItem="p94-kM-EBT" firstAttribute="leading" secondItem="6hO-3j-P4H" secondAttribute="leading" id="b1P-u4-boJ"/>
-                            <constraint firstItem="YOI-r3-A3e" firstAttribute="firstBaseline" secondItem="p94-kM-EBT" secondAttribute="baseline" id="clP-Hw-2kw"/>
                             <constraint firstItem="YwY-dA-9Ec" firstAttribute="leading" secondItem="6hO-3j-P4H" secondAttribute="leadingMargin" constant="106" id="cwq-nW-Un6"/>
                             <constraint firstItem="m7q-Xd-Z2T" firstAttribute="top" secondItem="TGK-UE-FDo" secondAttribute="bottom" constant="16" id="fdW-IG-bcb"/>
                             <constraint firstItem="d5E-3n-cPI" firstAttribute="leading" secondItem="6hO-3j-P4H" secondAttribute="leadingMargin" constant="40" id="g0V-tL-7sP"/>
@@ -3001,7 +2969,6 @@
                             <constraint firstItem="dXB-B6-5ck" firstAttribute="trailing" secondItem="TGK-UE-FDo" secondAttribute="trailing" id="ue5-sG-fPv"/>
                             <constraint firstItem="dXB-B6-5ck" firstAttribute="trailing" secondItem="hs6-ZS-3vS" secondAttribute="trailing" id="vji-ls-dxx"/>
                             <constraint firstItem="LlY-Xd-Tv2" firstAttribute="top" secondItem="hs6-ZS-3vS" secondAttribute="bottom" constant="16" id="xFB-5Y-o6h"/>
-                            <constraint firstItem="YOI-r3-A3e" firstAttribute="top" secondItem="p94-kM-EBT" secondAttribute="top" id="xFp-WR-bNV"/>
                             <constraint firstItem="m7q-Xd-Z2T" firstAttribute="trailing" secondItem="TGK-UE-FDo" secondAttribute="trailing" id="xOD-bo-Pm8"/>
                             <constraint firstItem="WgM-lG-knX" firstAttribute="width" secondItem="fVd-1q-QBh" secondAttribute="width" constant="-66" id="zGZ-eT-NBP"/>
                         </constraints>
@@ -3027,109 +2994,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9q-B8-LDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4944" y="-586"/>
-        </scene>
-        <!--Condition View Controller-->
-        <scene sceneID="fVn-sj-g4o">
-            <objects>
-                <viewController id="iU7-Cw-9eL" customClass="ConditionViewController" customModule="MyISProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="X34-Wy-WCs"/>
-                        <viewControllerLayoutGuide type="bottom" id="mHq-s9-1Ot"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xPL-gL-rvm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="samsung" translatesAutoresizingMaskIntoConstraints="NO" id="NoL-vf-KPi">
-                                <rect key="frame" x="89" y="99" width="143" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ผลิตภัณฑ์เกี่ยวกับภาพและเสียง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0r-lc-Phv">
-                                <rect key="frame" x="16" y="239" width="288" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gsj-Gi-viP">
-                                <rect key="frame" x="23" y="308" width="280" height="243"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="243" id="qAW-cs-MJV"/>
-                                </constraints>
-                                <string key="text">การรับประกัน
-ค่าแรงและค่าอะไหล่ รวมถึงค่าเดินทาง(เฉพาะรุ่นที่มีบริการซ่อมถึงบ้าน)
-ส่งซ่อมที่ศูนย์บริการ(29 นิ้วลงมา), บริการซ่อมถึงบ้าน (32 นิ้วขึ้นไป)
-ระยะเวลาการรับประกัน
-ระยะการรับประกัน 1 ปี (12 เดือน) นับจากวันที่ซื้อโดยอ้างอิงจากใบกำกับภาษี
-
-** รีโมทคอนโทรล รับประกัน 6 เดือน
-** ทัชแพตรีโมท รับประกัน 1 ปี (12 เดือน) (เฉพาะรุ่น)
-อุปกรณ์ที่ไม่รับประกัน ได้แก่
-1. หน้าจอพลาสติก
-2. ตู้ครอบทีวี
-3. เสาและสายเคเบิล
-4. ชิ้นส่วนภายนอกเช่นคันโยก, ปลั๊ก, ซ็อกเก็ต,ลูกบิดควบคุมหรืออะแดปเตอร์
-5. อุปกรณ์เสริมในกล่องเช่นอะแดปเตอร์</string>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="แอลซีดีทีวี" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHQ-FO-bwz">
-                                <rect key="frame" x="16" y="281" width="66" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9s-1f-fqi">
-                                <rect key="frame" x="0.0" y="20" width="168" height="29"/>
-                                <color key="backgroundColor" red="0.64334578890000005" green="0.40307859530000001" blue="0.82316782990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="168" id="2vp-mi-RIg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="ข้อมูลใบรับประกัน"/>
-                                <connections>
-                                    <action selector="warrantyBtn:" destination="iU7-Cw-9eL" eventType="touchUpInside" id="EjS-wa-Kcr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ima-Kc-9tf">
-                                <rect key="frame" x="168" y="20" width="152" height="29"/>
-                                <color key="backgroundColor" red="0.64334578890000005" green="0.40307859530000001" blue="0.82316782990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="เงื่อนไขการรับประกัน">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Ima-Kc-9tf" firstAttribute="top" secondItem="d9s-1f-fqi" secondAttribute="top" id="1n6-xW-fZh"/>
-                            <constraint firstItem="R0r-lc-Phv" firstAttribute="trailing" secondItem="xPL-gL-rvm" secondAttribute="trailingMargin" id="603-Av-dDY"/>
-                            <constraint firstItem="Ima-Kc-9tf" firstAttribute="leading" secondItem="d9s-1f-fqi" secondAttribute="trailing" id="AuC-SP-fVM"/>
-                            <constraint firstItem="Gsj-Gi-viP" firstAttribute="top" secondItem="hHQ-FO-bwz" secondAttribute="bottom" constant="8" id="Hnc-ee-RHt"/>
-                            <constraint firstItem="Ima-Kc-9tf" firstAttribute="firstBaseline" secondItem="d9s-1f-fqi" secondAttribute="baseline" id="JjD-Sk-E2p"/>
-                            <constraint firstItem="Gsj-Gi-viP" firstAttribute="trailing" secondItem="xPL-gL-rvm" secondAttribute="trailingMargin" constant="-1" id="K7x-3U-MYb"/>
-                            <constraint firstItem="Gsj-Gi-viP" firstAttribute="leading" secondItem="xPL-gL-rvm" secondAttribute="leadingMargin" constant="7" id="LKa-Le-j0h"/>
-                            <constraint firstItem="Ima-Kc-9tf" firstAttribute="leading" secondItem="d9s-1f-fqi" secondAttribute="trailing" id="OLN-eH-0yc"/>
-                            <constraint firstAttribute="trailing" secondItem="Ima-Kc-9tf" secondAttribute="trailing" id="P15-fO-eN9"/>
-                            <constraint firstItem="hHQ-FO-bwz" firstAttribute="top" secondItem="R0r-lc-Phv" secondAttribute="bottom" constant="21" id="PdN-aM-2bn"/>
-                            <constraint firstItem="Ima-Kc-9tf" firstAttribute="top" secondItem="X34-Wy-WCs" secondAttribute="bottom" id="ehc-kE-Ali"/>
-                            <constraint firstItem="Gsj-Gi-viP" firstAttribute="top" secondItem="hHQ-FO-bwz" secondAttribute="bottom" constant="8" id="hcc-GD-7DH"/>
-                            <constraint firstItem="d9s-1f-fqi" firstAttribute="top" secondItem="X34-Wy-WCs" secondAttribute="bottom" id="ktg-bj-ULp"/>
-                            <constraint firstItem="Ima-Kc-9tf" firstAttribute="baseline" secondItem="d9s-1f-fqi" secondAttribute="firstBaseline" id="ljQ-dQ-R0x"/>
-                            <constraint firstItem="d9s-1f-fqi" firstAttribute="leading" secondItem="xPL-gL-rvm" secondAttribute="leadingMargin" constant="-16" id="mAz-XT-p8g"/>
-                            <constraint firstItem="hHQ-FO-bwz" firstAttribute="leading" secondItem="xPL-gL-rvm" secondAttribute="leadingMargin" id="uDH-4u-eod"/>
-                            <constraint firstItem="R0r-lc-Phv" firstAttribute="leading" secondItem="xPL-gL-rvm" secondAttribute="leadingMargin" id="ucz-zn-NzG"/>
-                            <constraint firstItem="mHq-s9-1Ot" firstAttribute="top" secondItem="Gsj-Gi-viP" secondAttribute="bottom" constant="17" id="ybO-km-gJs"/>
-                            <constraint firstItem="Ima-Kc-9tf" firstAttribute="leading" secondItem="d9s-1f-fqi" secondAttribute="trailing" id="z8R-57-ntn"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tBA-d4-S0u" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5850" y="-586"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="efQ-mn-4Yz">
@@ -3497,7 +3361,6 @@
         <image name="logo หน้าแรก" width="633" height="324"/>
         <image name="menuProfile" width="25" height="25"/>
         <image name="phone-book" width="25" height="25"/>
-        <image name="samsung" width="680" height="360"/>
         <image name="ซ่อมไอโฟน" width="1600" height="899"/>
         <image name="ทีวี" width="1500" height="1500"/>
     </resources>
