@@ -56,7 +56,7 @@ extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewController
         let history = historyModelList[indexPath.row]
-        cell.HistoryProductImage.image = UIImage(named: history.type)
+        cell.HistoryProductImage.image = UIImage(data: history.image!)
         cell.HistoryProduct.text = history.subject
         cell.DateToFixLbl.text = history.getDate()
         return cell

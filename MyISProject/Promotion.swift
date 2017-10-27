@@ -8,9 +8,17 @@
 
 import Foundation
 import UIKit
+import FirebaseDatabase
 
 class Promotion {
-    var picture = UIImage()
-    var pictureDetail = UIImage()
+    var picture: Data?
+    var pictureDetail: Data?
     
+    init(snapshot: DataSnapshot) {
+        
+        let snapshotValue = snapshot.value as! [String: AnyObject]
+        self.picture = Data(base64Encoded: snapshotValue["picture"] as! String)
+        
+
+    }
 }

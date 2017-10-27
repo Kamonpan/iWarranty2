@@ -51,7 +51,8 @@ class AddWarrantyViewController: UIViewController {
     
     @IBAction func tapAddWarrantyButton(_ sender: Any) {
         #if (arch(i386) || arch(x86_64)) && os(iOS)
-            let showDetailQRViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowDetailQRViewController")
+            let showDetailQRViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowDetailQRViewController") as! ShowDetailQRViewController
+            
             self.navigationController?.pushViewController(showDetailQRViewController, animated: true)
         #else
         readerVC.delegate = self
@@ -67,11 +68,22 @@ class AddWarrantyViewController: UIViewController {
     
 }
 
+// MARK:- QRCodeDelegate
 extension AddWarrantyViewController: QRCodeReaderViewControllerDelegate {
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
-        print(result)
         dismiss(animated: true, completion: nil)
+        let resultsArray = result.value.components(separatedBy: " ")
+        let brand = resultsArray[0]
+        let model = resultsArray[1]
+        let serialNumber = resultsArray[2]
+        let showDetailQRViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowDetailQRViewController") as! ShowDetailQRViewController
+        var warrantyModel = WarrantyModel()
+        warrantyModel.brand = brand
+        warrantyModel.model = model
+        warrantyModel.serialNumber = serialNumber
+        showDetailQRViewController.warrantyModel = warrantyModel
+        self.navigationController?.pushViewController(showDetailQRViewController, animated: true)
     }
     
     func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
@@ -82,12 +94,15 @@ extension AddWarrantyViewController: QRCodeReaderViewControllerDelegate {
     
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
         reader.stopScanning()
-        let showDetailQRViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowDetailQRViewController")
-        self.navigationController?.pushViewController(showDetailQRViewController, animated: true)
         dismiss(animated: true, completion: nil)
+        let showDetailQRViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowDetailQRViewController") as! ShowDetailQRViewController
+        var warrantyModel = WarrantyModel()
+        showDetailQRViewController.warrantyModel = warrantyModel
+        self.navigationController?.pushViewController(showDetailQRViewController, animated: true)
     }
 }
 
+// MARK:- UITableView Datasource
 extension AddWarrantyViewController: UITableViewDataSource {
     
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,6 +118,8 @@ extension AddWarrantyViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK:- UITableView Delegate
 
 extension AddWarrantyViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

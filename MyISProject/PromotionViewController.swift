@@ -7,31 +7,44 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import SwiftOverlays
 
-class PromotionViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource{
-    
+class PromotionViewController: UIViewController {
     
     var Brands = [Brand]()
-    var Promotions = [Promotion]()
+    var promotionModelList = [Promotion]()
     
-    func CreatePromotion(){
-        let Promo1 = Promotion()
-        Promo1.picture = UIImage(named: "powermallPromo")!
-        Promo1.pictureDetail = UIImage(named: "powerMallDetail")!
-        Promotions.append(Promo1)
+    fileprivate var firebase = Database.database().reference()
+
+    @IBOutlet weak var PromoTableView: UITableView!
+    @IBOutlet weak var BrandCollectionView: UICollectionView!
+
+    @IBAction func tapProfileButton(_ sender: Any) {
+        let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingTableViewController")
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
+   
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        let Promo2 = Promotion()
-        Promo2.picture = UIImage(named: "samsungPromo")!
-        Promo2.pictureDetail = UIImage(named: "samsungPromoDetail")!
-        Promotions.append(Promo2)
+        createBrand()
         
-        let Promo3 = Promotion()
-        Promo3.picture = UIImage(named: "washPromo")!
-        Promo3.pictureDetail = UIImage(named: "washPromoDetail")!
-        Promotions.append(Promo3)
+        SwiftOverlays.showBlockingWaitOverlay()
+        firebase.child("Promotions").observe(.value, with: { (snapshot) in
+            var newItems = [Promotion]()
+            for item in snapshot.children {
+                let snapshot = item as! DataSnapshot
+                let historyModel = Promotion(snapshot: snapshot)
+                newItems.append(historyModel)
+            }
+            self.promotionModelList = newItems
+            self.PromoTableView.reloadData()
+            SwiftOverlays.removeAllBlockingOverlays()
+        })
     }
     
-    func CreateBrand(){
+    func createBrand(){
         
         let Brand1 = Brand()
         Brand1.picture = UIImage(named:"Canon")!
@@ -57,37 +70,36 @@ class PromotionViewController: UIViewController,UITableViewDelegate,UITableViewD
         Brand5.picture = UIImage(named:"samsung")!
         Brand5.url = "http://www.samsung.com/th/"
         Brands.append(Brand5)
-
+        
     }
+    
+}
 
-    
-    
-    @IBOutlet weak var PromoTableView: UITableView!
-    
+extension PromotionViewController: UITableViewDataSource {
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // แสดงrowเท่ากับข้อมูลที่มี
-        return Promotions.count
+        return promotionModelList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewController
         
-        cell.PromoImage?.image = Promotions[indexPath.row].picture
+        cell.PromoImage?.image = UIImage(data: promotionModelList[indexPath.row].picture!)
         
         return cell
     }
-    //click เลือกสินค้า แล้วจะไปแสดงหน้ารายละเอียด
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //ProductIndex = indexPath.row
-        let Promotion = Promotions[indexPath.row]
-        performSegue(withIdentifier: "GoToPromoViewSegue", sender: Promotion)
-    }
+}
 
+extension PromotionViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let promotion = promotionModelList[indexPath.row]
+        let promotionDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PromoDetailViewController") as! PromoDetailViewController
+        promotionDetailViewController.promotion = promotion
+        self.present(promotionDetailViewController, animated: true, completion: nil)
+    }
     
-    
-    //-----------------------------------------------------------
-    //collectionview brand
-    @IBOutlet weak var BrandCollectionView: UICollectionView!
-    
+}
+
+
+extension PromotionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Brands.count
     }
@@ -99,8 +111,9 @@ class PromotionViewController: UIViewController,UITableViewDelegate,UITableViewD
         return cell
         
     }
-    //click เลือก brand แล้วจะไปแสดงหน้ารายละเอียด
-    
+}
+
+extension PromotionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
         let navController = UINavigationController(rootViewController: viewController)
@@ -108,39 +121,4 @@ class PromotionViewController: UIViewController,UITableViewDelegate,UITableViewD
         viewController.brand = Brands[indexPath.row]
         self.present(navController, animated: true, completion: nil)
     }
-    //-----------------------------------------------------------
-    
-    //ส่งค่า pass segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoToPromoViewSegue"{
-            
-            if let PromoDetailViewController = segue.destination as? PromoDetailViewController{
-                
-                if let Promo1 = sender as? Promotion //as class Promotion
-                {
-                    PromoDetailViewController.Promo = Promo1
-                }
-            }
-        }
-        
-    }
-    
-
-    @IBAction func tapProfileButton(_ sender: Any) {
-        let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingTableViewController")
-        self.navigationController?.pushViewController(profileViewController, animated: true)
-    }
-   
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        CreateBrand()
-        CreatePromotion()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 }

@@ -8,14 +8,15 @@
 
 import UIKit
 import FirebaseAuth
+import SwiftOverlays
 
 class SettingTableViewController: UITableViewController {
     let sections = ["Profile", "Setting"]
     let rows = ["Profile":
                         ["แก้ไขข้อมูลส่วนตัว","เปลี่ยนรหัสผ่าน"],
-                     "Setting":
-                        ["การแจ้งเตือน","แจ้งเตือนวันหมดอายุล่วงหน้า","ออกจากระบบ"]
-                    ]
+                "About":
+                        ["ข้อตกลงและเงื่อนไขการใช้งาน","ติดต่อเรา","ออกจากระบบ"]
+    ]
     
     
     @IBAction func CancelSettingBtn(_ sender: Any) {
@@ -46,12 +47,6 @@ class SettingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        if indexPath.section == 1, indexPath.row == 0 {
-            let theSwitch = UISwitch(frame: .zero)
-            cell.addSubview(theSwitch)
-            cell.accessoryView = theSwitch
-            theSwitch.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
-        }
         cell.textLabel?.text = rows[sections[indexPath.section]]![indexPath.row]
         cell.textLabel?.textColor = UIColor.darkGray
         return cell
@@ -73,13 +68,16 @@ class SettingTableViewController: UITableViewController {
                     
                 })
             } catch {
-                print(error.localizedDescription)
+                AlertHelper.showAlert(title: "Error", message: error.localizedDescription, ViewController: self)
             }
-            
+        // Reset password
         } else if indexPath.section == 0, indexPath.row == 1 {
+            SwiftOverlays.showBlockingWaitOverlay()
             Auth.auth().sendPasswordReset(withEmail: (Auth.auth().currentUser?.email)!, completion: { (error) in
+                SwiftOverlays.removeAllBlockingOverlays()
                 AlertHelper.showAlert(title: "Success", message: "อีเมล์ได้ถูกส่งไปยังเมล์ของท่านแล้ว", ViewController: self)
             })
+        // Edit profile
         } else if indexPath.section == 0, indexPath.row == 0 {
             let editProfileViewController = self.storyboard!.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
             self.navigationController?.pushViewController(editProfileViewController, animated: true)

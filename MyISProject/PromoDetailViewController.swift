@@ -9,16 +9,15 @@
 import UIKit
 
 class PromoDetailViewController: UIViewController {
-
-    @IBOutlet weak var PromoImage: UIImageView!
     
-    var Promo = Promotion()
-   
+    var promotion: Promotion!
+    
+    @IBOutlet weak var PromoImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        PromoImage.image = Promo.pictureDetail
+        PromoImage.image = UIImage(data: promotion.pictureDetail!)
     }
 
     override func didReceiveMemoryWarning() {

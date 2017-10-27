@@ -12,12 +12,19 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
     
     var warrantyModel: WarrantyModel?
     
+    fileprivate let categoryList = ["เครื่องใช้ไฟฟ้าขนาดเล็ก",
+    "เครื่องใช้ไฟฟ้าขนาดใหญ่",
+    "โทรศัพท์มือถือ-แท็บเล็ตและอุปกรณ์",
+    "คอมพิวเตอร์ & โน๊ตบุ๊ค",
+    "ทีวี-เครื่องเสียงและเครื่องเกม",
+    "กล้องและอุปกรณ์"];
+    
     @IBOutlet fileprivate weak var BrandTxt: UITextField!
     @IBOutlet fileprivate weak var SerialTxt: UITextField!
     @IBOutlet fileprivate weak var ModelTxt: UITextField!
     @IBOutlet fileprivate weak var NameTxt: UITextField!
-    @IBOutlet fileprivate weak var EmailTxt: UITextField!
-    @IBOutlet fileprivate weak var TelTxt: UITextField!
+    @IBOutlet fileprivate weak var CategoryTxt: UITextField!
+    @IBOutlet fileprivate weak var GoodTxt: UITextField!
     @IBOutlet fileprivate weak var DateTxt: UITextField!
     @IBOutlet fileprivate weak var StoreName: UITextField!
     @IBOutlet fileprivate weak var Price: UITextField!
@@ -119,6 +126,8 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
                 warrantyModel.brand = self.BrandTxt.text!
                 warrantyModel.model = self.ModelTxt.text!
                 warrantyModel.serialNumber = self.SerialTxt.text!
+                warrantyModel.type = CategoryTxt.text!
+                warrantyModel.typeText = GoodTxt.text!
                 warrantyModel.buyDate = MyDateFormatter.date(from: self.DateTxt.text!)
                 warrantyModel.buyLocation = self.StoreName.text!
                 warrantyModel.price = self.Price.text!
@@ -129,6 +138,8 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
                 warrantyModel.brand = self.BrandTxt.text!
                 warrantyModel.model = self.ModelTxt.text!
                 warrantyModel.serialNumber = self.SerialTxt.text!
+                warrantyModel.type = CategoryTxt.text!
+                warrantyModel.typeText = GoodTxt.text!
                 warrantyModel.buyDate = MyDateFormatter.date(from: self.DateTxt.text!)
                 warrantyModel.buyLocation = self.StoreName.text!
                 warrantyModel.price = self.Price.text!
@@ -150,10 +161,15 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         DatePicker()
+        
         self.NameTxt.text = Session.shared.user.fullName
-        self.EmailTxt.text = Session.shared.user.email
-        self.TelTxt.text = Session.shared.user.phone
+        
+        let categoryPickerView = UIPickerView()
+        categoryPickerView.delegate = self
+        CategoryTxt.inputView = categoryPickerView
+        CategoryTxt.placeholder = "กรุณาเลือก"
         
         guard let warrantyModel = self.warrantyModel else {
             return
@@ -176,12 +192,28 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         SerialTxt.delegate = self
         ModelTxt.delegate = self
         NameTxt.delegate = self
-        EmailTxt.delegate = self
-        TelTxt.delegate = self
+        GoodTxt.delegate = self
+        CategoryTxt.delegate = self
         DateTxt.delegate = self
         StoreName.delegate = self
         Price.delegate = self
     }
+}
+
+extension ShowDetailQRViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryList.count
+    }
     
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryList[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        CategoryTxt.text = categoryList[row]
+    }
 }

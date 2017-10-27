@@ -66,6 +66,7 @@ class ConfirmRegisterViewController: UIViewController {
                 userRef.setValue(userModel.toAnyObject())
                 let alert = UIAlertController(title: "success", message: "ทำรายการสำเร็จ", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: self.okHandler))
+                UserDefaults.standard.set(userModel.email, forKey: "lastRegisterEmail")
                 self.present(alert, animated: true, completion: nil)
             }
         }

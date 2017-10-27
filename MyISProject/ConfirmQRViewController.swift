@@ -19,8 +19,8 @@ class ConfirmQRViewController: UIViewController {
     @IBOutlet fileprivate weak var ModelLbl: UILabel!
     @IBOutlet fileprivate weak var SerialLbl: UILabel!
     @IBOutlet fileprivate weak var NameLbl: UILabel!
-    @IBOutlet fileprivate weak var EmailLbl: UILabel!
-    @IBOutlet fileprivate weak var TelLbl: UILabel!
+    @IBOutlet fileprivate weak var CategoryLbl: UILabel!
+    @IBOutlet fileprivate weak var GoodLbl: UILabel!
     @IBOutlet fileprivate weak var DateLbl: UILabel!
     @IBOutlet fileprivate weak var StoreNameLbl: UILabel!
     @IBOutlet fileprivate weak var PriceLbl: UILabel!
@@ -33,6 +33,7 @@ class ConfirmQRViewController: UIViewController {
         }
         SwiftOverlays.showBlockingWaitOverlay()
         guard warrantyModel.serialNumber != "" else {
+            SwiftOverlays.removeAllBlockingOverlays()
             AlertHelper.showAlert(title: "Error", message: "กรุณากรอกหมายเลขเครื่อง", ViewController: self)
             return
         }
@@ -58,8 +59,8 @@ class ConfirmQRViewController: UIViewController {
         SerialLbl.text = warrantyModel.serialNumber
         ModelLbl.text = warrantyModel.model
         NameLbl.text = Session.shared.user.fullName
-        EmailLbl.text = Session.shared.user.email
-        TelLbl.text = Session.shared.user.phone
+        CategoryLbl.text = warrantyModel.type
+        GoodLbl.text = warrantyModel.typeText
         DateLbl.text = warrantyModel.getDate()
         StoreNameLbl.text = warrantyModel.buyLocation
         PriceLbl.text = warrantyModel.price

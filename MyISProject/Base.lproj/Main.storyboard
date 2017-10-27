@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -783,7 +782,7 @@
         <!--Promo Detail View Controller-->
         <scene sceneID="yn9-ew-Zgp">
             <objects>
-                <viewController id="Y4J-Ke-o5K" customClass="PromoDetailViewController" customModule="MyISProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PromoDetailViewController" id="Y4J-Ke-o5K" customClass="PromoDetailViewController" customModule="MyISProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VwG-MY-Sdq"/>
                         <viewControllerLayoutGuide type="bottom" id="Pa2-78-Ddb"/>
@@ -1447,7 +1446,6 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="lKz-7p-1SI">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -2002,7 +2000,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="itx-bI-4GR">
-                                <rect key="frame" x="111" y="72" width="227" height="30"/>
+                                <rect key="frame" x="111" y="72" width="193" height="30"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -2085,15 +2083,15 @@
                             <constraint firstItem="vKo-Gp-PHj" firstAttribute="leading" secondItem="VLj-J0-yXB" secondAttribute="leadingMargin" constant="-5" id="NA0-nL-OVt"/>
                             <constraint firstItem="itx-bI-4GR" firstAttribute="leading" secondItem="a7D-04-fAm" secondAttribute="trailing" constant="16" id="TR6-HP-nH3"/>
                             <constraint firstItem="I0c-iu-PMW" firstAttribute="trailing" secondItem="VLj-J0-yXB" secondAttribute="trailingMargin" id="TTd-Bv-OuH"/>
-                            <constraint firstItem="itx-bI-4GR" firstAttribute="trailing" secondItem="ikP-Z1-8zy" secondAttribute="trailing" constant="34" id="TfY-zu-h4f"/>
                             <constraint firstItem="RiF-yP-2RB" firstAttribute="centerX" secondItem="vKo-Gp-PHj" secondAttribute="centerX" constant="-21.5" id="W7b-mu-ajs"/>
                             <constraint firstItem="Zxf-0y-SnB" firstAttribute="top" secondItem="a7D-04-fAm" secondAttribute="bottom" constant="19" id="XTl-9T-djz"/>
-                            <constraint firstItem="itx-bI-4GR" firstAttribute="trailing" secondItem="pDH-v9-Ssp" secondAttribute="trailing" constant="34" id="YN2-ZT-Zjc"/>
+                            <constraint firstItem="itx-bI-4GR" firstAttribute="trailing" secondItem="VLj-J0-yXB" secondAttribute="trailingMargin" id="ZND-nC-hYv"/>
                             <constraint firstItem="RiF-yP-2RB" firstAttribute="top" secondItem="Zxf-0y-SnB" secondAttribute="bottom" constant="16" id="aLD-4W-J0q"/>
                             <constraint firstItem="5p5-QN-1EN" firstAttribute="trailing" secondItem="pDH-v9-Ssp" secondAttribute="trailing" id="aZl-ZI-yZA"/>
                             <constraint firstItem="F5j-UG-fag" firstAttribute="centerX" secondItem="mOD-aV-h5r" secondAttribute="centerX" id="c0w-af-Mbe"/>
                             <constraint firstItem="mOD-aV-h5r" firstAttribute="top" secondItem="F5j-UG-fag" secondAttribute="bottom" constant="8" symbolic="YES" id="d6r-wi-ybS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5p5-QN-1EN" secondAttribute="trailing" id="eTH-DB-1aE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ikP-Z1-8zy" secondAttribute="trailing" id="etp-m0-Zqr"/>
                             <constraint firstItem="5p5-QN-1EN" firstAttribute="leading" secondItem="pDH-v9-Ssp" secondAttribute="leading" id="fAs-g1-HjA"/>
                             <constraint firstItem="F5j-UG-fag" firstAttribute="top" secondItem="vKo-Gp-PHj" secondAttribute="bottom" constant="75" id="gNC-9H-IQy"/>
                             <constraint firstItem="F5j-UG-fag" firstAttribute="top" secondItem="I0c-iu-PMW" secondAttribute="bottom" constant="8" symbolic="YES" id="h4G-uz-giz"/>
@@ -2129,7 +2127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3N-Z1-A9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5049" y="453"/>
+            <point key="canvasLocation" x="5047.5" y="452.11267605633805"/>
         </scene>
         <!--History Detail View Controller-->
         <scene sceneID="BVQ-Hr-VHK">
@@ -2320,7 +2318,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="อีเมล:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yms-OG-oIG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ประเภทสินค้า:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yms-OG-oIG">
                                 <rect key="frame" x="0.0" y="177" width="98" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="HV7-bT-zLW"/>
@@ -2335,7 +2333,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เบอร์โทรศัพท์:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwh-Ne-3sJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สินค้า:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwh-Ne-3sJ">
                                 <rect key="frame" x="0.0" y="214" width="98" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="hE9-G0-BEk"/>
@@ -2404,13 +2402,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="kamonpan@mis.tu.ac.th" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1am-dj-3oY">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1am-dj-3oY">
                                 <rect key="frame" x="110" y="173" width="193" height="30"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="095-123-45678" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="joL-VR-yuw">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="joL-VR-yuw">
                                 <rect key="frame" x="110" y="210" width="193" height="30"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2528,15 +2526,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="BrandTxt" destination="htW-f5-OxR" id="i8m-84-Jyn"/>
+                        <outlet property="CategoryTxt" destination="1am-dj-3oY" id="fY0-vA-Eoz"/>
                         <outlet property="DateTxt" destination="wBZ-0p-dXd" id="Tey-kX-lML"/>
-                        <outlet property="EmailTxt" destination="1am-dj-3oY" id="sqJ-xX-4DG"/>
+                        <outlet property="GoodTxt" destination="joL-VR-yuw" id="dHQ-ln-s1t"/>
                         <outlet property="ModelTxt" destination="Bo2-sL-FzK" id="sgA-GY-SlM"/>
                         <outlet property="NameTxt" destination="ofm-Kk-BNX" id="8Eq-b5-wzd"/>
                         <outlet property="PicImg" destination="FwO-Cp-aZ0" id="YxF-6o-x0w"/>
                         <outlet property="Price" destination="3vj-5o-3za" id="cIL-2g-goe"/>
                         <outlet property="SerialTxt" destination="gfp-Pi-MQv" id="TfK-9c-IzJ"/>
                         <outlet property="StoreName" destination="s4Y-Jq-Rpg" id="yDM-CI-sQM"/>
-                        <outlet property="TelTxt" destination="joL-VR-yuw" id="ewW-h8-rKG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiC-EZ-Irb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2604,14 +2602,14 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="อีเมล:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tx8-Yh-mg2">
-                                <rect key="frame" x="16" y="176" width="98" height="107"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ประเภทสินค้า:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tx8-Yh-mg2">
+                                <rect key="frame" x="16" y="159" width="98" height="124"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="ชื่อ  - นามสกุล:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldt-rw-zX4">
-                                <rect key="frame" x="16" y="143" width="98" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldt-rw-zX4">
+                                <rect key="frame" x="16" y="143" width="98" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="ud2-Kd-mUs"/>
                                 </constraints>
@@ -2619,7 +2617,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เบอร์โทรศัพท์:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GxK-cF-vYG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สินค้า:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GxK-cF-vYG">
                                 <rect key="frame" x="16" y="299" width="98" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2653,13 +2651,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRX-1S-CIO">
-                                <rect key="frame" x="122" y="143" width="182" height="17"/>
+                                <rect key="frame" x="122" y="126" width="182" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkh-uC-5z3">
-                                <rect key="frame" x="122" y="174" width="182" height="109"/>
+                                <rect key="frame" x="122" y="157" width="182" height="126"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -2794,14 +2792,14 @@
                     </view>
                     <connections>
                         <outlet property="BrandLbl" destination="cKt-BZ-OPn" id="WAM-ns-Do3"/>
+                        <outlet property="CategoryLbl" destination="Hkh-uC-5z3" id="Yl8-od-RQa"/>
                         <outlet property="DateLbl" destination="gCs-bM-ByY" id="aM1-AV-x74"/>
-                        <outlet property="EmailLbl" destination="Hkh-uC-5z3" id="xBq-2R-jY9"/>
+                        <outlet property="GoodLbl" destination="G29-yM-fzY" id="Sut-Ol-djB"/>
                         <outlet property="ModelLbl" destination="OPR-W9-C3c" id="Mvj-DZ-HYx"/>
                         <outlet property="NameLbl" destination="kRX-1S-CIO" id="n9X-2L-zi0"/>
                         <outlet property="PriceLbl" destination="FWW-jn-toM" id="o3n-mg-A2g"/>
                         <outlet property="SerialLbl" destination="Hxp-q8-frq" id="EIG-Rp-eRJ"/>
                         <outlet property="StoreNameLbl" destination="QZN-yN-yms" id="Sbs-qT-VD9"/>
-                        <outlet property="TelLbl" destination="G29-yM-fzY" id="xUZ-mV-Hy0"/>
                         <outlet property="receiptImageView" destination="XvC-WJ-5jX" id="Jh8-uR-Zc7"/>
                     </connections>
                 </viewController>

@@ -12,6 +12,7 @@ import FirebaseAuth
 
 struct WarrantyModel {
     var type: String = ""
+    var typeText: String = ""
     var brand: String = ""
     var model: String = ""
     var serialNumber: String = ""
@@ -25,8 +26,9 @@ struct WarrantyModel {
         
     }
     
-    init(type: String, brand: String, model: String, serialNumber: String, buyDate: Date?, buyLocation: String, price: String, receipt: Data?) {
+    init(type: String, typeText: String, brand: String, model: String, serialNumber: String, buyDate: Date?, buyLocation: String, price: String, receipt: Data?) {
         self.type = type
+        self.typeText = typeText
         self.brand = brand
         self.model = model
         self.serialNumber = serialNumber
@@ -39,7 +41,8 @@ struct WarrantyModel {
     
     init(snapshot: DataSnapshot) {
         let snapshotValue = snapshot.value as! [String: AnyObject]
-        self.type = "ทีวี"
+        self.type = snapshotValue["type"] as! String
+        self.typeText = snapshotValue["typeText"] as! String
         self.brand = snapshotValue["brand"] as! String
         self.model = snapshotValue["model"] as! String
         self.serialNumber = snapshotValue["serialNumber"] as! String
@@ -53,6 +56,7 @@ struct WarrantyModel {
     func toAnyObject() -> Any {
         return [
             "type": type,
+            "typeText": typeText,
             "brand": brand,
             "model": model,
             "serialNumber": serialNumber,

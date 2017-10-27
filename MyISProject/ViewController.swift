@@ -36,7 +36,12 @@ class ViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        EmailTxt.text = "a@a.com"
+        if let email = UserDefaults.standard.string(forKey: "lastRegisterEmail") {
+            EmailTxt.text = email
+        } else {
+            EmailTxt.text = ""
+            EmailTxt.placeholder = "กรุณากรอกอีเมล์"
+        }
         PasswordTxt.text = "123456"
         
         EmailTxt.delegate = self
