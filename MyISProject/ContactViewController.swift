@@ -13,6 +13,7 @@ import SwiftOverlays
 
 class ContactViewController: UIViewController {
 
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var postcodeTextField: UITextField!
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var companyPhoneLabel: UILabel!
@@ -39,6 +40,20 @@ class ContactViewController: UIViewController {
             self.companyNameLabel.text = serviceCenter.name
             self.companyPhoneLabel.text = serviceCenter.phone
             self.companyWorkingHoursLabel.text = serviceCenter.workingHours
+            let geocoder = CLGeocoder()
+            geocoder.geocodeAddressString(serviceCenter.address!) { [weak self] placemarks, error in
+                if let placemark = placemarks?.first, let location = placemark.location {
+                    let mark = MKPlacemark(placemark: placemark)
+                    
+                    if var region = self?.mapView.region {
+                        region.center = location.coordinate
+                        region.span.longitudeDelta /= 8.0
+                        region.span.latitudeDelta /= 8.0
+                        self?.mapView.setRegion(region, animated: true)
+                        self?.mapView.addAnnotation(mark)
+                    }
+                }
+            }
             SwiftOverlays.removeAllBlockingOverlays()
         })
         

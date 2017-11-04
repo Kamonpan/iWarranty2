@@ -1486,6 +1486,7 @@
                         <outlet property="companyNameLabel" destination="OLg-La-4hd" id="stn-jD-QTA"/>
                         <outlet property="companyPhoneLabel" destination="PZH-C5-4xJ" id="wNN-Rh-wHk"/>
                         <outlet property="companyWorkingHoursLabel" destination="qfd-g5-wkc" id="2Tf-Dg-aVP"/>
+                        <outlet property="mapView" destination="k3e-fI-srr" id="3aB-tp-x7I"/>
                         <outlet property="postcodeTextField" destination="kXd-Eb-Er5" id="NSA-Rg-916"/>
                     </connections>
                 </viewController>
