@@ -83,8 +83,9 @@ extension PromotionViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewController
-        
-        cell.PromoImage?.image = UIImage(data: promotionModelList[indexPath.row].picture!)
+        if let imageData = promotionModelList[indexPath.row].picture {
+            cell.PromoImage?.image = UIImage(data: imageData)
+        }
         
         return cell
     }

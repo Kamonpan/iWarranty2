@@ -17,7 +17,10 @@ class Promotion {
     init(snapshot: DataSnapshot) {
         
         let snapshotValue = snapshot.value as! [String: AnyObject]
-        self.picture = Data(base64Encoded: snapshotValue["picture"] as! String)
+        if let encodedValue = snapshotValue["picture"] as? String {
+            self.picture = Data(base64Encoded: encodedValue)
+        }
+        
 
     }
 }
