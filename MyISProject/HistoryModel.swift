@@ -14,6 +14,7 @@ struct HistoryModel {
     var subject: String = ""
     var brand: String = ""
     var type: String = ""
+    var typeText: String = ""
     var model: String = ""
     var serialNumber: String = ""
     var date: Date?
@@ -23,11 +24,12 @@ struct HistoryModel {
     
     init() {}
     
-    init(subject: String, type: String, brand: String, model: String, serialNumber: String, date: Date?, note: String, image: Data?) {
+    init(subject: String, type: String, typeText: String, brand: String, model: String, serialNumber: String, date: Date?, note: String, image: Data?) {
         self.subject = subject
         self.brand = brand
         self.model = model
         self.type = type
+        self.typeText = typeText
         self.serialNumber = serialNumber
         self.date = date
         self.note = note
@@ -38,7 +40,8 @@ struct HistoryModel {
         
         let snapshotValue = snapshot.value as! [String: AnyObject]
         self.subject = snapshotValue["subject"] as! String
-        self.type = "ซ่อมทีวี"
+        self.type = snapshotValue["type"] as! String
+        self.typeText = snapshotValue["typeText"] as! String
         self.brand = snapshotValue["brand"] as! String
         self.model = snapshotValue["model"] as! String
         self.serialNumber = snapshotValue["serialNumber"] as! String
@@ -52,6 +55,7 @@ struct HistoryModel {
         return [
             "subject": self.subject,
             "type": self.type,
+            "typeText": self.typeText,
             "brand": self.brand,
             "model": self.model,
             "serialNumber": self.serialNumber,

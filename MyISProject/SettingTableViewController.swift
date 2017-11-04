@@ -11,7 +11,7 @@ import FirebaseAuth
 import SwiftOverlays
 
 class SettingTableViewController: UITableViewController {
-    let sections = ["Profile", "Setting"]
+    let sections = ["Profile", "About"]
     let rows = ["Profile":
                         ["แก้ไขข้อมูลส่วนตัว","เปลี่ยนรหัสผ่าน"],
                 "About":
@@ -27,10 +27,6 @@ class SettingTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
-    func switchChanged(_ sender: UISwitch) {
-        print(sender.isOn)
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -70,7 +66,13 @@ class SettingTableViewController: UITableViewController {
             } catch {
                 AlertHelper.showAlert(title: "Error", message: error.localizedDescription, ViewController: self)
             }
-        // Reset password
+
+        } else if indexPath.section == 1, indexPath.row == 0 {
+            let termsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TermsViewController") as! TermsViewController
+            self.navigationController?.pushViewController(termsViewController, animated: true)
+        } else if indexPath.section == 1, indexPath.row == 1 {
+            let contactUsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContactUsViewController") as! ContactUsViewController
+            self.navigationController?.pushViewController(contactUsViewController, animated: true)
         } else if indexPath.section == 0, indexPath.row == 1 {
             SwiftOverlays.showBlockingWaitOverlay()
             Auth.auth().sendPasswordReset(withEmail: (Auth.auth().currentUser?.email)!, completion: { (error) in

@@ -30,13 +30,15 @@ class PromotionViewController: UIViewController {
         
         createBrand()
         
+        PromoTableView.tableFooterView = UIView(frame: .zero)
+        
         SwiftOverlays.showBlockingWaitOverlay()
         firebase.child("Promotions").observe(.value, with: { (snapshot) in
             var newItems = [Promotion]()
             for item in snapshot.children {
                 let snapshot = item as! DataSnapshot
-                let historyModel = Promotion(snapshot: snapshot)
-                newItems.append(historyModel)
+                let promotion = Promotion(snapshot: snapshot)
+                newItems.append(promotion)
             }
             self.promotionModelList = newItems
             self.PromoTableView.reloadData()

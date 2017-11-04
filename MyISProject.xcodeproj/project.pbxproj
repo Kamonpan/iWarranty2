@@ -51,6 +51,9 @@
 		F23BD2491F49724300E316D5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2481F49724300E316D5 /* UserModel.swift */; };
 		F23BD24B1F4986B900E316D5 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD24A1F4986B900E316D5 /* Session.swift */; };
 		F23BD24E1F511C2500E316D5 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD24D1F511C2500E316D5 /* UIViewController+Extension.swift */; };
+		F2A4E4D31FA36AD5001D18AD /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4E4D21FA36AD5001D18AD /* TermsViewController.swift */; };
+		F2A4E4D61FA36BA1001D18AD /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4E4D51FA36BA1001D18AD /* ContactUsViewController.swift */; };
+		F2B5C99C1FA3980000577A4A /* ServiceCenterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B5C99B1FA3980000577A4A /* ServiceCenterModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +111,9 @@
 		F23BD2481F49724300E316D5 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F23BD24A1F4986B900E316D5 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		F23BD24D1F511C2500E316D5 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		F2A4E4D21FA36AD5001D18AD /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		F2A4E4D51FA36BA1001D18AD /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		F2B5C99B1FA3980000577A4A /* ServiceCenterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCenterModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +133,9 @@
 		91200D8A1F210342006AD068 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F2A4E4CF1FA36AA1001D18AD /* About */,
 				F23BD2211F3ECF3F00E316D5 /* Profile */,
-				F23BD2251F3ECFC100E316D5 /* Contact */,
+				F2A4E4D41FA36B89001D18AD /* Contact */,
 				F23BD2241F3ECFB200E316D5 /* Feeds */,
 				F23BD2221F3ECF4E00E316D5 /* Promotion */,
 				F23BD2231F3ECF9E00E316D5 /* History */,
@@ -271,14 +278,6 @@
 			name = Feeds;
 			sourceTree = "<group>";
 		};
-		F23BD2251F3ECFC100E316D5 /* Contact */ = {
-			isa = PBXGroup;
-			children = (
-				91200D921F234A46006AD068 /* ContactViewController.swift */,
-			);
-			name = Contact;
-			sourceTree = "<group>";
-		};
 		F23BD2261F3ED26900E316D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +287,7 @@
 				F23BD2391F3F69AA00E316D5 /* Brand.swift */,
 				F23BD23B1F3F69CE00E316D5 /* Notification.swift */,
 				F23BD2481F49724300E316D5 /* UserModel.swift */,
+				F2B5C99B1FA3980000577A4A /* ServiceCenterModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -318,6 +318,23 @@
 				F23BD24D1F511C2500E316D5 /* UIViewController+Extension.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		F2A4E4CF1FA36AA1001D18AD /* About */ = {
+			isa = PBXGroup;
+			children = (
+				F2A4E4D21FA36AD5001D18AD /* TermsViewController.swift */,
+				F2A4E4D51FA36BA1001D18AD /* ContactUsViewController.swift */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
+		F2A4E4D41FA36B89001D18AD /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				91200D921F234A46006AD068 /* ContactViewController.swift */,
+			);
+			name = Contact;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,7 +426,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		72DA1E1CAADBC87BB25756A6 /* [CP] Copy Pods Resources */ = {
@@ -472,6 +489,7 @@
 				F23BD23A1F3F69AA00E316D5 /* Brand.swift in Sources */,
 				F23BD24B1F4986B900E316D5 /* Session.swift in Sources */,
 				F23BD2491F49724300E316D5 /* UserModel.swift in Sources */,
+				F2A4E4D31FA36AD5001D18AD /* TermsViewController.swift in Sources */,
 				91200DA31F2ACFB3006AD068 /* HistoryViewController.swift in Sources */,
 				91200DB01F2B92A0006AD068 /* ImageCollectionViewCell.swift in Sources */,
 				F23BD2471F418E0600E316D5 /* EditProfileViewController.swift in Sources */,
@@ -481,6 +499,7 @@
 				F23BD2421F41552600E316D5 /* HistoryConfirmViewController.swift in Sources */,
 				91C258B11F17B3F90089F340 /* RegisterViewController.swift in Sources */,
 				91200D931F234A46006AD068 /* ContactViewController.swift in Sources */,
+				F2A4E4D61FA36BA1001D18AD /* ContactUsViewController.swift in Sources */,
 				F23BD2311F3F2AA000E316D5 /* HistoryDetailViewController.swift in Sources */,
 				91C2587A1F1225830089F340 /* AppDelegate.swift in Sources */,
 				91200DAC1F2B4158006AD068 /* ConfirmQRViewController.swift in Sources */,
@@ -490,6 +509,7 @@
 				F23BD2381F3F699700E316D5 /* Promotion.swift in Sources */,
 				91200D151F1A77BB006AD068 /* DetailWarrantyViewController.swift in Sources */,
 				F23BD23C1F3F69CE00E316D5 /* Notification.swift in Sources */,
+				F2B5C99C1FA3980000577A4A /* ServiceCenterModel.swift in Sources */,
 				91200D0F1F1A289A006AD068 /* TableViewController.swift in Sources */,
 				F23BD22D1F3F2A1200E316D5 /* HistoryModel.swift in Sources */,
 				F23BD22B1F3EEEFD00E316D5 /* MyDateFormatter.swift in Sources */,

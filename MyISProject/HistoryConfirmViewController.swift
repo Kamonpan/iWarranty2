@@ -16,12 +16,15 @@ class HistoryConfirmViewController: UIViewController {
     fileprivate var firebaseRef = Database.database().reference()
     
     @IBOutlet weak var subjectTextField: UILabel!
+    @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var modelTextField: UILabel!
     @IBOutlet weak var serialNumberTextField: UILabel!
     @IBOutlet weak var sendDateTextField: UILabel!
     @IBOutlet weak var noteTextField: UILabel!
     @IBOutlet weak var fixImageView: UIImageView!
 
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var goodLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -31,10 +34,13 @@ class HistoryConfirmViewController: UIViewController {
             return
         }
         self.subjectTextField.text = historyModel.subject
+        self.brandLabel.text = historyModel.brand
         self.modelTextField.text = historyModel.model
         self.serialNumberTextField.text = historyModel.serialNumber
         self.sendDateTextField.text = historyModel.getDate()
         self.noteTextField.text = historyModel.note
+        self.categoryLabel.text = historyModel.type
+        self.goodLabel.text = historyModel.typeText
         if let data = historyModel.image {
             self.fixImageView.image = UIImage(data: data)
         }

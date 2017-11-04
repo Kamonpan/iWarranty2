@@ -13,12 +13,16 @@ class HistoryEditViewController: UIViewController {
     var historyModel: HistoryModel?
     
     @IBOutlet weak var subjectTextField: UITextField!
+    @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!
     @IBOutlet weak var serialNumberTextField: UITextField!
     @IBOutlet weak var fixDateTextField: UITextField!
     @IBOutlet weak var noteTextField: UITextField!
     @IBOutlet weak var fixImageView: UIImageView!
 
+    @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var goodTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         DatePicker()
@@ -26,8 +30,11 @@ class HistoryEditViewController: UIViewController {
             return
         }
         self.subjectTextField.text = historyModel.subject
+        self.brandTextField.text = historyModel.brand
         self.modelTextField.text = historyModel.model
         self.serialNumberTextField.text = historyModel.serialNumber
+        self.categoryTextField.text = historyModel.type
+        self.goodTextField.text = historyModel.typeText
         self.fixDateTextField.text = historyModel.getDate()
         self.noteTextField.text = historyModel.note
         if let data = historyModel.image {
@@ -53,8 +60,11 @@ class HistoryEditViewController: UIViewController {
     @IBAction func tapNextButton(_ sender: Any) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HistoryConfirmViewController") as! HistoryConfirmViewController
         self.historyModel?.subject = self.subjectTextField.text!
+        self.historyModel?.brand = self.brandTextField.text!
         self.historyModel?.model = self.modelTextField.text!
         self.historyModel?.serialNumber = self.serialNumberTextField.text!
+        self.historyModel?.type = self.categoryTextField.text!
+        self.historyModel?.typeText = self.goodTextField.text!
         self.historyModel?.date = MyDateFormatter.date(from: self.fixDateTextField.text!)
         self.historyModel?.note = self.noteTextField.text!
         self.historyModel?.image = UIImagePNGRepresentation(self.fixImageView.image)
