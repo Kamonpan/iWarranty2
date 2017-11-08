@@ -131,6 +131,7 @@
       "scale" : "2x"
     },
     {
+<<<<<<< HEAD
       "size" : "60x60",
       "idiom" : "car",
       "filename" : "Icon-60@2x.png",
@@ -140,6 +141,11 @@
       "idiom" : "car",
       "size" : "60x60",
       "scale" : "3x"
+=======
+      "idiom" : "ios-marketing",
+      "size" : "1024x1024",
+      "scale" : "1x"
+>>>>>>> 65b81dd4146bf26fc691435666d104a1d09e1b49
     }
   ],
   "info" : {
