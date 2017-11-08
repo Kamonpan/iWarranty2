@@ -19,4 +19,21 @@ class Notification {
         self.status = status
         self.title = title
     }
+    
+    func getIconName() -> String {
+        switch self.status {
+        case "สินค้าอยู่ในระหว่างการซ่อม":
+            return "black-wrench"
+        case "อยู่ในระหว่างการจัดส่งสินค้า":
+            return "delivery"
+        case "รออะไหล่สินค้า":
+            return "storage"
+        case "บริษัทกำลังตรวจสอบสินค้า":
+            return "verification"
+        case "บริษัทได้รับสินค้าแล้ว":
+            return "receiver"
+        default:
+            return ""
+        }
+    }
 }

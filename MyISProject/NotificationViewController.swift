@@ -28,7 +28,7 @@ class NotificationViewController: UIViewController ,UITableViewDelegate ,UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewController
         cell.notiLbl.text = self.displayData[indexPath.row].status
         cell.NotiDetailLbl.text = self.displayData[indexPath.row].title
-        //cell.NotiImage =
+        cell.NotiImage.image = UIImage(named: self.displayData[indexPath.row].getIconName())
         return cell
      
     }

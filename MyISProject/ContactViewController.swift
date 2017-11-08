@@ -11,7 +11,7 @@ import MapKit
 import FirebaseDatabase
 import SwiftOverlays
 
-class ContactViewController: UIViewController {
+class ContactViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var postcodeTextField: UITextField!
@@ -25,9 +25,9 @@ class ContactViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        self.postcodeTextField.delegate = self
     }
-
+    
     @IBAction func tapSearchButton(_ sender: Any) {
         SwiftOverlays.showBlockingWaitOverlay()
         firebaseRef.child("ServiceCenter").child(postcodeTextField.text!).observe(.value, with: { (snapshot) in
@@ -64,6 +64,13 @@ class ContactViewController: UIViewController {
         self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
 }
