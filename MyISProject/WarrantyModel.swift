@@ -21,7 +21,7 @@ struct WarrantyModel {
     var price: String = ""
     var receipt: Data?
     var uid: String = ""
-    
+    var lastStatus = NSDictionary()
     init() {
         
     }
@@ -51,6 +51,9 @@ struct WarrantyModel {
         self.price = snapshotValue["price"] as! String
         self.receipt = Data(base64Encoded: snapshotValue["receipt"] as! String)
         self.uid = snapshotValue["uid"] as! String
+        if let lastStatus = snapshotValue["lastStatus"] as? NSDictionary {
+            self.lastStatus = lastStatus
+        }
     }
     
     func toAnyObject() -> Any {

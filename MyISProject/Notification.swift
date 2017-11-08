@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 class Notification {
-    private var _noti = ""
-    var detail = ""
-    var picture = UIImage()
+    var date: Date?
+    var status: String
+    var title: String
     
-    var noti:String{
-        get {return _noti}
-        set {_noti = newValue}
-        
+    init(date: Double, status: String, title: String) {
+        self.date = Date(timeIntervalSince1970: date)
+        self.status = status
+        self.title = title
     }
 }
