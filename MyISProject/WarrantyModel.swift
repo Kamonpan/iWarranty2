@@ -20,13 +20,14 @@ struct WarrantyModel {
     var buyLocation: String = ""
     var price: String = ""
     var receipt: Data?
+    var receiptImageId: String?
     var uid: String = ""
     var lastStatus = NSDictionary()
     init() {
         
     }
     
-    init(type: String, typeText: String, brand: String, model: String, serialNumber: String, buyDate: Date?, buyLocation: String, price: String, receipt: Data?) {
+    init(type: String, typeText: String, brand: String, model: String, serialNumber: String, buyDate: Date?, buyLocation: String, price: String, receiptImageId: String?) {
         self.type = type
         self.typeText = typeText
         self.brand = brand
@@ -35,7 +36,7 @@ struct WarrantyModel {
         self.buyDate = buyDate
         self.buyLocation = buyLocation
         self.price = price
-        self.receipt = receipt
+        self.receiptImageId = receiptImageId
     }
     
     
@@ -49,7 +50,9 @@ struct WarrantyModel {
         self.buyDate = MyDateFormatter.date(from: snapshotValue["buyDate"] as! String)
         self.buyLocation = snapshotValue["store"] as! String
         self.price = snapshotValue["price"] as! String
-        self.receipt = Data(base64Encoded: snapshotValue["receipt"] as! String)
+        if let receiptImageId = snapshotValue["receiptImageId"] as? String {
+            self.receiptImageId = receiptImageId
+        }
         self.uid = snapshotValue["uid"] as! String
         if let lastStatus = snapshotValue["lastStatus"] as? NSDictionary {
             self.lastStatus = lastStatus
@@ -66,7 +69,7 @@ struct WarrantyModel {
             "buyDate": self.getDate(),
             "store": buyLocation,
             "price": price,
-            "receipt": getReceipt(),
+            "receiptImageId": receiptImageId,
             "uid": Auth.auth().currentUser?.uid
         ]
     }

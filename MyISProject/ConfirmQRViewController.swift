@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import SwiftOverlays
+import Cloudinary
 
 class ConfirmQRViewController: UIViewController {
 
@@ -28,7 +29,7 @@ class ConfirmQRViewController: UIViewController {
     
     @IBAction func SendBtn(_ sender: Any) {
         
-        guard let warrantyModel = self.warrantyModel else {
+        guard var warrantyModel = self.warrantyModel else {
             return
         }
         SwiftOverlays.showBlockingWaitOverlay()
@@ -38,12 +39,31 @@ class ConfirmQRViewController: UIViewController {
             return
         }
         let warrantyRef = firebaseRef.child("Warranties").child(warrantyModel.serialNumber)
-        warrantyRef.setValue(warrantyModel.toAnyObject())
-        SwiftOverlays.removeAllBlockingOverlays()
-        let alert = UIAlertController(title: "success", message: "ทำรายการสำเร็จ", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: self.okHandler))
         
-        self.present(alert, animated: true, completion: nil)
+        if let image = warrantyModel.receipt {
+            cld.createUploader().upload(data: warrantyModel.receipt!, uploadPreset: "y3mvrxue", params: nil, progress: nil) { (result, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    warrantyModel.receiptImageId = result?.publicId
+                    warrantyRef.setValue(warrantyModel.toAnyObject())
+                    SwiftOverlays.removeAllBlockingOverlays()
+                    let alert = UIAlertController(title: "success", message: "ทำรายการสำเร็จ", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: self.okHandler))
+                    
+                    self.present(alert, animated: true, completion: nil)
+                    
+                }
+            }
+        } else {
+            warrantyRef.setValue(warrantyModel.toAnyObject())
+            SwiftOverlays.removeAllBlockingOverlays()
+            let alert = UIAlertController(title: "success", message: "ทำรายการสำเร็จ", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: self.okHandler))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     
     func okHandler(alert: UIAlertAction!){

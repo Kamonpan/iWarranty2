@@ -20,6 +20,7 @@ struct HistoryModel {
     var date: Date?
     var note: String = ""
     var image: Data?
+    var imageId: String?
     var uid: String = ""
     
     init() {}
@@ -47,7 +48,9 @@ struct HistoryModel {
         self.serialNumber = snapshotValue["serialNumber"] as! String
         self.date = MyDateFormatter.date(from: snapshotValue["sendDate"] as! String)
         self.note = snapshotValue["note"] as! String
-        self.image = Data(base64Encoded: snapshotValue["image"] as! String)
+        if let imageId = snapshotValue["imageId"] as? String {
+           self.imageId = imageId
+        }
         self.uid = snapshotValue["uid"] as! String
     }
     
@@ -61,7 +64,7 @@ struct HistoryModel {
             "serialNumber": self.serialNumber,
             "sendDate": self.getDate(),
             "note": self.note,
-            "image": self.getImage(),
+            "imageId": self.imageId,
             "uid": Auth.auth().currentUser?.uid
         ]
     }

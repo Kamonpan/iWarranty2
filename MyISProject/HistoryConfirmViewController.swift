@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import SwiftOverlays
 
 class HistoryConfirmViewController: UIViewController {
     
@@ -51,20 +52,37 @@ class HistoryConfirmViewController: UIViewController {
     }
 
     @IBAction func tapReportButton(_ sender: Any) {
-        guard let historyModel = self.historyModel else {
+        guard var historyModel = self.historyModel else {
             return
         }
         guard historyModel.serialNumber != "" else {
             AlertHelper.showAlert(title: "Error", message: "กรุณากรอกหมายเลขเครื่อง", ViewController: self)
             return
         }
-        let warrantyRef = firebaseRef.child("Histories").child(historyModel.serialNumber)
-        warrantyRef.setValue(historyModel.toAnyObject())
-        
-        let alert = UIAlertController(title: "success", message: "ทำรายการสำเร็จ", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: self.okHandler))
-        
-        self.present(alert, animated: true, completion: nil)
+        let historyRef = firebaseRef.child("Histories").child(historyModel.serialNumber)
+        if let image = historyModel.image {
+            cld.createUploader().upload(data: image, uploadPreset: "y3mvrxue", params: nil, progress: nil) { (result, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    historyModel.imageId = result?.publicId
+                    historyRef.setValue(historyModel.toAnyObject())
+                    SwiftOverlays.removeAllBlockingOverlays()
+                    let alert = UIAlertController(title: "success", message: "ทำรายการสำเร็จ", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: self.okHandler))
+                    
+                    self.present(alert, animated: true, completion: nil)
+                    
+                }
+            }
+        } else {
+            historyRef.setValue(historyModel.toAnyObject())
+            SwiftOverlays.removeAllBlockingOverlays()
+            let alert = UIAlertController(title: "success", message: "ทำรายการสำเร็จ", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: self.okHandler))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func tapSaveButton(_ sender: Any) {

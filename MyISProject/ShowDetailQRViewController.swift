@@ -181,7 +181,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         self.DateTxt.text = warrantyModel.getDate()
         self.StoreName.text = warrantyModel.buyLocation
         self.Price.text = warrantyModel.price
-        if let data = Data(base64Encoded: warrantyModel.getReceipt()) {
+        if let data = warrantyModel.receipt {
             self.PicImg.image = UIImage(data: data)
         }
         

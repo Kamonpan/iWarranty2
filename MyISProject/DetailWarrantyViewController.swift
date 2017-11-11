@@ -33,8 +33,8 @@ class DetailWarrantyViewController: UIViewController {
         self.buyDateLabel.text = warrantyModel.getDate()
         self.buyLocationLabel.text = warrantyModel.buyLocation
         self.priceLabel.text = warrantyModel.price
-        if let data = Data(base64Encoded: warrantyModel.getReceipt()) {
-            self.receiptImageView.image = UIImage(data: data)
+        if let publicId = warrantyModel.receiptImageId {
+            self.receiptImageView.cldSetImage(publicId: publicId, cloudinary: cld)
         }
     }
     

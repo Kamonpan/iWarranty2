@@ -29,8 +29,8 @@ class HistoryDetailViewController: UIViewController {
         self.serialNumberLabel.text = historyModel.serialNumber
         self.fixDateLabel.text = historyModel.getDate()
         self.noteLabel.text = historyModel.note
-        if let data = historyModel.image {
-            self.fixImageView.image = UIImage(data: data)
+        if let publicId = historyModel.imageId{
+            self.fixImageView.cldSetImage(publicId: publicId, cloudinary: cld)
         }
     }
 

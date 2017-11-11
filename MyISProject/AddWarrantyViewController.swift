@@ -97,8 +97,7 @@ extension AddWarrantyViewController: QRCodeReaderViewControllerDelegate {
         reader.stopScanning()
         dismiss(animated: true, completion: nil)
         let showDetailQRViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowDetailQRViewController") as! ShowDetailQRViewController
-        var warrantyModel = WarrantyModel()
-        showDetailQRViewController.warrantyModel = warrantyModel
+        showDetailQRViewController.warrantyModel = WarrantyModel()
         self.navigationController?.pushViewController(showDetailQRViewController, animated: true)
     }
 }

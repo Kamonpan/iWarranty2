@@ -10,5 +10,6 @@ target 'MyISProject' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'Cloudinary', '~> 2.0'
 
 end
