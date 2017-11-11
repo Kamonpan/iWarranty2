@@ -372,7 +372,7 @@
 				TargetAttributes = {
 					91C258751F1225830089F340 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = FZZ33759P6;
+						DevelopmentTeam = 9EE8699R6A;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -644,11 +644,13 @@
 			baseConfigurationReference = 3858E0DFD9316BD47287F3B5 /* Pods-MyISProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FZZ33759P6;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9EE8699R6A;
 				INFOPLIST_FILE = MyISProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.iWarranty2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.iWarranty3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -658,11 +660,13 @@
 			baseConfigurationReference = 3E1892F3CC4837DF464DD57B /* Pods-MyISProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FZZ33759P6;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9EE8699R6A;
 				INFOPLIST_FILE = MyISProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.iWarranty2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.iWarranty3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
