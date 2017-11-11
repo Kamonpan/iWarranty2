@@ -40,9 +40,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
             EmailTxt.text = email
         } else {
             EmailTxt.text = ""
-            EmailTxt.placeholder = "กรุณากรอกอีเมล์"
+            EmailTxt.placeholder = "กรุณากรอกอีเมล"
         }
-        PasswordTxt.text = "123456"
+        PasswordTxt.text = ""
+        EmailTxt.placeholder = "กรุณากรอกอีเมล"
         
         EmailTxt.delegate = self
         PasswordTxt.delegate = self
