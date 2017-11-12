@@ -42,16 +42,17 @@ class NotificationViewController: UIViewController ,UITableViewDelegate ,UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        firebaseRef.child("Warranties").observe(.value, with: { (snapshot) in
+        firebaseRef.child("Histories").observe(.value, with: { (snapshot) in
+            self.displayData = []
             for item in snapshot.children {
                 let snapshot = item as! DataSnapshot
-                let warrantyModel = WarrantyModel(snapshot: snapshot)
-                if warrantyModel.uid == self.getUid() {
-                    for (_, value) in warrantyModel.lastStatus {
+                let historyModel = HistoryModel(snapshot: snapshot)
+                if historyModel.uid == self.getUid() {
+                    for (_, value) in historyModel.lastStatus {
                         if let value = value as? NSDictionary {
                             let date = value.object(forKey: "updatedAt") as! Double
                             let status = value.object(forKey: "status") as! String
-                            let notification = Notification(date: date, status: status, title: warrantyModel.brand)
+                            let notification = Notification(date: date, status: status, title: historyModel.typeText)
                             self.displayData.append(notification)
                         }
                     }
