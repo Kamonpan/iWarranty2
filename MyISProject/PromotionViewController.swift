@@ -41,6 +41,9 @@ class PromotionViewController: UIViewController {
                 newItems.append(promotion)
             }
             self.promotionModelList = newItems
+            self.promotionModelList.sort(by: { (a, b) -> Bool in
+                return a.addedAt! < b.addedAt!
+            })
             self.PromoTableView.reloadData()
             SwiftOverlays.removeAllBlockingOverlays()
         })
@@ -83,9 +86,7 @@ extension PromotionViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewController
-        if let imageData = promotionModelList[indexPath.row].picture {
-            cell.PromoImage?.image = UIImage(data: imageData)
-        }
+        cell.PromoImage.cldSetImage(publicId: self.promotionModelList[indexPath.row].picture!, cloudinary: cld)
         
         return cell
     }

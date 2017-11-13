@@ -11,14 +11,17 @@ import UIKit
 import FirebaseDatabase
 
 class Promotion {
-    var picture: Data?
-    var pictureDetail: Data?
+    var picture: String?
+    var addedAt: Int?
     
     init(snapshot: DataSnapshot) {
         
         let snapshotValue = snapshot.value as! [String: AnyObject]
-        if let encodedValue = snapshotValue["picture"] as? String {
-            self.picture = Data(base64Encoded: encodedValue)
+        if let pictureId = snapshotValue["pictureId"] as? String {
+            self.picture = pictureId
+        }
+        if let addedAt = snapshotValue["added_at"] as? Int {
+            self.addedAt = addedAt
         }
         
 
