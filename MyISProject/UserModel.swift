@@ -11,6 +11,7 @@ import Foundation
 
 struct UserModel {
     var fullName: String = ""
+    var gender: String = ""
     var email: String = ""
     var password: String = ""
     var birthDate: Date?
@@ -42,6 +43,7 @@ struct UserModel {
     init(snapshot: DataSnapshot) {
         let snapshotValue = snapshot.value as! [String: AnyObject]
         self.fullName = snapshotValue["fullName"] as! String
+        self.gender = snapshotValue["gender"] as! String
         self.email = snapshotValue["email"] as! String
         self.password = snapshotValue["password"] as! String
         self.birthDate = MyDateFormatter.date(from: snapshotValue["birthDate"] as! String)
@@ -56,6 +58,7 @@ struct UserModel {
     func toAnyObject() -> Any {
         return [
             "fullName": self.fullName,
+            "gender": self.gender,
             "email": self.email,
             "password": self.password,
             "birthDate": MyDateFormatter.string(from: self.birthDate),

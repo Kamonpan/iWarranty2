@@ -14,6 +14,7 @@ import SwiftOverlays
 class ConfirmRegisterViewController: UIViewController {
 
     @IBOutlet weak var NameLbl: UILabel!
+    @IBOutlet weak var GenderLbl: UILabel!
     @IBOutlet weak var EmailLbl: UILabel!
     @IBOutlet weak var PasswordLbl: UILabel!
     @IBOutlet weak var RePassLbl: UILabel!
@@ -35,6 +36,7 @@ class ConfirmRegisterViewController: UIViewController {
             return
         }
         NameLbl.text = userModel.fullName
+        GenderLbl.text = userModel.gender
         EmailLbl.text = userModel.email
         PasswordLbl.text = userModel.password
         RePassLbl.text = userModel.password
