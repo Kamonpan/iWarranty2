@@ -25,29 +25,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo หน้าแรก" translatesAutoresizingMaskIntoConstraints="NO" id="o2k-rY-luI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="268.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                                 <color key="backgroundColor" red="0.0023141580168157816" green="0.84350079298019409" blue="0.66402816772460938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="8Mt-xL-wCP"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="อีเมล : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPq-cg-pEN">
-                                <rect key="frame" x="4" y="318.5" width="41.5" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="csS-Jm-xWX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="กรุณากรอกอีเมล" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L4R-9o-Unv">
-                                <rect key="frame" x="53.5" y="318.5" width="301.5" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="R2N-dH-ig4"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="กรุณากรอกรหัส" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iTb-Yf-HGK">
-                                <rect key="frame" x="85" y="398.5" width="270" height="30"/>
+                                <rect key="frame" x="36" y="375.5" width="319" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="iQf-Dy-2jM"/>
                                 </constraints>
@@ -91,47 +76,46 @@
                                     <constraint firstAttribute="height" constant="40" id="jqr-9G-ifP"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="พาสเวิด : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmr-e8-wdD">
-                                <rect key="frame" x="20" y="398.5" width="57" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="RsA-bS-gYP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เข้าสู่ระบบ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owV-In-n1S">
+                                <rect key="frame" x="159.5" y="280" width="72" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="กรุณากรอกอีเมล" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L4R-9o-Unv">
+                                <rect key="frame" x="36" y="320.5" width="319" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="R2N-dH-ig4"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xmr-e8-wdD" firstAttribute="top" secondItem="dPq-cg-pEN" secondAttribute="bottom" constant="50" id="Dja-CV-5eC"/>
+                            <constraint firstItem="owV-In-n1S" firstAttribute="centerX" secondItem="L4R-9o-Unv" secondAttribute="centerX" id="C0b-P0-Fcc"/>
+                            <constraint firstItem="iTb-Yf-HGK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="FVu-V9-43D"/>
+                            <constraint firstAttribute="trailing" secondItem="L4R-9o-Unv" secondAttribute="trailing" constant="20" id="IhU-Cu-KZo"/>
                             <constraint firstAttribute="trailing" secondItem="OP2-HJ-n55" secondAttribute="trailing" id="Knx-Fd-TGm"/>
-                            <constraint firstItem="L4R-9o-Unv" firstAttribute="top" secondItem="o2k-rY-luI" secondAttribute="bottom" constant="50" id="QWU-Dc-dMp"/>
-                            <constraint firstItem="xmr-e8-wdD" firstAttribute="centerY" secondItem="iTb-Yf-HGK" secondAttribute="centerY" id="TJg-20-Kh5"/>
+                            <constraint firstItem="L4R-9o-Unv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="MAG-mE-OlU"/>
+                            <constraint firstAttribute="trailing" secondItem="iTb-Yf-HGK" secondAttribute="trailing" constant="20" id="O0F-UF-B8K"/>
+                            <constraint firstItem="L4R-9o-Unv" firstAttribute="top" secondItem="owV-In-n1S" secondAttribute="bottom" constant="20" id="QHq-sI-LHE"/>
                             <constraint firstItem="o2k-rY-luI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Tw2-hx-m1e"/>
                             <constraint firstAttribute="trailing" secondItem="o2k-rY-luI" secondAttribute="trailing" id="U23-Md-Cnc"/>
                             <constraint firstItem="OP2-HJ-n55" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XhG-sf-TRX"/>
-                            <constraint firstItem="xmr-e8-wdD" firstAttribute="top" secondItem="L4R-9o-Unv" secondAttribute="bottom" constant="50" id="Zvl-oJ-H52"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iTb-Yf-HGK" secondAttribute="trailing" constant="4" id="b2t-Oj-0H3"/>
-                            <constraint firstItem="dPq-cg-pEN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ekd-Ue-Ifq"/>
-                            <constraint firstItem="L4R-9o-Unv" firstAttribute="leading" secondItem="dPq-cg-pEN" secondAttribute="trailing" constant="8" id="jGa-cf-Esa"/>
-                            <constraint firstItem="iTb-Yf-HGK" firstAttribute="leading" secondItem="xmr-e8-wdD" secondAttribute="trailing" constant="8" id="jgR-jX-NvK"/>
-                            <constraint firstItem="iTb-Yf-HGK" firstAttribute="top" secondItem="L4R-9o-Unv" secondAttribute="bottom" constant="50" id="p4e-hr-3uX"/>
+                            <constraint firstItem="iTb-Yf-HGK" firstAttribute="top" secondItem="L4R-9o-Unv" secondAttribute="bottom" constant="25" id="p4e-hr-3uX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OP2-HJ-n55" secondAttribute="bottom" id="qac-a5-sfF"/>
-                            <constraint firstItem="dPq-cg-pEN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="4" id="smI-LU-ziA"/>
+                            <constraint firstItem="owV-In-n1S" firstAttribute="top" secondItem="o2k-rY-luI" secondAttribute="bottom" constant="30" id="sDT-Q6-OP7"/>
                             <constraint firstItem="o2k-rY-luI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wGO-bn-1Nn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="L4R-9o-Unv" secondAttribute="trailing" constant="4" id="wvF-Q0-B8y"/>
-                            <constraint firstItem="dPq-cg-pEN" firstAttribute="top" secondItem="o2k-rY-luI" secondAttribute="bottom" constant="50" id="yZn-7f-yr2"/>
-                            <constraint firstItem="xmr-e8-wdD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="yux-qh-RC7"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="EmailTxt" destination="L4R-9o-Unv" id="9WV-Wo-fe1"/>
                         <outlet property="LoginBtn" destination="CIF-jB-6QP" id="u5K-jI-dc9"/>
                         <outlet property="LogoImg" destination="o2k-rY-luI" id="dkW-AG-GCg"/>
-                        <outlet property="PasswordLbl" destination="xmr-e8-wdD" id="TWR-0K-XTc"/>
                         <outlet property="PasswordTxt" destination="iTb-Yf-HGK" id="fx4-6U-jQe"/>
                         <outlet property="RegisBtn" destination="JHw-qY-h5J" id="zci-E7-3tQ"/>
-                        <outlet property="UsernameLbl" destination="dPq-cg-pEN" id="tpC-oW-nhk"/>
                         <segue destination="4xJ-f9-RyO" kind="presentation" identifier="GotoTabbar" modalTransitionStyle="crossDissolve" id="mN3-6A-vJn"/>
                     </connections>
                 </viewController>
