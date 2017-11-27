@@ -81,7 +81,7 @@ extension HistoryViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            firebaseRef.child("Warranties").child(self.historyModelList[indexPath.row].serialNumber).setValue(nil)
+            firebaseRef.child("Histories").child(self.historyModelList[indexPath.row].serialNumber).setValue(nil)
             self.historyModelList.remove(at: indexPath.row)
             tableView.reloadData()
         }

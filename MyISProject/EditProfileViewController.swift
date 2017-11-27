@@ -84,7 +84,12 @@ class EditProfileViewController: UIViewController {
         Session.shared.user.province = provinceTextField.text!
         Session.shared.user.postcode = postcodeTextField.text!
         firebaseRef.child("Users").child(getUid()).setValue(Session.shared.user.toAnyObject())
-        AlertHelper.showAlert(title: "Success", message: "อัพเดทข้อมูลเรียบร้อย", ViewController: self)
+        let alert = UIAlertController(title:title , message:"อัพเดทข้อมูลเรียบร้อย" , preferredStyle:.alert)
+        let resultAlert = UIAlertAction(title: "OK", style: .cancel) { (action) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(resultAlert)
+        self.present(alert, animated: true, completion: nil)
         SwiftOverlays.removeAllBlockingOverlays()
     }
 

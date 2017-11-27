@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQDropDownTextField
 
 class HistoryEditViewController: UIViewController {
     
@@ -20,7 +21,7 @@ class HistoryEditViewController: UIViewController {
     @IBOutlet weak var noteTextField: UITextField!
     @IBOutlet weak var fixImageView: UIImageView!
 
-    @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var categoryTextField: IQDropDownTextField!
     @IBOutlet weak var goodTextField: UITextField!
     
     override func viewDidLoad() {
@@ -33,7 +34,12 @@ class HistoryEditViewController: UIViewController {
         self.brandTextField.text = historyModel.brand
         self.modelTextField.text = historyModel.model
         self.serialNumberTextField.text = historyModel.serialNumber
-        self.categoryTextField.text = historyModel.type
+        self.categoryTextField.itemList = ["เครื่องใช้ไฟฟ้าขนาดเล็ก",
+                                           "เครื่องใช้ไฟฟ้าขนาดใหญ่",
+                                           "โทรศัพท์มือถือ-แท็บเล็ตและอุปกรณ์",
+                                           "คอมพิวเตอร์ & โน๊ตบุ๊ค",
+                                           "ทีวี-เครื่องเสียงและเครื่องเกม",
+                                           "กล้องและอุปกรณ์"]
         self.goodTextField.text = historyModel.typeText
         self.fixDateTextField.text = historyModel.getDate()
         self.noteTextField.text = historyModel.note
@@ -63,7 +69,7 @@ class HistoryEditViewController: UIViewController {
         self.historyModel?.brand = self.brandTextField.text!
         self.historyModel?.model = self.modelTextField.text!
         self.historyModel?.serialNumber = self.serialNumberTextField.text!
-        self.historyModel?.type = self.categoryTextField.text!
+        self.historyModel?.type = self.categoryTextField.selectedItem!
         self.historyModel?.typeText = self.goodTextField.text!
         self.historyModel?.date = MyDateFormatter.date(from: self.fixDateTextField.text!)
         self.historyModel?.note = self.noteTextField.text!

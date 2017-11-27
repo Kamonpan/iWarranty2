@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQDropDownTextField
 
 class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate{
     
@@ -23,7 +24,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
     @IBOutlet fileprivate weak var SerialTxt: UITextField!
     @IBOutlet fileprivate weak var ModelTxt: UITextField!
     @IBOutlet fileprivate weak var NameTxt: UITextField!
-    @IBOutlet fileprivate weak var CategoryTxt: UITextField!
+    @IBOutlet fileprivate weak var CategoryTxt: IQDropDownTextField!
     @IBOutlet fileprivate weak var GoodTxt: UITextField!
     @IBOutlet fileprivate weak var DateTxt: UITextField!
     @IBOutlet fileprivate weak var StoreName: UITextField!
@@ -126,7 +127,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
                 warrantyModel.brand = self.BrandTxt.text!
                 warrantyModel.model = self.ModelTxt.text!
                 warrantyModel.serialNumber = self.SerialTxt.text!
-                warrantyModel.type = CategoryTxt.text!
+                warrantyModel.type = CategoryTxt.selectedItem!
                 warrantyModel.typeText = GoodTxt.text!
                 warrantyModel.buyDate = MyDateFormatter.date(from: self.DateTxt.text!)
                 warrantyModel.buyLocation = self.StoreName.text!
@@ -138,7 +139,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
                 warrantyModel.brand = self.BrandTxt.text!
                 warrantyModel.model = self.ModelTxt.text!
                 warrantyModel.serialNumber = self.SerialTxt.text!
-                warrantyModel.type = CategoryTxt.text!
+                warrantyModel.type = CategoryTxt.selectedItem!
                 warrantyModel.typeText = GoodTxt.text!
                 warrantyModel.buyDate = MyDateFormatter.date(from: self.DateTxt.text!)
                 warrantyModel.buyLocation = self.StoreName.text!
@@ -166,11 +167,6 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         
         self.NameTxt.text = Session.shared.user.fullName
         
-        let categoryPickerView = UIPickerView()
-        categoryPickerView.delegate = self
-        CategoryTxt.inputView = categoryPickerView
-        CategoryTxt.placeholder = "กรุณาเลือก"
-        
         guard let warrantyModel = self.warrantyModel else {
             return
         }
@@ -181,6 +177,8 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         self.DateTxt.text = warrantyModel.getDate()
         self.StoreName.text = warrantyModel.buyLocation
         self.Price.text = warrantyModel.price
+        self.CategoryTxt.selectedItem = warrantyModel.type
+        self.GoodTxt.text = warrantyModel.typeText
         if let data = warrantyModel.receipt {
             self.PicImg.image = UIImage(data: data)
         }
@@ -193,27 +191,9 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         ModelTxt.delegate = self
         NameTxt.delegate = self
         GoodTxt.delegate = self
-        CategoryTxt.delegate = self
+        CategoryTxt.itemList = categoryList
         DateTxt.delegate = self
         StoreName.delegate = self
         Price.delegate = self
-    }
-}
-
-extension ShowDetailQRViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categoryList.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoryList[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        CategoryTxt.text = categoryList[row]
     }
 }

@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import IQDropDownTextField
 
 class RegisterViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var NameTxt: UITextField!
-    @IBOutlet weak var GenderTxt: UITextField!
+    @IBOutlet weak var GenderTxt: IQDropDownTextField!
     @IBOutlet weak var EmailTxt: UITextField!
     @IBOutlet weak var PasswordTxt: UITextField!
     @IBOutlet weak var RePassTxt: UITextField!
@@ -31,7 +32,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         } else {
             var userModel = UserModel()
             userModel.fullName = self.NameTxt.text!
-            userModel.gender = self.GenderTxt.text!
+            userModel.gender = self.GenderTxt.selectedItem!
             userModel.email = self.EmailTxt.text!
             userModel.password = self.PasswordTxt.text!
             userModel.birthDate = MyDateFormatter.date(from: self.BirthTxt.text!)
@@ -77,6 +78,9 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         DistrictTxt.delegate = self
         ProvinceTxt.delegate = self
         ZipCodeTxt.delegate = self
+        
+        GenderTxt.isOptionalDropDown = false
+        GenderTxt.itemList = ["ชาย", "หญิง"]
         
         DatePicker()
     }

@@ -32,10 +32,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    
+    override func viewDidAppear(_ animated: Bool) {
         if let email = UserDefaults.standard.string(forKey: "lastRegisterEmail") {
             EmailTxt.text = email
         } else {
@@ -44,6 +42,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
         }
         PasswordTxt.text = ""
         EmailTxt.placeholder = "กรุณากรอกอีเมล"
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         EmailTxt.delegate = self
         PasswordTxt.delegate = self
