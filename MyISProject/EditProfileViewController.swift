@@ -83,7 +83,7 @@ class EditProfileViewController: UIViewController {
         Session.shared.user.amphur = amphurTextField.text!
         Session.shared.user.province = provinceTextField.text!
         Session.shared.user.postcode = postcodeTextField.text!
-        firebaseRef.child("users").child(getUid()).setValue(Session.shared.user.toAnyObject())
+        firebaseRef.child("Users").child(getUid()).setValue(Session.shared.user.toAnyObject())
         AlertHelper.showAlert(title: "Success", message: "อัพเดทข้อมูลเรียบร้อย", ViewController: self)
         SwiftOverlays.removeAllBlockingOverlays()
     }
