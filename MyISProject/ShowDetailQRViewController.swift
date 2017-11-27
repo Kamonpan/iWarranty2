@@ -120,6 +120,14 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if (!self.validateTextFields()) {
+            AlertHelper.showAlert(title: "Error", message: "กรุณากรอกข้อมูลให้ครบถ้วน", ViewController: self)
+        }
+        return validateTextFields()
+        
+    }
+    
     //pass ค่าไปให้อีกหน้า
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let confirmQRPage = segue.destination as? ConfirmQRViewController {
@@ -150,6 +158,28 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
             
         }
     }
+    
+    func validateTextFields() -> Bool {
+        if (self.BrandTxt.text!.count <= 0) {
+            return false
+        } else if (self.ModelTxt.text!.count <= 0) {
+            return false
+        } else if (self.SerialTxt.text!.count <= 0) {
+            return false
+        } else if (self.CategoryTxt.selectedItem == nil) {
+            return false
+        } else if (self.GoodTxt.text!.count <= 0) {
+            return false
+        } else if (self.DateTxt.text!.count <= 0) {
+            return false
+        } else if (self.StoreName.text!.count <= 0) {
+            return false
+        } else if (self.Price.text!.count <= 0) {
+            return false
+        }
+        return true
+    }
+    
     //hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

@@ -65,6 +65,10 @@ class HistoryEditViewController: UIViewController {
     
     @IBAction func tapNextButton(_ sender: Any) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HistoryConfirmViewController") as! HistoryConfirmViewController
+        if (!self.validateTextFields()) {
+            AlertHelper.showAlert(title: "Error", message: "กรุณากรอกข้อมูลให้ครบถ้วน", ViewController: self)
+            return
+        }
         self.historyModel?.subject = self.subjectTextField.text!
         self.historyModel?.brand = self.brandTextField.text!
         self.historyModel?.model = self.modelTextField.text!
@@ -76,6 +80,27 @@ class HistoryEditViewController: UIViewController {
         self.historyModel?.image = UIImagePNGRepresentation(self.fixImageView.image)
         viewController.historyModel = self.historyModel
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func validateTextFields() -> Bool {
+        if (self.subjectTextField.text!.count <= 0) {
+            return false
+        } else if (self.brandTextField.text!.count <= 0) {
+            return false
+        } else if (self.modelTextField.text!.count <= 0) {
+            return false
+        } else if (self.serialNumberTextField.text!.count <= 0) {
+            return false
+        } else if (self.categoryTextField.selectedItem == nil) {
+            return false
+        } else if (self.goodTextField.text!.count <= 0) {
+            return false
+        } else if (self.fixDateTextField.text!.count <= 0) {
+            return false
+        } else if (self.noteTextField.text!.count <= 0) {
+            return false
+        }
+        return true
     }
     
     func openCamera()
