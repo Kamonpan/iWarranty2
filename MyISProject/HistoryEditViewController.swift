@@ -12,6 +12,12 @@ import IQDropDownTextField
 class HistoryEditViewController: UIViewController {
     
     var historyModel: HistoryModel?
+    private let categoryList = ["เครื่องใช้ไฟฟ้าขนาดเล็ก",
+                               "เครื่องใช้ไฟฟ้าขนาดใหญ่",
+                               "โทรศัพท์มือถือ-แท็บเล็ตและอุปกรณ์",
+                               "คอมพิวเตอร์ & โน๊ตบุ๊ค",
+                               "ทีวี-เครื่องเสียงและเครื่องเกม",
+                               "กล้องและอุปกรณ์"]
     
     @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
@@ -27,6 +33,10 @@ class HistoryEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DatePicker()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.categoryTextField.itemList = categoryList
         guard let historyModel = self.historyModel else {
             return
         }
@@ -34,17 +44,12 @@ class HistoryEditViewController: UIViewController {
         self.brandTextField.text = historyModel.brand
         self.modelTextField.text = historyModel.model
         self.serialNumberTextField.text = historyModel.serialNumber
-        self.categoryTextField.itemList = ["เครื่องใช้ไฟฟ้าขนาดเล็ก",
-                                           "เครื่องใช้ไฟฟ้าขนาดใหญ่",
-                                           "โทรศัพท์มือถือ-แท็บเล็ตและอุปกรณ์",
-                                           "คอมพิวเตอร์ & โน๊ตบุ๊ค",
-                                           "ทีวี-เครื่องเสียงและเครื่องเกม",
-                                           "กล้องและอุปกรณ์"]
+        self.categoryTextField.selectedRow = categoryList.index(of: historyModel.type)!+1
         self.goodTextField.text = historyModel.typeText
         self.fixDateTextField.text = historyModel.getDate()
         self.noteTextField.text = historyModel.note
-        if let data = historyModel.image {
-            self.fixImageView.image = UIImage(data: data)
+        if let receiptImageData = historyModel.image {
+            self.fixImageView.image = UIImage(data: receiptImageData)
         }
     }
     
@@ -164,6 +169,11 @@ extension HistoryEditViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         fixImageView.image = image
+        let oldValue = self.historyModel?.image
+        self.historyModel?.image = UIImagePNGRepresentation(image)
+        if self.historyModel?.image != oldValue {
+            self.historyModel?.needUploadImage = true
+        }
         picker.dismiss(animated: true, completion: nil)
         
     }

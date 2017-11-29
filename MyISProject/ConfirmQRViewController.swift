@@ -40,8 +40,8 @@ class ConfirmQRViewController: UIViewController {
         }
         let warrantyRef = firebaseRef.child("Warranties").child(warrantyModel.serialNumber)
         
-        if let image = warrantyModel.receipt {
-            cld.createUploader().upload(data: warrantyModel.receipt!, uploadPreset: "y3mvrxue", params: nil, progress: nil) { (result, error) in
+        if let image = warrantyModel.receipt, warrantyModel.needUploadImage {
+            cld.createUploader().upload(data: image, uploadPreset: "y3mvrxue", params: nil, progress: nil) { (result, error) in
                 if let error = error {
                     print(error.localizedDescription)
                 } else {

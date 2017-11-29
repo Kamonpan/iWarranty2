@@ -42,15 +42,24 @@ class ViewController: UIViewController,UITextFieldDelegate {
         }
         PasswordTxt.text = ""
         EmailTxt.placeholder = "กรุณากรอกอีเมล"
+        
+        if let user = Auth.auth().currentUser {
+            SwiftOverlays.showBlockingWaitOverlay()
+            self.firebaseRef.child("Users").child(user.uid).observe(.value, with: { (snapshot) in
+                Session.shared.user = UserModel(snapshot: snapshot)
+                SwiftOverlays.removeAllBlockingOverlays()
+                self.gotoMainScreen()
+            })
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.firebaseRef = Database.database().reference()
+        
         EmailTxt.delegate = self
         PasswordTxt.delegate = self
-        
-        self.firebaseRef = Database.database().reference()
     }
     
 //เงื่อนไขการ login
@@ -73,12 +82,16 @@ class ViewController: UIViewController,UITextFieldDelegate {
             })
             SwiftOverlays.removeAllBlockingOverlays()
 
-            let GotoAddWarrantyTabbar = self.storyboard!.instantiateViewController(withIdentifier: "GotoAddWarrantyTabbar")
-            
-            let appDelegate = UIApplication.shared.delegate! as! AppDelegate
-            
-            appDelegate.window?.rootViewController = GotoAddWarrantyTabbar
+            self.gotoMainScreen()
         }
+    }
+    
+    func gotoMainScreen() {
+        let GotoAddWarrantyTabbar = self.storyboard!.instantiateViewController(withIdentifier: "GotoAddWarrantyTabbar")
+        
+        let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+        
+        appDelegate.window?.rootViewController = GotoAddWarrantyTabbar
     }
 
 }

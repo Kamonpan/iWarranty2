@@ -59,11 +59,14 @@ class HistoryConfirmViewController: UIViewController {
             AlertHelper.showAlert(title: "Error", message: "กรุณากรอกหมายเลขเครื่อง", ViewController: self)
             return
         }
+        
+        SwiftOverlays.showBlockingWaitOverlay()
         let historyRef = firebaseRef.child("Histories").child(historyModel.serialNumber)
-        if let image = historyModel.image {
+        if let image = historyModel.image, historyModel.needUploadImage {
             cld.createUploader().upload(data: image, uploadPreset: "y3mvrxue", params: nil, progress: nil) { (result, error) in
                 if let error = error {
                     print(error.localizedDescription)
+                    SwiftOverlays.removeAllBlockingOverlays()
                 } else {
                     historyModel.imageId = result?.publicId
                     historyRef.setValue(historyModel.toAnyObject())

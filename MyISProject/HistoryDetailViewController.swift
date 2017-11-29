@@ -36,6 +36,7 @@ class HistoryDetailViewController: UIViewController {
 
     @IBAction func tapEditButton(_ sender: Any) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HistoryEditViewController") as! HistoryEditViewController
+        self.historyModel?.image = UIImagePNGRepresentation(self.fixImageView.image)
         viewController.historyModel = self.historyModel
         self.navigationController?.pushViewController(viewController, animated: true)
     }

@@ -22,6 +22,9 @@ struct WarrantyModel {
     var receipt: Data?
     var receiptImageId: String?
     var uid: String = ""
+    
+    var needUploadImage = false
+    
     init() {
         
     }

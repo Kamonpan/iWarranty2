@@ -13,6 +13,13 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
     
     var warrantyModel: WarrantyModel?
     
+    private let categoryList = ["เครื่องใช้ไฟฟ้าขนาดเล็ก",
+                                "เครื่องใช้ไฟฟ้าขนาดใหญ่",
+                                "โทรศัพท์มือถือ-แท็บเล็ตและอุปกรณ์",
+                                "คอมพิวเตอร์ & โน๊ตบุ๊ค",
+                                "ทีวี-เครื่องเสียงและเครื่องเกม",
+                                "กล้องและอุปกรณ์"]
+    
     @IBOutlet fileprivate weak var BrandTxt: UITextField!
     @IBOutlet fileprivate weak var SerialTxt: UITextField!
     @IBOutlet fileprivate weak var ModelTxt: UITextField!
@@ -74,7 +81,11 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         PicImg.image = image
+        let oldValue = self.warrantyModel?.receipt
         self.warrantyModel?.receipt = UIImagePNGRepresentation(image)!
+        if self.warrantyModel?.receipt != oldValue {
+            self.warrantyModel?.needUploadImage = true
+        }
         picker.dismiss(animated: true, completion: nil)
         
     }
@@ -189,25 +200,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         DatePicker()
         
         self.NameTxt.text = Session.shared.user.fullName
-        
-        guard let warrantyModel = self.warrantyModel else {
-            return
-        }
-        
-        self.BrandTxt.text = warrantyModel.brand
-        self.ModelTxt.text = warrantyModel.model
-        self.SerialTxt.text = warrantyModel.serialNumber
-        self.DateTxt.text = warrantyModel.getDate()
-        self.StoreName.text = warrantyModel.buyLocation
-        self.Price.text = warrantyModel.price
-//        self.CategoryTxt.selectedItem = warrantyModel.type
-        self.GoodTxt.text = warrantyModel.typeText
-        if let data = warrantyModel.receipt {
-            self.PicImg.image = UIImage(data: data)
-        }
-        
-        
-        
+    
         //เรียกใช้การหุบ keyboard
         BrandTxt.delegate = self
         SerialTxt.delegate = self
@@ -219,12 +212,24 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         Price.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        CategoryTxt.itemList = ["เครื่องใช้ไฟฟ้าขนาดเล็ก",
-                                "เครื่องใช้ไฟฟ้าขนาดใหญ่",
-                                "โทรศัพท์มือถือ-แท็บเล็ตและอุปกรณ์",
-                                "คอมพิวเตอร์ & โน๊ตบุ๊ค",
-                                "ทีวี-เครื่องเสียงและเครื่องเกม",
-                                "กล้องและอุปกรณ์"];
+    override func viewWillAppear(_ animated: Bool) {
+        CategoryTxt.itemList = categoryList
+        
+        guard let warrantyModel = self.warrantyModel else {
+            return
+        }
+        
+        self.BrandTxt.text = warrantyModel.brand
+        self.ModelTxt.text = warrantyModel.model
+        self.SerialTxt.text = warrantyModel.serialNumber
+        self.DateTxt.text = warrantyModel.getDate()
+        self.StoreName.text = warrantyModel.buyLocation
+        self.Price.text = warrantyModel.price
+        self.CategoryTxt.selectedRow = categoryList.index(of: warrantyModel.type)!+1
+        self.GoodTxt.text = warrantyModel.typeText
+        if let receiptImageData = warrantyModel.receipt {
+            self.PicImg.image = UIImage(data: receiptImageData)
+        }
+        
     }
 }

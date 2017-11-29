@@ -24,6 +24,7 @@ struct HistoryModel {
     var uid: String = ""
     var lastStatus = NSDictionary()
     
+    var needUploadImage = false
     init() {}
     
     init(subject: String, type: String, typeText: String, brand: String, model: String, serialNumber: String, date: Date?, note: String, image: Data?) {
