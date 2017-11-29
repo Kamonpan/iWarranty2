@@ -13,13 +13,6 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
     
     var warrantyModel: WarrantyModel?
     
-    fileprivate let categoryList = ["เครื่องใช้ไฟฟ้าขนาดเล็ก",
-    "เครื่องใช้ไฟฟ้าขนาดใหญ่",
-    "โทรศัพท์มือถือ-แท็บเล็ตและอุปกรณ์",
-    "คอมพิวเตอร์ & โน๊ตบุ๊ค",
-    "ทีวี-เครื่องเสียงและเครื่องเกม",
-    "กล้องและอุปกรณ์"];
-    
     @IBOutlet fileprivate weak var BrandTxt: UITextField!
     @IBOutlet fileprivate weak var SerialTxt: UITextField!
     @IBOutlet fileprivate weak var ModelTxt: UITextField!
@@ -207,7 +200,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         self.DateTxt.text = warrantyModel.getDate()
         self.StoreName.text = warrantyModel.buyLocation
         self.Price.text = warrantyModel.price
-        self.CategoryTxt.selectedItem = warrantyModel.type
+//        self.CategoryTxt.selectedItem = warrantyModel.type
         self.GoodTxt.text = warrantyModel.typeText
         if let data = warrantyModel.receipt {
             self.PicImg.image = UIImage(data: data)
@@ -221,9 +214,17 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         ModelTxt.delegate = self
         NameTxt.delegate = self
         GoodTxt.delegate = self
-        CategoryTxt.itemList = categoryList
         DateTxt.delegate = self
         StoreName.delegate = self
         Price.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        CategoryTxt.itemList = ["เครื่องใช้ไฟฟ้าขนาดเล็ก",
+                                "เครื่องใช้ไฟฟ้าขนาดใหญ่",
+                                "โทรศัพท์มือถือ-แท็บเล็ตและอุปกรณ์",
+                                "คอมพิวเตอร์ & โน๊ตบุ๊ค",
+                                "ทีวี-เครื่องเสียงและเครื่องเกม",
+                                "กล้องและอุปกรณ์"];
     }
 }
