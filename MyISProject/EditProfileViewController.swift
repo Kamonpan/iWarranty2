@@ -15,8 +15,6 @@ class EditProfileViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var rePasswordTextField: UITextField!
     @IBOutlet weak var birthDateTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
@@ -71,9 +69,6 @@ class EditProfileViewController: UIViewController {
 
     @IBAction func tapConfirmButton(_ sender: Any) {
         SwiftOverlays.showBlockingWaitOverlay()
-        if passwordTextField.text != "", rePasswordTextField.text != "", passwordTextField.text == rePasswordTextField.text {
-            Session.shared.user.password = passwordTextField.text!
-        }
         Session.shared.user.fullName = nameTextField.text!
         Session.shared.user.email = emailTextField.text!
         Session.shared.user.birthDate = MyDateFormatter.date(from: birthDateTextField.text!)

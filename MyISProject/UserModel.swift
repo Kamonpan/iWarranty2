@@ -8,6 +8,7 @@
 
 import FirebaseDatabase
 import Foundation
+import FirebaseAuth
 
 struct UserModel {
     var fullName: String = ""
@@ -41,7 +42,15 @@ struct UserModel {
     }
     
     init(snapshot: DataSnapshot) {
-        let snapshotValue = snapshot.value as! [String: AnyObject]
+        guard let snapshotValue = snapshot.value as? [String: AnyObject] else {
+            do {
+                try Auth.auth().signOut()
+            } catch {
+                
+            }
+            return
+        }
+        //let snapshotValue = snapshot.value as! [String: AnyObject]
         self.fullName = snapshotValue["fullName"] as! String
         self.gender = snapshotValue["gender"] as! String
         self.email = snapshotValue["email"] as! String

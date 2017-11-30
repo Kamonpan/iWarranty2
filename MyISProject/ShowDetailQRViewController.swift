@@ -225,7 +225,9 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         self.DateTxt.text = warrantyModel.getDate()
         self.StoreName.text = warrantyModel.buyLocation
         self.Price.text = warrantyModel.price
-        self.CategoryTxt.selectedRow = categoryList.index(of: warrantyModel.type)!+1
+        if let selectedIndex = categoryList.index(of: warrantyModel.type) {
+            self.CategoryTxt.selectedRow = selectedIndex+1
+        }
         self.GoodTxt.text = warrantyModel.typeText
         if let receiptImageData = warrantyModel.receipt {
             self.PicImg.image = UIImage(data: receiptImageData)
