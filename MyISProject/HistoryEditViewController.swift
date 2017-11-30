@@ -44,7 +44,9 @@ class HistoryEditViewController: UIViewController {
         self.brandTextField.text = historyModel.brand
         self.modelTextField.text = historyModel.model
         self.serialNumberTextField.text = historyModel.serialNumber
-        self.categoryTextField.selectedRow = categoryList.index(of: historyModel.type)!+1
+        if let selectedIndex = categoryList.index(of: historyModel.type) {
+            self.categoryTextField.selectedRow = selectedIndex+1
+        }
         self.goodTextField.text = historyModel.typeText
         self.fixDateTextField.text = historyModel.getDate()
         self.noteTextField.text = historyModel.note
