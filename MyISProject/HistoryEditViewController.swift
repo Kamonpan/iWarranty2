@@ -33,9 +33,6 @@ class HistoryEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DatePicker()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         self.categoryTextField.itemList = categoryList
         guard let historyModel = self.historyModel else {
             return

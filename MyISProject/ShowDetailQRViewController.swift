@@ -210,9 +210,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         DateTxt.delegate = self
         StoreName.delegate = self
         Price.delegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
         CategoryTxt.itemList = categoryList
         
         guard let warrantyModel = self.warrantyModel else {
@@ -232,6 +230,6 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         if let receiptImageData = warrantyModel.receipt {
             self.PicImg.image = UIImage(data: receiptImageData)
         }
-        
     }
+    
 }
