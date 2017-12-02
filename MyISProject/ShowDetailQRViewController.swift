@@ -19,13 +19,14 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
                                 "คอมพิวเตอร์ & โน๊ตบุ๊ค",
                                 "ทีวี-เครื่องเสียงและเครื่องเกม",
                                 "กล้องและอุปกรณ์"]
+    var dynamicGoodsList = [String]()
     
     @IBOutlet fileprivate weak var BrandTxt: UITextField!
     @IBOutlet fileprivate weak var SerialTxt: UITextField!
     @IBOutlet fileprivate weak var ModelTxt: UITextField!
     @IBOutlet fileprivate weak var NameTxt: UITextField!
     @IBOutlet fileprivate weak var CategoryTxt: IQDropDownTextField!
-    @IBOutlet fileprivate weak var GoodTxt: UITextField!
+    @IBOutlet fileprivate weak var GoodTxt: IQDropDownTextField!
     @IBOutlet fileprivate weak var DateTxt: UITextField!
     @IBOutlet fileprivate weak var StoreName: UITextField!
     @IBOutlet fileprivate weak var Price: UITextField!
@@ -140,7 +141,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
                 warrantyModel.model = self.ModelTxt.text!
                 warrantyModel.serialNumber = self.SerialTxt.text!
                 warrantyModel.type = CategoryTxt.selectedItem!
-                warrantyModel.typeText = GoodTxt.text!
+                warrantyModel.typeText = GoodTxt.selectedItem!
                 warrantyModel.buyDate = MyDateFormatter.date(from: self.DateTxt.text!)
                 warrantyModel.buyLocation = self.StoreName.text!
                 warrantyModel.price = self.Price.text!
@@ -152,7 +153,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
                 warrantyModel.model = self.ModelTxt.text!
                 warrantyModel.serialNumber = self.SerialTxt.text!
                 warrantyModel.type = CategoryTxt.selectedItem!
-                warrantyModel.typeText = GoodTxt.text!
+                warrantyModel.typeText = GoodTxt.selectedItem!
                 warrantyModel.buyDate = MyDateFormatter.date(from: self.DateTxt.text!)
                 warrantyModel.buyLocation = self.StoreName.text!
                 warrantyModel.price = self.Price.text!
@@ -172,7 +173,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
             return false
         } else if (self.CategoryTxt.selectedItem == nil) {
             return false
-        } else if (self.GoodTxt.text!.count <= 0) {
+        } else if (self.GoodTxt.selectedItem == nil) {
             return false
         } else if (self.DateTxt.text!.count <= 0) {
             return false
@@ -206,8 +207,8 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         SerialTxt.delegate = self
         ModelTxt.delegate = self
         NameTxt.delegate = self
-        GoodTxt.delegate = self
         DateTxt.delegate = self
+        CategoryTxt.delegate = self
         StoreName.delegate = self
         Price.delegate = self
         
@@ -225,11 +226,66 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         self.Price.text = warrantyModel.price
         if let selectedIndex = categoryList.index(of: warrantyModel.type) {
             self.CategoryTxt.selectedRow = selectedIndex+1
+            self.CategoryTxt.delegate?.textField!(self.CategoryTxt, didSelectItem: warrantyModel.type)
         }
-        self.GoodTxt.text = warrantyModel.typeText
+        
         if let receiptImageData = warrantyModel.receipt {
             self.PicImg.image = UIImage(data: receiptImageData)
         }
     }
     
+}
+
+
+extension ShowDetailQRViewController: IQDropDownTextFieldDelegate {
+    func textField(_ textField: IQDropDownTextField, didSelectItem item: String?) {
+        guard let item = item else {
+            return
+        }
+        switch item {
+        case "เครื่องใช้ไฟฟ้าขนาดเล็ก":
+            dynamicGoodsList = ["กระทะไฟฟ้า",
+                                "กาต้มน้ำร้อน",
+                                "เครื่องปั่น-คั้น-ผสม-สกัด",
+                                "ไดร์เป่าผม-เครื่องหนีบผม",
+                                "หม้อหุงข้าว-ตุ๋น-นึ่ง",
+                                "เครื่องทำแซนวิช-ไข่ม้วน-ปิ้งขนมปัง",
+                                "เครื่องชงกาแฟและอุปกรณ์",
+                                "เครื่องกรองน้ำและอุปกรณ์",
+                                "พัดลม",
+                                "เตารีด",
+                                "เครื่องใช้ไฟฟ้าขนาดเล็กอื่นๆ"]
+            break
+        case "เครื่องใช้ไฟฟ้าขนาดใหญ่":
+            dynamicGoodsList = ["เครื่องล้างจาน",
+                                "เครื่องอบผ้า",
+                                "ตู้เย็นและตู้แช่แข็ง",
+                                "เครื่องซักผ้า",
+                                "เตาแก๊สแบบฝัง",
+                                "เครื่องดูดควัน",
+                                "ตู้แช่ไวน์",
+                                "เตาไฟฟ้า",
+                                "เตาแก๊ส",
+                                "ไมโครเวฟและเตาอบ"]
+            break
+        case "โทรศัพท์มือถือ-แท็บเล็ตและอุปกรณ์":
+            dynamicGoodsList = ["เบสิคโฟน-โทรศัพท์บ้าน", "สมาร์ทโฟน", "แท็บเล็ต", "แบตเตอรี่สำรอง-อุปกรณ์ชาร์จไฟ", "อุปกรณ์เสริมโทรศัพท์-แท็บเล็ต"]
+            break
+        case "คอมพิวเตอร์ & โน๊ตบุ๊ค":
+            dynamicGoodsList = ["คอมพิวเตอร์", "โน๊ตบุ๊ค"]
+            break
+        case "ทีวี-เครื่องเสียงและเครื่องเกม":
+            dynamicGoodsList = ["ทีวี", "เครื่องเสียง", "เครื่องเกม"]
+            break
+        case "กล้องและอุปกรณ์":
+            dynamicGoodsList = ["กล้อง", "อุปกรณ์"]
+            break
+        default:
+            break
+        }
+        self.GoodTxt.itemList = dynamicGoodsList
+        if let selectedIndex = dynamicGoodsList.index(of: self.warrantyModel!.typeText) {
+            self.GoodTxt.selectedRow = selectedIndex+1
+        }
+    }
 }
