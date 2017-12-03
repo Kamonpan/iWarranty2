@@ -75,12 +75,10 @@ extension AddWarrantyViewController: QRCodeReaderViewControllerDelegate {
         reader.stopScanning()
         dismiss(animated: true, completion: nil)
         let resultsArray = result.value.components(separatedBy: " ")
-        let brand = resultsArray[0]
-        let model = resultsArray[1]
-        let serialNumber = resultsArray[2]
+        let model = resultsArray[0]
+        let serialNumber = resultsArray[1]
         let showDetailQRViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowDetailQRViewController") as! ShowDetailQRViewController
         var warrantyModel = WarrantyModel()
-        warrantyModel.brand = brand
         warrantyModel.model = model
         warrantyModel.serialNumber = serialNumber
         showDetailQRViewController.warrantyModel = warrantyModel

@@ -169,7 +169,7 @@ extension HistoryEditViewController: UIImagePickerControllerDelegate, UINavigati
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        fixImageView.image = image
+        fixImageView.image = image.resizeImage(image: image, targetSize: CGSize(width: 300, height: 300))
         let oldValue = self.historyModel?.image
         self.historyModel?.image = UIImagePNGRepresentation(image)
         if self.historyModel?.image != oldValue {

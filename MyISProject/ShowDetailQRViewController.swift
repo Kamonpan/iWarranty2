@@ -81,7 +81,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        PicImg.image = image
+        PicImg.image = image.resizeImage(image: image, targetSize: CGSize(width: 300, height: 300))
         let oldValue = self.warrantyModel?.receipt
         self.warrantyModel?.receipt = UIImagePNGRepresentation(image)!
         if self.warrantyModel?.receipt != oldValue {

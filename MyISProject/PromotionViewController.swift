@@ -97,7 +97,7 @@ extension PromotionViewController: UITableViewDelegate {
         let promotion = promotionModelList[indexPath.row]
         let promotionDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PromoDetailViewController") as! PromoDetailViewController
         promotionDetailViewController.promotion = promotion
-        self.present(promotionDetailViewController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(promotionDetailViewController, animated: true)
     }
     
 }

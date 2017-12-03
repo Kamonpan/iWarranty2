@@ -17,7 +17,7 @@ class PromoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        PromoImage.cldSetImage(promotion.picture!, cloudinary: cld)
+        PromoImage.cldSetImage(publicId: promotion.picture!, cloudinary: cld)
     }
 
     override func didReceiveMemoryWarning() {
