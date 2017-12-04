@@ -29,8 +29,12 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func tapSearchButton(_ sender: Any) {
+        guard let postcode = postcodeTextField.text, postcode.count > 0 else {
+            AlertHelper.showAlert(title: "Error", message: "กรุณากรอกศูนย์บริการ", ViewController: self)
+            return
+        }
         SwiftOverlays.showBlockingWaitOverlay()
-        firebaseRef.child("ServiceCenter").child(postcodeTextField.text!).observe(.value, with: { (snapshot) in
+        firebaseRef.child("ServiceCenter").child(postcode).observe(.value, with: { (snapshot) in
             guard let data = snapshot.value as? [String: AnyObject] else {
                 SwiftOverlays.removeAllBlockingOverlays()
                 AlertHelper.showAlert(title: "Error", message: "ไม่พบศูนย์บริการ", ViewController: self)

@@ -834,17 +834,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DUk-Oe-qgh">
-                                <rect key="frame" x="16" y="72" width="343" height="538"/>
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DUk-Oe-qgh" firstAttribute="trailing" secondItem="RAT-ou-dtQ" secondAttribute="trailingMargin" id="14A-kq-58S"/>
-                            <constraint firstItem="DUk-Oe-qgh" firstAttribute="top" secondItem="VwG-MY-Sdq" secondAttribute="bottom" constant="8" id="LtF-0o-FFH"/>
-                            <constraint firstItem="DUk-Oe-qgh" firstAttribute="leading" secondItem="RAT-ou-dtQ" secondAttribute="leadingMargin" id="kQc-hU-z8E"/>
-                            <constraint firstItem="Pa2-78-Ddb" firstAttribute="top" secondItem="DUk-Oe-qgh" secondAttribute="bottom" constant="8" id="m37-lJ-bKS"/>
+                            <constraint firstItem="DUk-Oe-qgh" firstAttribute="top" secondItem="VwG-MY-Sdq" secondAttribute="bottom" id="AP2-a0-mJ3"/>
+                            <constraint firstItem="DUk-Oe-qgh" firstAttribute="leading" secondItem="RAT-ou-dtQ" secondAttribute="leadingMargin" id="JOp-C6-lSv"/>
+                            <constraint firstItem="Pa2-78-Ddb" firstAttribute="top" secondItem="DUk-Oe-qgh" secondAttribute="bottom" id="Yfy-ye-KAz"/>
+                            <constraint firstItem="DUk-Oe-qgh" firstAttribute="trailing" secondItem="RAT-ou-dtQ" secondAttribute="trailingMargin" id="qce-Ib-mq6"/>
                         </constraints>
                     </view>
                     <connections>
