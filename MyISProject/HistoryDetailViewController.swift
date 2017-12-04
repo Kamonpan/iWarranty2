@@ -17,6 +17,8 @@ class HistoryDetailViewController: UIViewController {
     @IBOutlet fileprivate weak var fixDateLabel: UILabel!
     @IBOutlet fileprivate weak var noteLabel: UILabel!
     @IBOutlet fileprivate weak var fixImageView: UIImageView!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var goodLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,8 @@ class HistoryDetailViewController: UIViewController {
         self.serialNumberLabel.text = historyModel.serialNumber
         self.fixDateLabel.text = historyModel.getDate()
         self.noteLabel.text = historyModel.note
+        self.typeLabel.text = historyModel.type
+        self.goodLabel.text = historyModel.typeText
         if let publicId = historyModel.imageId{
             self.fixImageView.cldSetImage(publicId: publicId, cloudinary: cld)
         }

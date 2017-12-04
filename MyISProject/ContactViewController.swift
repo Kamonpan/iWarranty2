@@ -26,6 +26,7 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         self.postcodeTextField.delegate = self
+        self.mapView.delegate = self
     }
     
     @IBAction func tapSearchButton(_ sender: Any) {
@@ -48,7 +49,6 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
             geocoder.geocodeAddressString(serviceCenter.address!) { [weak self] placemarks, error in
                 if let placemark = placemarks?.first, let location = placemark.location {
                     let mark = MKPlacemark(placemark: placemark)
-                    
                     if var region = self?.mapView.region {
                         region.center = location.coordinate
                         region.span.longitudeDelta /= 8.0
@@ -77,4 +77,13 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
+}
+
+extension ContactViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print(view)
+    }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print(view)
+    }
 }

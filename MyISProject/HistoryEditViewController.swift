@@ -18,6 +18,7 @@ class HistoryEditViewController: UIViewController {
                                "คอมพิวเตอร์ & โน๊ตบุ๊ค",
                                "ทีวี-เครื่องเสียงและเครื่องเกม",
                                "กล้องและอุปกรณ์"]
+    var dynamicGoodsList = [String]()
     
     @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
@@ -28,11 +29,12 @@ class HistoryEditViewController: UIViewController {
     @IBOutlet weak var fixImageView: UIImageView!
 
     @IBOutlet weak var categoryTextField: IQDropDownTextField!
-    @IBOutlet weak var goodTextField: UITextField!
+    @IBOutlet weak var goodTextField: IQDropDownTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         DatePicker()
+        self.categoryTextField.delegate = self
         self.categoryTextField.itemList = categoryList
         guard let historyModel = self.historyModel else {
             return
@@ -43,8 +45,8 @@ class HistoryEditViewController: UIViewController {
         self.serialNumberTextField.text = historyModel.serialNumber
         if let selectedIndex = categoryList.index(of: historyModel.type) {
             self.categoryTextField.selectedRow = selectedIndex+1
+            self.categoryTextField.delegate?.textField!(self.goodTextField, didSelectItem: historyModel.type)
         }
-        self.goodTextField.text = historyModel.typeText
         self.fixDateTextField.text = historyModel.getDate()
         self.noteTextField.text = historyModel.note
         if let receiptImageData = historyModel.image {
@@ -78,7 +80,7 @@ class HistoryEditViewController: UIViewController {
         self.historyModel?.model = self.modelTextField.text!
         self.historyModel?.serialNumber = self.serialNumberTextField.text!
         self.historyModel?.type = self.categoryTextField.selectedItem!
-        self.historyModel?.typeText = self.goodTextField.text!
+        self.historyModel?.typeText = self.goodTextField.selectedItem!
         self.historyModel?.date = MyDateFormatter.date(from: self.fixDateTextField.text!)
         self.historyModel?.note = self.noteTextField.text!
         self.historyModel?.image = UIImagePNGRepresentation(self.fixImageView.image)
@@ -97,7 +99,7 @@ class HistoryEditViewController: UIViewController {
             return false
         } else if (self.categoryTextField.selectedItem == nil) {
             return false
-        } else if (self.goodTextField.text!.count <= 0) {
+        } else if (self.goodTextField.selectedItem == nil) {
             return false
         } else if (self.fixDateTextField.text!.count <= 0) {
             return false
@@ -167,7 +169,7 @@ extension HistoryEditViewController: UIImagePickerControllerDelegate, UINavigati
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        fixImageView.image = image
+        fixImageView.image = image.resizeImage(image: image, targetSize: CGSize(width: 300, height: 300))
         let oldValue = self.historyModel?.image
         self.historyModel?.image = UIImagePNGRepresentation(image)
         if self.historyModel?.image != oldValue {
@@ -175,5 +177,58 @@ extension HistoryEditViewController: UIImagePickerControllerDelegate, UINavigati
         }
         picker.dismiss(animated: true, completion: nil)
         
+    }
+}
+
+extension HistoryEditViewController: IQDropDownTextFieldDelegate {
+    func textField(_ textField: IQDropDownTextField, didSelectItem item: String?) {
+        guard let item = item else {
+            return
+        }
+        switch item {
+        case "เครื่องใช้ไฟฟ้าขนาดเล็ก":
+            dynamicGoodsList = ["กระทะไฟฟ้า",
+                                "กาต้มน้ำร้อน",
+                                "เครื่องปั่น-คั้น-ผสม-สกัด",
+                                "ไดร์เป่าผม-เครื่องหนีบผม",
+                                "หม้อหุงข้าว-ตุ๋น-นึ่ง",
+                                "เครื่องทำแซนวิช-ไข่ม้วน-ปิ้งขนมปัง",
+                                "เครื่องชงกาแฟและอุปกรณ์",
+                                "เครื่องกรองน้ำและอุปกรณ์",
+                                "พัดลม",
+                                "เตารีด",
+                                "เครื่องใช้ไฟฟ้าขนาดเล็กอื่นๆ"]
+            break
+        case "เครื่องใช้ไฟฟ้าขนาดใหญ่":
+            dynamicGoodsList = ["เครื่องล้างจาน",
+                                "เครื่องอบผ้า",
+                                "ตู้เย็นและตู้แช่แข็ง",
+                                "เครื่องซักผ้า",
+                                "เตาแก๊สแบบฝัง",
+                                "เครื่องดูดควัน",
+                                "ตู้แช่ไวน์",
+                                "เตาไฟฟ้า",
+                                "เตาแก๊ส",
+                                "ไมโครเวฟและเตาอบ"]
+            break
+        case "โทรศัพท์มือถือ-แท็บเล็ตและอุปกรณ์":
+            dynamicGoodsList = ["เบสิคโฟน-โทรศัพท์บ้าน", "สมาร์ทโฟน", "แท็บเล็ต", "แบตเตอรี่สำรอง-อุปกรณ์ชาร์จไฟ", "อุปกรณ์เสริมโทรศัพท์-แท็บเล็ต"]
+            break
+        case "คอมพิวเตอร์ & โน๊ตบุ๊ค":
+            dynamicGoodsList = ["คอมพิวเตอร์", "โน๊ตบุ๊ค"]
+            break
+        case "ทีวี-เครื่องเสียงและเครื่องเกม":
+            dynamicGoodsList = ["ทีวี", "เครื่องเสียง", "เครื่องเกม"]
+            break
+        case "กล้องและอุปกรณ์":
+            dynamicGoodsList = ["กล้อง", "อุปกรณ์"]
+            break
+        default:
+            break
+        }
+        self.goodTextField.itemList = dynamicGoodsList
+        if let selectedIndex = dynamicGoodsList.index(of: self.historyModel!.typeText) {
+            self.goodTextField.selectedRow = selectedIndex+1
+        }
     }
 }

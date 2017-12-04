@@ -37,7 +37,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.11)
-  - IQDropDownTextField (1.1.1)
+  - IQDropDownTextField (1.1.0)
   - IQKeyboardManagerSwift (4.0.11)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -68,7 +68,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
-  IQDropDownTextField: 3d2e5728a2b83ff5dbb14cb9b497a80005124cbe
+  IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
   IQKeyboardManagerSwift: 10f0a6b8ea2904c8943c0e1a116c99f5b8ad83af
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   QRCodeReader.swift: 4a1d46f3057b1b6fc555578b2dc9f2dc99c7ccda

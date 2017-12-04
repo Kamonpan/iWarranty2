@@ -38,8 +38,12 @@ class ConfirmRegisterViewController: UIViewController {
         NameLbl.text = userModel.fullName
         GenderLbl.text = userModel.gender
         EmailLbl.text = userModel.email
-        PasswordLbl.text = userModel.password
-        RePassLbl.text = userModel.password
+        for _ in userModel.password {
+            PasswordLbl.text = PasswordLbl.text! + "●"
+            RePassLbl.text = RePassLbl.text! + "●"
+        }
+        
+        
         BirthLbl.text = MyDateFormatter.string(from: userModel.birthDate)
         TelLbl.text = userModel.phone
         AddressLbl.text = userModel.address
