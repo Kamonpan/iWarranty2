@@ -226,6 +226,7 @@ extension HistoryEditViewController: IQDropDownTextFieldDelegate {
         default:
             break
         }
+        dynamicGoodsList.append("อื่นๆ")
         self.goodTextField.itemList = dynamicGoodsList
         if let selectedIndex = dynamicGoodsList.index(of: self.historyModel!.typeText) {
             self.goodTextField.selectedRow = selectedIndex+1

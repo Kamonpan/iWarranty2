@@ -283,6 +283,7 @@ extension ShowDetailQRViewController: IQDropDownTextFieldDelegate {
         default:
             break
         }
+        dynamicGoodsList.append("อื่นๆ")
         self.GoodTxt.itemList = dynamicGoodsList
         if let selectedIndex = dynamicGoodsList.index(of: self.warrantyModel!.typeText) {
             self.GoodTxt.selectedRow = selectedIndex+1

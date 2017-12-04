@@ -1411,9 +1411,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="k3e-fI-srr">
-                                <rect key="frame" x="7" y="274" width="305" height="236"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="k3e-fI-srr">
+                                <rect key="frame" x="62.5" y="274" width="250" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="eLK-X0-mTa"/>
+                                    <constraint firstAttribute="height" constant="200" id="yS4-OL-QZe"/>
+                                </constraints>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ชื่อบริษัท:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEo-sL-fKu">
                                 <rect key="frame" x="19" y="153" width="54.5" height="17"/>
@@ -1482,6 +1485,13 @@
                                     <action selector="tapSearchButton:" destination="dBW-Ji-AkE" eventType="touchUpInside" id="C7W-GY-LLS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W59-Nu-53A">
+                                <rect key="frame" x="142" y="484" width="91" height="30"/>
+                                <state key="normal" title="Get Direction"/>
+                                <connections>
+                                    <action selector="tapGetDirection:" destination="dBW-Ji-AkE" eventType="touchUpInside" id="sQH-mZ-hrP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1493,14 +1503,18 @@
                             <constraint firstItem="kXd-Eb-Er5" firstAttribute="top" secondItem="UEL-ji-Yzc" secondAttribute="bottom" constant="8" id="RHi-eP-sjl"/>
                             <constraint firstItem="r8c-Yh-TGw" firstAttribute="leading" secondItem="NEo-sL-fKu" secondAttribute="leading" id="TSU-n8-4MM"/>
                             <constraint firstItem="kXd-Eb-Er5" firstAttribute="leading" secondItem="UEL-ji-Yzc" secondAttribute="leading" id="TaO-g6-Qyg"/>
+                            <constraint firstItem="k3e-fI-srr" firstAttribute="centerX" secondItem="Ojk-oX-km3" secondAttribute="centerX" id="UkM-9K-zXM"/>
                             <constraint firstItem="qfd-g5-wkc" firstAttribute="top" secondItem="iAb-mB-Gt0" secondAttribute="top" id="WtH-e0-A4T"/>
+                            <constraint firstItem="W59-Nu-53A" firstAttribute="top" secondItem="k3e-fI-srr" secondAttribute="bottom" constant="10" id="Yfu-az-ezJ"/>
                             <constraint firstItem="iAb-mB-Gt0" firstAttribute="top" secondItem="r8c-Yh-TGw" secondAttribute="bottom" constant="20" id="b55-mB-V5B"/>
+                            <constraint firstItem="k3e-fI-srr" firstAttribute="top" secondItem="iAb-mB-Gt0" secondAttribute="bottom" constant="30" id="gmZ-CV-uhD"/>
                             <constraint firstItem="PZH-C5-4xJ" firstAttribute="leading" secondItem="r8c-Yh-TGw" secondAttribute="trailing" constant="20" id="kMX-dc-3dE"/>
                             <constraint firstItem="OLg-La-4hd" firstAttribute="top" secondItem="NEo-sL-fKu" secondAttribute="top" id="l0e-vV-JRZ"/>
                             <constraint firstItem="iAb-mB-Gt0" firstAttribute="leading" secondItem="r8c-Yh-TGw" secondAttribute="leading" id="mdZ-d8-dey"/>
                             <constraint firstItem="UEL-ji-Yzc" firstAttribute="top" secondItem="rbg-dO-VFj" secondAttribute="bottom" constant="15" id="nt1-eU-JP9"/>
                             <constraint firstItem="qfd-g5-wkc" firstAttribute="leading" secondItem="iAb-mB-Gt0" secondAttribute="trailing" constant="20" id="ogT-DM-imP"/>
                             <constraint firstItem="OLg-La-4hd" firstAttribute="leading" secondItem="NEo-sL-fKu" secondAttribute="trailing" constant="20" id="q9o-Zo-PU1"/>
+                            <constraint firstItem="W59-Nu-53A" firstAttribute="centerX" secondItem="Ojk-oX-km3" secondAttribute="centerX" id="qRn-EZ-I9i"/>
                             <constraint firstItem="NEo-sL-fKu" firstAttribute="leading" secondItem="kXd-Eb-Er5" secondAttribute="leading" id="tHN-qz-SPc"/>
                             <constraint firstItem="TUe-Yi-A9t" firstAttribute="centerY" secondItem="kXd-Eb-Er5" secondAttribute="centerY" id="yDg-OK-VlO"/>
                         </constraints>
