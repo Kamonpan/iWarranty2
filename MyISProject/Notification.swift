@@ -32,6 +32,8 @@ class Notification {
             return "verification"
         case "บริษัทได้รับสินค้าแล้ว":
             return "receiver"
+        case "สินค้าไม่อยู่ในเงื่อนไขการรับซ่อม":
+            return "denied"
         default:
             return ""
         }
