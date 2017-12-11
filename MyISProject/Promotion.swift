@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 class Promotion {
     var picture: String?
-    var addedAt: Int?
+    var addedAt: Double?
     
     init(snapshot: DataSnapshot) {
         
@@ -20,7 +20,7 @@ class Promotion {
         if let pictureId = snapshotValue["pictureId"] as? String {
             self.picture = pictureId
         }
-        if let addedAt = snapshotValue["added_at"] as? Int {
+        if let addedAt = snapshotValue["added_at"] as? Double {
             self.addedAt = addedAt
         }
         

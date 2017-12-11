@@ -34,6 +34,7 @@
 		91C258841F1225830089F340 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C258821F1225830089F340 /* LaunchScreen.storyboard */; };
 		91C258B11F17B3F90089F340 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C258B01F17B3F90089F340 /* RegisterViewController.swift */; };
 		BD4864B71E4385F42101F7D3 /* Pods_MyISProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1F0739829AF8AE8ADA0F33 /* Pods_MyISProject.framework */; };
+		F22BB9B31FD4EA98001324D4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22BB9B21FD4EA98001324D4 /* UIImage+Extension.swift */; };
 		F23BD2281F3ED27800E316D5 /* WarrantyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD2271F3ED27800E316D5 /* WarrantyModel.swift */; };
 		F23BD22B1F3EEEFD00E316D5 /* MyDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD22A1F3EEEFD00E316D5 /* MyDateFormatter.swift */; };
 		F23BD22D1F3F2A1200E316D5 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD22C1F3F2A1200E316D5 /* HistoryModel.swift */; };
@@ -94,6 +95,7 @@
 		CB508AB0DD47825CDAAA2A28 /* Pods-MyISProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyISProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyISProjectUITests/Pods-MyISProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D3ECA02F7D73D6D3F9DC1E4A /* Pods_MyISProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyISProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C3A3347E3ECA1AAD1CA267 /* Pods_MyISProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyISProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F22BB9B21FD4EA98001324D4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		F23BD2271F3ED27800E316D5 /* WarrantyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarrantyModel.swift; sourceTree = "<group>"; };
 		F23BD22A1F3EEEFD00E316D5 /* MyDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDateFormatter.swift; sourceTree = "<group>"; };
 		F23BD22C1F3F2A1200E316D5 /* HistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 		F23BD24C1F511C1500E316D5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F22BB9B21FD4EA98001324D4 /* UIImage+Extension.swift */,
 				F23BD24D1F511C2500E316D5 /* UIViewController+Extension.swift */,
 			);
 			name = Extension;
@@ -514,6 +517,7 @@
 				910E63741F2CAD22004AD583 /* PromoDetailViewController.swift in Sources */,
 				F23BD2381F3F699700E316D5 /* Promotion.swift in Sources */,
 				91200D151F1A77BB006AD068 /* DetailWarrantyViewController.swift in Sources */,
+				F22BB9B31FD4EA98001324D4 /* UIImage+Extension.swift in Sources */,
 				F23BD23C1F3F69CE00E316D5 /* Notification.swift in Sources */,
 				F2B5C99C1FA3980000577A4A /* ServiceCenterModel.swift in Sources */,
 				91200D0F1F1A289A006AD068 /* TableViewController.swift in Sources */,
@@ -651,6 +655,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9EE8699R6A;
 				INFOPLIST_FILE = MyISProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -667,6 +672,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9EE8699R6A;
 				INFOPLIST_FILE = MyISProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

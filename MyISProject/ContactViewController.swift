@@ -19,6 +19,8 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var companyPhoneLabel: UILabel!
     @IBOutlet weak var companyWorkingHoursLabel: UILabel!
     
+    var currentRegion: MKCoordinateRegion?
+    
     fileprivate var firebaseRef = Database.database().reference()
     
     override func viewDidLoad() {
@@ -30,11 +32,15 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func tapSearchButton(_ sender: Any) {
+        guard let postcode = postcodeTextField.text, postcode.count > 0 else {
+            AlertHelper.showAlert(title: "Error", message: "กรุณากรอกศูนย์บริการ", ViewController: self)
+            return
+        }
         SwiftOverlays.showBlockingWaitOverlay()
         self.companyNameLabel.text = ""
         self.companyPhoneLabel.text = ""
         self.companyWorkingHoursLabel.text = ""
-        firebaseRef.child("ServiceCenter").child(postcodeTextField.text!).observe(.value, with: { (snapshot) in
+        firebaseRef.child("ServiceCenter").child(postcode).observe(.value, with: { (snapshot) in
             guard let data = snapshot.value as? [String: AnyObject] else {
                 SwiftOverlays.removeAllBlockingOverlays()
                 AlertHelper.showAlert(title: "Error", message: "ไม่พบศูนย์บริการ", ViewController: self)
@@ -54,6 +60,7 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
                         region.span.latitudeDelta /= 8.0
                         self?.mapView.setRegion(region, animated: true)
                         self?.mapView.addAnnotation(mark)
+                        self?.currentRegion = region
                     }
                 }
             }
@@ -65,6 +72,18 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
     @IBAction func tapProfileButton(_ sender: Any) {
         let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingTableViewController")
         self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
+    
+    @IBAction func tapGetDirection(_ sender: Any) {
+        if(UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!)) {
+            guard let region = self.currentRegion else {
+                AlertHelper.showAlert(title: "Error", message: "ไม่สามารถเปิด Google Maps ได้", ViewController: self)
+                return
+            }
+            UIApplication.shared.open(URL(string:"comgooglemaps://?saddr=&daddr=\(region.center.latitude),\(region.center.longitude)")!, options: [:], completionHandler: nil)
+        } else {
+            AlertHelper.showAlert(title: "Error", message: "ไม่สามารถเปิด Google Maps ได้", ViewController: self)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

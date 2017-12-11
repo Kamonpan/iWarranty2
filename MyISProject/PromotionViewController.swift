@@ -15,7 +15,7 @@ class PromotionViewController: UIViewController {
     var Brands = [Brand]()
     var promotionModelList = [Promotion]()
     
-    fileprivate var firebase = Database.database().reference()
+    fileprivate var firebase: DatabaseReference!
 
     @IBOutlet weak var PromoTableView: UITableView!
     @IBOutlet weak var BrandCollectionView: UICollectionView!
@@ -27,6 +27,8 @@ class PromotionViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.firebase = Database.database().reference()
         
         createBrand()
         
@@ -40,10 +42,10 @@ class PromotionViewController: UIViewController {
                 let promotion = Promotion(snapshot: snapshot)
                 newItems.append(promotion)
             }
-            self.promotionModelList = newItems
-            self.promotionModelList.sort(by: { (a, b) -> Bool in
+            newItems.sort(by: { (a, b) -> Bool in
                 return a.addedAt! < b.addedAt!
             })
+            self.promotionModelList = newItems
             self.PromoTableView.reloadData()
             SwiftOverlays.removeAllBlockingOverlays()
         })
