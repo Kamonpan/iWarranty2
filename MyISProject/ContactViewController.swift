@@ -31,6 +31,9 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func tapSearchButton(_ sender: Any) {
         SwiftOverlays.showBlockingWaitOverlay()
+        self.companyNameLabel.text = ""
+        self.companyPhoneLabel.text = ""
+        self.companyWorkingHoursLabel.text = ""
         firebaseRef.child("ServiceCenter").child(postcodeTextField.text!).observe(.value, with: { (snapshot) in
             guard let data = snapshot.value as? [String: AnyObject] else {
                 SwiftOverlays.removeAllBlockingOverlays()

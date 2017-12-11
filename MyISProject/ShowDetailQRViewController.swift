@@ -20,6 +20,7 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
                                 "ทีวี-เครื่องเสียงและเครื่องเกม",
                                 "กล้องและอุปกรณ์"]
     var dynamicGoodsList = [String]()
+    var isTextFieldsEditable = true
     
     @IBOutlet fileprivate weak var BrandTxt: UITextField!
     @IBOutlet fileprivate weak var SerialTxt: UITextField!
@@ -216,6 +217,16 @@ class ShowDetailQRViewController: UIViewController ,UITextFieldDelegate,UINaviga
         
         guard let warrantyModel = self.warrantyModel else {
             return
+        }
+        
+        if (!isTextFieldsEditable) {
+            self.BrandTxt.isEnabled = false
+            self.ModelTxt.isEnabled = false
+            self.SerialTxt.isEnabled = false
+            self.DateTxt.isEnabled = false
+            self.CategoryTxt.isEnabled = false
+            self.GoodTxt.isEnabled = false
+            self.NameTxt.isEnabled = false
         }
         
         self.BrandTxt.text = warrantyModel.brand

@@ -19,6 +19,7 @@ class HistoryEditViewController: UIViewController {
                                "ทีวี-เครื่องเสียงและเครื่องเกม",
                                "กล้องและอุปกรณ์"]
     var dynamicGoodsList = [String]()
+    var isTextFieldsEditable = true
     
     @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
@@ -34,6 +35,17 @@ class HistoryEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DatePicker()
+        
+        if (!isTextFieldsEditable) {
+            self.subjectTextField.isEnabled = false
+            self.brandTextField.isEnabled = false
+            self.modelTextField.isEnabled = false
+            self.serialNumberTextField.isEnabled = false
+            self.categoryTextField.isEnabled = false
+            self.goodTextField.isEnabled = false
+            self.fixDateTextField.isEnabled = false
+        }
+        
         self.categoryTextField.delegate = self
         self.categoryTextField.itemList = categoryList
         guard let historyModel = self.historyModel else {

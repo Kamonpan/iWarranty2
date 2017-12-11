@@ -41,6 +41,7 @@ class DetailWarrantyViewController: UIViewController {
     @IBAction func tapEditButton(_ sender: Any) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowDetailQRViewController") as! ShowDetailQRViewController
         self.warrantyModel?.receipt = UIImagePNGRepresentation(self.receiptImageView.image)
+        viewController.isTextFieldsEditable = false
         viewController.warrantyModel = self.warrantyModel
         self.navigationController?.pushViewController(viewController, animated: true)
      }
