@@ -75,6 +75,10 @@ extension AddWarrantyViewController: QRCodeReaderViewControllerDelegate {
         reader.stopScanning()
         dismiss(animated: true, completion: nil)
         let resultsArray = result.value.components(separatedBy: " ")
+        guard resultsArray.count == 2 else {
+            AlertHelper.showAlert(title: "Error", message: "รูปแบบ QRCode ไม่ถูกต้อง", ViewController: self)
+            return
+        }
         let model = resultsArray[0]
         let serialNumber = resultsArray[1]
         let showDetailQRViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShowDetailQRViewController") as! ShowDetailQRViewController
